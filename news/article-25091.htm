@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-25091.htm" />
+    <meta charset="utf-8">
+    <title>js实现商城放大镜效果</title>
+        <meta name="description" content="css部分 * {             margin: 0;             padding: 0;         }          /* img {             ver" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="/">
+                    <span>V2ray Clash X</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">js实现商城放大镜效果</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p><strong>css部分</strong></p> <pre><code class="prism language-css"><span class="token selector">*</span> <span class="token punctuation">{<!-- --></span>             <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>             <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>         <span class="token punctuation">}</span>          <span class="token comment">/* img {             vertical-align: top;             } */</span>          <span class="token selector">.box</span> <span class="token punctuation">{<!-- --></span>             <span class="token property">width</span><span class="token punctuation">:</span> 350px<span class="token punctuation">;</span>             <span class="token property">height</span><span class="token punctuation">:</span> 350px<span class="token punctuation">;</span>             <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>             <span class="token property">border</span><span class="token punctuation">:</span> 1px solid black<span class="token punctuation">;</span>             <span class="token property">margin</span><span class="token punctuation">:</span> 150px 0 0 300px<span class="token punctuation">;</span>         <span class="token punctuation">}</span>          <span class="token selector">.big</span> <span class="token punctuation">{<!-- --></span>             <span class="token property">width</span><span class="token punctuation">:</span> 450px<span class="token punctuation">;</span>             <span class="token property">height</span><span class="token punctuation">:</span> 450px<span class="token punctuation">;</span>             <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>             <span class="token property">border</span><span class="token punctuation">:</span> 1px solid black<span class="token punctuation">;</span>             <span class="token property">left</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>             <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>             <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>             <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>         <span class="token punctuation">}</span>          <span class="token selector">.small</span> <span class="token punctuation">{<!-- --></span>             <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>         <span class="token punctuation">}</span>          <span class="token selector">.mask</span> <span class="token punctuation">{<!-- --></span>             <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>             <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>             <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255, 255, 0, 0.4<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>             <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>             <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>             <span class="token property">cursor</span><span class="token punctuation">:</span> move<span class="token punctuation">;</span>             <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>         <span class="token punctuation">}</span>          <span class="token selector">.big img</span> <span class="token punctuation">{<!-- --></span>             <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>             <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>             <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>         <span class="token punctuation">}</span> </code></pre> <p><strong>HTML部分</strong></p> <pre><code class="prism language-html"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>oBox<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>small<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>oSmall<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./images/001.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mask<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>oMask<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>big<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>oBig<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./images/0001.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> </code></pre> <p><strong>js部分</strong></p> <pre><code class="prism language-js"><span class="token comment">//第一步获取节点</span>     <span class="token keyword">let</span> box <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'oBox'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">let</span> small <span class="token operator">=</span> box<span class="token punctuation">.</span>children<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//获取盒子的第一个子节点samll</span>     <span class="token keyword">let</span> big <span class="token operator">=</span> box<span class="token punctuation">.</span>children<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//获取盒子的第二个子节点big</span>     <span class="token keyword">let</span> mask <span class="token operator">=</span> small<span class="token punctuation">.</span>children<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//获取小盒子里的遮罩</span>     <span class="token keyword">let</span> bigImg <span class="token operator">=</span> big<span class="token punctuation">.</span>children<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//获取大盒子里的图片</span>       <span class="token comment">//鼠标进入small 遮罩(mask)大盒子(big)display:block</span>     small<span class="token punctuation">.</span><span class="token function-variable function">onmouseover</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         mask<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'block'</span><span class="token punctuation">;</span>         big<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'block'</span><span class="token punctuation">;</span>      <span class="token punctuation">}</span><span class="token punctuation">;</span>      <span class="token comment">//鼠标离开small 遮罩(mask)大盒子(big)display:none</span>     small<span class="token punctuation">.</span><span class="token function-variable function">onmouseout</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         mask<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span><span class="token punctuation">;</span>         big<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span><span class="token punctuation">;</span>      <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>     <span class="token keyword">let</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>       small<span class="token punctuation">.</span><span class="token function-variable function">onmousemove</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>even<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">var</span> even <span class="token operator">=</span> even <span class="token operator">||</span> window<span class="token punctuation">.</span>event<span class="token punctuation">;</span>          <span class="token comment">// 获取鼠标在small里的坐标</span>         <span class="token keyword">let</span> x <span class="token operator">=</span> even<span class="token punctuation">.</span>clientX <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>offsetParent<span class="token punctuation">.</span>offsetLeft <span class="token operator">-</span> mask<span class="token punctuation">.</span>offsetWidth <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>         <span class="token keyword">let</span> y <span class="token operator">=</span> even<span class="token punctuation">.</span>clientY <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>offsetParent<span class="token punctuation">.</span>offsetTop <span class="token operator">-</span> mask<span class="token punctuation">.</span>offsetHeight <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>           <span class="token comment">// 限制住鼠标的坐标导致遮罩的位置越界</span>         <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> small<span class="token punctuation">.</span>offsetWidth <span class="token operator">-</span> mask<span class="token punctuation">.</span>offsetWidth<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             x <span class="token operator">=</span> small<span class="token punctuation">.</span>offsetWidth <span class="token operator">-</span> mask<span class="token punctuation">.</span>offsetWidth<span class="token punctuation">;</span>         <span class="token punctuation">}</span>          <span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">&gt;</span> small<span class="token punctuation">.</span>offsetHeight <span class="token operator">-</span> mask<span class="token punctuation">.</span>offsetHeight<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             y <span class="token operator">=</span> small<span class="token punctuation">.</span>offsetHeight <span class="token operator">-</span> mask<span class="token punctuation">.</span>offsetHeight<span class="token punctuation">;</span>         <span class="token punctuation">}</span>         mask<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>         mask<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> y <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>         <span class="token comment">//注意大图片的方向</span>         bigImg<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token operator">-</span>y <span class="token operator">*</span> big<span class="token punctuation">.</span>offsetHeight <span class="token operator">/</span> small<span class="token punctuation">.</span>offsetHeight <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>         bigImg<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token operator">-</span>x <span class="token operator">*</span> big<span class="token punctuation">.</span>offsetWidth <span class="token operator">/</span> small<span class="token punctuation">.</span>offsetWidth <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span><span class="token punctuation">;</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24629.htm">宠物店一般狗狗吃什么狗粮（宠物店一般卖什么牌子的狗粮）</a></p>
+                                        <p>下一个：<a href="/news/article-25092.htm">动物疫苗查询系统官网入口网址（动物疫苗批号查询网）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-node-share.htm" title="11月25日→21.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月25日→21.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-clash-v2ray-ss-ssr.htm" title="12月7日→22.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月7日→22.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-v2ray.htm" title="10月12日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月12日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-node-share.htm" title="11月14日→21M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月14日→21M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-v2ray.htm" title="11月23日→20.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月23日→20.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-node-share-links.htm" title="9月26日→18.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月26日→18.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23690.htm" title="同城领养宠物的平台叫什么的简单介绍">同城领养宠物的平台叫什么的简单介绍</a></li>
+                        <li class="py-2"><a href="/news/article-19115.htm" title="三国杀金牌特效（三国杀特效皮肤有哪些）">三国杀金牌特效（三国杀特效皮肤有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-v2ray-subscribe.htm" title="10月2日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月2日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-clash-v2ray-ss-ssr.htm" title="11月21日→22.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月21日→22.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

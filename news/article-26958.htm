@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-26958.htm" />
+    <meta charset="utf-8">
+    <title>数据结构+带头结点双向循环链表+(C语言)</title>
+        <meta name="description" content="针对带头的双向循环链表的基本功能展开讲解&nbsp; 1.结构体定义 &nbsp;a.首先是定义结构体,第一行使用typedef来进行重命名(方便后续进行更改),然后就是结构体中内容的定义首先是一个数" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="/">
+                    <span>V2ray Clash X</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">数据结构+带头结点双向循环链表+(C语言)</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="htmledit_views"> <p>针对带头的双向循环链表的基本功能展开讲解&nbsp;</p> <p><strong>1.结构体定义</strong></p> <p>&nbsp;a.首先是定义结构体,第一行使用typedef来进行重命名(方便后续进行更改),然后就是结构体中内容的定义首先是一个数据域用来存储数据,因为是双向循环链表所以必须定义两个指针,一个是_next指向后面,另一个是_prev指针指向前面.因为在结构体定义的时候在前面加了typedef所以最后面的变量ListNode就是代替struct ListNode的作用.</p> <pre><code>typedef int LTDataType; typedef struct ListNode { 	LTDataType _data; 	struct ListNode* _next; 	struct ListNode* _prev; }ListNode;</code></pre> <p id="2.%E5%88%9B%E5%BB%BA%E7%BB%93%E7%82%B9-toc" style="margin-left:0px;"> <p><strong>2.创建结点</strong></p> <p style="margin-left:0px;">a.我们不使用二级指针所以将该函数的返回值设成listnode*类型创建好结点之后就可以返回其地址,首先我们先创建一个指针变量来存储所申请的空间地址,然后进行空间的申请,之后就是让其前后指针分别指向空以便于后期进行操作,传的参数x就是数据域的值,最后直接赋值就行.然后再返回他的地址便于进行后面的操作.</p> <pre><code>ListNode* ListCreate(LTDataType x) { 	ListNode* node = (ListNode*)malloc(sizeof(ListNode)); 	node-&gt;_next = NULL; 	node-&gt;_prev = NULL; 	node-&gt;_data = x; 	return node; }</code></pre> <p><strong>3.初始化</strong></p> <p>a.初始化就用来完善头结点的,因为我们这是个带头的双向循环链表,因此这个头结点不能带有有效数据我们将它置位0,因为是双向循环链表所以要进行头插数据或者尾插数据鼻血对头结点进行处理让他的前后指针都指向自己,这样在后续插入数据的时候就可以完成了.(这个初始化处理只针对头结点).</p> <pre><code>void ListNodeInit(ListNode* phead) { 	phead-&gt;_next = phead; 	phead-&gt;_prev = phead; }</code></pre> <p><strong>4.双向链表打印</strong></p> <p>a.我们要打印结点必须从头结点的后一个开始打印因此创建一个cur指针用来存储,头结点后的第一个数据结点,并使用while循环来进行遍历并打印,因为我们的判出条件是cur的next所以最后一个数据结点并不能打印,所以当循环结束后我们再手动打印最后一个结点.(当然如果对判出条件进行一定处理也可以在while中进行全部打印,这里不进行详细说明).</p> <pre><code>void ListPrint(ListNode* pHead) { 	if (NULL == pHead) { 		return; 	} 	ListNode* cur = pHead-&gt;_next; 	while (cur-&gt;_next != pHead) { 		printf("%d---&gt;", cur-&gt;_data); 		cur = cur-&gt;_next; 	} 	printf("%d", cur-&gt;_data); 	printf("\n"); }</code></pre> <p><strong>5.双向链表尾插</strong></p> <p>a.在进行插入前先判断传进来的参数是否合法,如果不为空在进行后续操作,首先定义个指针变量cur存储用前面的结点创建函数所创建的空间的首地址,其次因为是尾插所以我们需要找到尾结点,我们的链表是双向循环链表所以只需取头结点的前一个结点就是尾结点,然后进行指针转换将新节点插入最后面.(具体如图所示)</p> <p><img fetchpriority="high" decoding="async" alt="" height="653" src="http://img.555519.xyz/uploads/20230118/142937de610f7069da85ad2e7110ddd7.jpg"></p> <p>&nbsp;</p> <pre><code>void ListPushBack(ListNode* pHead, LTDataType x) { 	if (NULL == pHead) { 		return; 	} 	ListNode* cur = ListCreate(x); 	ListNode* tail = pHead-&gt;_prev; 	tail-&gt;_next = cur; 	pHead-&gt;_prev = cur; 	cur-&gt;_next = pHead; 	cur-&gt;_prev = tail; }</code></pre> <p><strong>6.双向链表尾删</strong></p> <p>a.在进行删除前先判断传进来的参数是否合法,如果不为空在进行后续操作,与尾插相似,我们首先得找到尾结点记作tail,然后进行指针的转换,删除后释放掉空间.(具体看图)</p> <p><img decoding="async" alt="" height="472" src="http://img.555519.xyz/uploads/20230118/d4241ee64641ea9ebc7b7d8ced8ef474.jpg"></p> <pre><code>void ListPopBack(ListNode* pHead) { 	if (NULL == pHead || pHead-&gt;_next == pHead) { 		return; 	} 	ListNode* tail = pHead-&gt;_prev; 	pHead-&gt;_prev = pHead-&gt;_prev-&gt;_prev; 	pHead-&gt;_prev-&gt;_next = pHead; 	free(tail); }</code></pre> <p><strong>7.双向链表头插</strong></p> <p>a..在进行头插前先判断传进来的参数是否合法,如果不为空在进行后续操作,先定义个指针变量cur存储用前面的结点创建函数所创建的空间的首地址,其次因为是头插,所以我们得找到第一个数据结点,也就是head的next,然后进行指针变换进行插入.(具体如图)</p> <p><img decoding="async" alt="" height="554" src="http://img.555519.xyz/uploads/20230118/f8aed6efe3057d82756e26ed4171b2ee.jpg"></p> <pre><code>void ListPushFront(ListNode* pHead, LTDataType x) { 	if (NULL == pHead) { 		return; 	} 	ListNode* cur = ListCreate(x); 	ListNode* Next = pHead-&gt;_next; 	pHead-&gt;_next = cur; 	cur-&gt;_next = Next; 	Next-&gt;_prev = cur; 	cur-&gt;_prev = pHead; }</code></pre> <p><strong>8.双向链表头删</strong></p> <p>a.在进行删除前先判断传进来的参数是否合法,如果不为空在进行后续操作,与头插相似,先找到第一个数据结点cur,也就是head的next,其次就是第二个数据结点,也就是head的next的next,再进行相关指针操作,最后释放掉cur.(如图)</p> <p><img loading="lazy" decoding="async" alt="" height="377" src="http://img.555519.xyz/uploads/20230118/68a66e4d9a69ba8ca17e2d5f452de96c.jpg"></p> <pre><code>void ListPopFront(ListNode* pHead) { 	if (NULL == pHead || pHead-&gt;_next == pHead) { 		return; 	} 	ListNode* cur = pHead-&gt;_next; 	ListNode* Next = pHead-&gt;_next-&gt;_next; 	pHead-&gt;_next = Next; 	Next-&gt;_prev = pHead; 	free(cur); }</code></pre> <p><strong>9.双向链表查找</strong></p> <p>a.我们在这里定义函数时设置其返回值为listnode*类型,作用传递相应参数x,使用while循环遍历整个链表找到数据域与x相等的结点返回这个结点的地址,如果没找到则返回空.</p> <pre><code>ListNode* ListFind(ListNode* pHead, LTDataType x) { 	if (NULL == pHead || pHead-&gt;_next == pHead) { 		return NULL; 	} 	ListNode* temp = pHead-&gt;_next; 	while (temp != pHead) { 		if (temp-&gt;_data == x) { 			return temp; 		} 		temp = temp-&gt;_next; 	} 	return NULL; }</code></pre> <p><strong>10.双向链表在pos的前面进行插入</strong></p> <p>a.与头插类似,在进行操作前先判断是否可以找到该位置能找到在进行后续操作,在这里我们要是用到上面的查找函数,找到你所要插入的位置再进行插入,然后就是找到这个位置的前面一个结点记为prv,再就是新创建的结点使用cur来存储其地址,然后进行指针的变换,prv的next指向cur,该位置的结点pos的prev指向cur,再就是cur的prev指向prv,cur的next指向pos,完成插入.</p> <pre><code>void ListInsert(ListNode* pos, LTDataType x) { 	if (NULL == pos) { 		printf("插入数据的位置不存在!\n"); 		return; 	} 	ListNode* cur = ListCreate(x); 	ListNode* prv = pos-&gt;_prev; 	prv-&gt;_next = cur; 	pos-&gt;_prev = cur; 	cur-&gt;_prev = prv; 	cur-&gt;_next = pos; }</code></pre> <p><strong>11.双向链表删除pos位置的节点</strong></p> <p>a.在进行操作前先判断是否可以找到该位置能找到在进行后续操作,首先就是调用查找函数找到要插入的位置记作pos,然后取该位置的前一个记作prv,后一个记作Next,之后就是指针的操作,prv的下一个指向Next,Next的上一个指向prv,最后释放掉pos位置结点的空间.成功删除.</p> <pre><code>void ListErase(ListNode* pos) { 	if (NULL == pos) { 		printf("删除数据的位置不存在!\n"); 		return; 	} 	ListNode* prv = pos-&gt;_prev; 	ListNode* Next = pos-&gt;_next; 	prv-&gt;_next = Next; 	Next-&gt;_prev = prv; 	free(pos); }</code></pre> <p><strong>12.销毁链表</strong></p> <p>a.在我们的所有操作进行完之后,需要把链表进行销毁.这非常简单,我们使用while循环调用头删或尾删函数把除头结点之外的数据结点全部删除并释放空间(我们这里使用头删),这里要注意我们传参的时候传的是二级指针,因为我释放完头结点的空间之后,head这个指针存着的地址就没有空间了也就表示head这个指针成为了野指针,我们需要对其进行重新赋值NULL,使其不为野指针,但要真正改变指针的值在传参的时候则必须传递这个指针的地址,才能进行修改,因此我们使用二级指针,也就是传递指针的地址.</p> <pre><code>void ListDestory(ListNode** pHead) { 	if (NULL == (*pHead)) { 		return; 	} 	while ((*pHead)-&gt;_next!=*pHead) { 		ListPopFront(*pHead); 	} 	free(*pHead); 	(*pHead) = NULL; }</code></pre> <p><strong>最后就是进行的一系列测试和测试截图以及全部代码:</strong></p> <pre><code>#define _CRT_SECURE_NO_WARNINGS #include &lt;stdio.h&gt; #include &lt;assert.h&gt; #include &lt;stdlib.h&gt; //结构体定义 typedef int LTDataType; typedef struct ListNode { 	LTDataType _data; 	struct ListNode* _next; 	struct ListNode* _prev; }ListNode; //创建结点 ListNode* ListCreate(LTDataType x) { 	ListNode* node = (ListNode*)malloc(sizeof(ListNode)); 	node-&gt;_next = NULL; 	node-&gt;_prev = NULL; 	node-&gt;_data = x; 	return node; } //初始化 void ListNodeInit(ListNode* phead) { 	phead-&gt;_next = phead; 	phead-&gt;_prev = phead; } // 双向链表销毁 void ListDestory(ListNode** pHead) { 	if (NULL == (*pHead)) { 		return; 	} 	while ((*pHead)-&gt;_next!=*pHead) { 		ListPopFront(*pHead); 	} 	free(*pHead); 	(*pHead) = NULL; } // 双向链表打印 void ListPrint(ListNode* pHead) { 	if (NULL == pHead) { 		return; 	} 	ListNode* cur = pHead-&gt;_next; 	while (cur-&gt;_next != pHead) { 		printf("%d---&gt;", cur-&gt;_data); 		cur = cur-&gt;_next; 	} 	printf("%d", cur-&gt;_data); 	printf("\n"); } // 双向循环链表尾插 void ListPushBack(ListNode* pHead, LTDataType x) { 	if (NULL == pHead) { 		return; 	} 	ListNode* cur = ListCreate(x); 	ListNode* tail = pHead-&gt;_prev; 	tail-&gt;_next = cur; 	pHead-&gt;_prev = cur; 	cur-&gt;_next = pHead; 	cur-&gt;_prev = tail; } // 双向链表尾删 void ListPopBack(ListNode* pHead) { 	if (NULL == pHead || pHead-&gt;_next == pHead) { 		return; 	} 	ListNode* tail = pHead-&gt;_prev; 	pHead-&gt;_prev = pHead-&gt;_prev-&gt;_prev; 	pHead-&gt;_prev-&gt;_next = pHead; 	free(tail); } // 双向链表头插 void ListPushFront(ListNode* pHead, LTDataType x) { 	if (NULL == pHead) { 		return; 	} 	ListNode* cur = ListCreate(x); 	ListNode* Next = pHead-&gt;_next; 	pHead-&gt;_next = cur; 	cur-&gt;_next = Next; 	Next-&gt;_prev = cur; 	cur-&gt;_prev = pHead; } // 双向链表头删 void ListPopFront(ListNode* pHead) { 	if (NULL == pHead || pHead-&gt;_next == pHead) { 		return; 	} 	ListNode* cur = pHead-&gt;_next; 	ListNode* Next = pHead-&gt;_next-&gt;_next; 	pHead-&gt;_next = Next; 	Next-&gt;_prev = pHead; 	free(cur); } // 双向链表查找 ListNode* ListFind(ListNode* pHead, LTDataType x) { 	if (NULL == pHead || pHead-&gt;_next == pHead) { 		return NULL; 	} 	ListNode* temp = pHead-&gt;_next; 	while (temp != pHead) { 		if (temp-&gt;_data == x) { 			return temp; 		} 		temp = temp-&gt;_next; 	} 	return NULL; } // 双向链表在pos的前面进行插入 void ListInsert(ListNode* pos, LTDataType x) { 	if (NULL == pos) { 		printf("插入数据的位置不存在!\n"); 		return; 	} 	ListNode* cur = ListCreate(x); 	ListNode* prv = pos-&gt;_prev; 	prv-&gt;_next = cur; 	pos-&gt;_prev = cur; 	cur-&gt;_prev = prv; 	cur-&gt;_next = pos; } // 双向链表删除pos位置的节点 void ListErase(ListNode* pos) { 	if (NULL == pos) { 		printf("删除数据的位置不存在!\n"); 		return; 	} 	ListNode* prv = pos-&gt;_prev; 	ListNode* Next = pos-&gt;_next; 	prv-&gt;_next = Next; 	Next-&gt;_prev = prv; 	free(pos); } //测试函数 void main() { 	ListNode* phead = ListCreate(0); 	ListNodeInit(phead); 	ListPushBack(phead, 10); 	ListPushBack(phead, 11); 	ListPushBack(phead, 12); 	ListPushBack(phead, 13); 	ListPushBack(phead, 14); 	ListPushBack(phead, 15); 	ListPrint(phead); 	ListPopBack(phead); 	ListPopBack(phead); 	ListPopBack(phead); 	ListPopBack(phead); 	ListPrint(phead); 	ListPushFront(phead, 1); 	ListPushFront(phead, 5); 	ListPushFront(phead, 3); 	ListPushFront(phead, 4); 	ListPrint(phead); 	ListPopFront(phead); 	ListPopFront(phead); 	ListPopFront(phead); 	ListPrint(phead); 	ListInsert(ListFind(phead,11), 90); 	ListPrint(phead); 	ListErase(ListFind(phead, 90)); 	ListPrint(phead); 	ListDestory(&amp;phead); } </code></pre> <p><strong>测试截图</strong></p> <p><img loading="lazy" decoding="async" alt="" height="647" src="http://img.555519.xyz/uploads/20230118/cf3556b356a9f25358571fd2d589fcca.jpg"></p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-26488.htm">动物疫苗研究进展（动物疫苗研制）</a></p>
+                                        <p>下一个：<a href="/news/article-26959.htm">广州市宠物领养中心电话号码（广州市宠物领养中心电话号码查询）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-high-speed-nodes.htm" title="11月8日→21.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月8日→21.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe-links.htm" title="11月15日→18.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月15日→18.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-node-subscribe.htm" title="12月9日→19.8M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月9日→19.8M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-node-subscribe.htm" title="10月15日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月15日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-clash-v2ray-ss-ssr.htm" title="9月21日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月21日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-high-speed-nodes.htm" title="11月19日→22.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月19日→22.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share.htm" title="10月29日→22M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月29日→22M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-high-speed-nodes.htm" title="11月24日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月24日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-free-node-subscribe.htm" title="11月1日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月1日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-v2ray.htm" title="11月7日→18.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月7日→18.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>修改docker 默认镜像存储路径</title>
         <meta name="description" content="Docker默认安装的情况下，会使用 /var/lib/docker/ 目录作为存储目录，用以存放拉取的镜像和创建的容器等。不过由于此目录一般都位于系统盘，遇到系统盘比较小，而镜像和容器多了后就容易尴" />
-        <link rel="icon" href="__ADDON__/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -103,7 +103,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="htmledit_views"> <div> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://link.zhihu.com/?target=https%3A//so.csdn.net/so/search%3Fq%3DDocker%26spm%3D1001.2101.3001.7020"  class="wrap external" rel="nofollow">Docker</a>默认安装的情况下，会使用 /var/lib/docker/ 目录作为存储目录，用以存放拉取的镜像和创建的容器等。不过由于此目录一般都位于系统盘，遇到系统盘比较小，而镜像和容器多了后就容易尴尬，这里说明一下如何修改 Docker 的存储目录。</p> <div class="has"> <pre><code class="language-text">docker info</code></pre> </div> <p style="text-align:center;"> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220604/b9148eb11d0a4ffe9bb6adf85a59c1a5.jpg" alt="修改docker 默认镜像存储路径" width="1200"></div> <p>这里我的机器的docker存储目录已经被我修改了，默认的应该是<code>/var/lib/docker</code></p> <p>官方文档的修改办法是编辑 /etc/docker/daemon.json 文件：</p> <div class="has"> <pre><code class="language-text">vi /etc/docker/daemon.json</code></pre> </div> <p>默认情况下这个配置文件是没有的，这里实际也就是新建一个，然后写入以下内容：</p> <div class="has"> <pre><code class="language-text">{   "data-root": "/data2/docker" }</code></pre> </div> <p>拷贝之前的docker镜像和容器到新的目录</p> <div class="has"> <pre><code class="language-text">cp -r /var/lib/docker/*  /data2/docker</code></pre> </div> <p>重启 docker 服务：</p> <div class="has"> <pre><code class="language-text">sudo systemctl daemon-reload sudo systemctl restart docker</code></pre> </div> </div> </div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://link.zhihu.com/?target=https%3A//so.csdn.net/so/search%3Fq%3DDocker%26spm%3D1001.2101.3001.7020"  class="wrap external" rel="nofollow">Docker</a>默认安装的情况下，会使用 /var/lib/docker/ 目录作为存储目录，用以存放拉取的镜像和创建的容器等。不过由于此目录一般都位于系统盘，遇到系统盘比较小，而镜像和容器多了后就容易尴尬，这里说明一下如何修改 Docker 的存储目录。</p> <div class="has"> <pre><code class="language-text">docker info</code></pre> </div> <p style="text-align:center;"> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220604/b9148eb11d0a4ffe9bb6adf85a59c1a5.jpg" alt="修改docker 默认镜像存储路径" width="1200"></div> <p>这里我的机器的docker存储目录已经被我修改了，默认的应该是<code>/var/lib/docker</code></p> <p>官方文档的修改办法是编辑 /etc/docker/daemon.json 文件：</p> <div class="has"> <pre><code class="language-text">vi /etc/docker/daemon.json</code></pre> </div> <p>默认情况下这个配置文件是没有的，这里实际也就是新建一个，然后写入以下内容：</p> <div class="has"> <pre><code class="language-text">{   "data-root": "/data2/docker" }</code></pre> </div> <p>拷贝之前的docker镜像和容器到新的目录</p> <div class="has"> <pre><code class="language-text">cp -r /var/lib/docker/*  /data2/docker</code></pre> </div> <p>重启 docker 服务：</p> <div class="has"> <pre><code class="language-text">sudo systemctl daemon-reload sudo systemctl restart docker</code></pre> </div> </div> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-21412.htm">同城免费领养宠物软件下载（同城免费领养宠物软件下载大全）</a></p>
                                         <p>下一个：<a href="/news/article-21858.htm">宠物粮业务员好干吗工资多少一个月（宠物粮食业务员）</a></p>
@@ -116,16 +117,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-subscribe-node.htm" title="12月1日→21.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月1日→21.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-node-subscribe-links.htm" title="10月5日→21.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月5日→21.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe-links.htm" title="11月15日→18.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月15日→18.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-node-subscribe.htm" title="10月14日→23M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月14日→23M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-v2ray.htm" title="10月18日→20.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月18日→20.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-v2ray.htm" title="11月23日→20.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月23日→20.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-node-share.htm" title="11月3日→22.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月3日→22.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-19-node-share-links.htm" title="10月19日→21.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月19日→21.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-node-share.htm" title="9月13日→20.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月13日→20.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-21411.htm" title="动物疫苗排名前十名有哪些品种 动物疫苗排名前十名有哪些品种图片">动物疫苗排名前十名有哪些品种 动物疫苗排名前十名有哪些品种图片</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-node-share-links.htm" title="10月1日→18.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月1日→18.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-high-speed-nodes.htm" title="11月11日→22.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月11日→22.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-node-subscribe-links.htm" title="11月17日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月17日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-high-speed-nodes.htm" title="11月8日→21.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月8日→21.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-clash-v2ray-ss-ssr.htm" title="9月28日→20.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月28日→20.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23228.htm" title="Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型">Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-25-free-v2ray.htm" title="9月25日→19.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月25日→19.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-18684.htm" title="狗粮颗粒机器价格多少合适（狗粮颗粒机 配方）">狗粮颗粒机器价格多少合适（狗粮颗粒机 配方）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-subscribe-node.htm" title="11月10日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月10日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27882.htm" title="国内宠物粮食十大厂家排名 国内宠物粮食十大厂家排名榜">国内宠物粮食十大厂家排名 国内宠物粮食十大厂家排名榜</a></li>
                     </ul>
     </div>
 </div>
@@ -137,7 +138,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -164,6 +165,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                     <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
                 </div>
                 <!-- footer social icon -->

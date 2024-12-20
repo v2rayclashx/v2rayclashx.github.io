@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>远程访问服务器Jupyter Notebook (浏览器访问和pycharm访问)</title>
         <meta name="description" content="1.在remote server上运行 jupyter notebook --no-browser --port=8888  复制远程终端显示的 token 序列  2.在本地终端上运行 ssh -L" />
-        <link rel="icon" href="__ADDON__/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -103,7 +103,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="1remote_server_3" rel="nofollow"></a>1.在remote server上运行</h2> <pre><code class="prism language-bash">jupyter notebook --no-browser --port<span class="token operator">=</span><span class="token number">8888</span> </code></pre> <p>复制远程终端显示的 <code>token</code> 序列</p> <h2> <a id="2_11" rel="nofollow"></a>2.在本地终端上运行</h2> <pre><code class="prism language-bash"><span class="token function">ssh</span> -L <span class="token number">8888</span>:localhost:8888 <span class="token operator">&lt;</span>REMOTE_USER<span class="token operator">&gt;</span>@<span class="token operator">&lt;</span>REMOTE_HOST<span class="token operator">&gt;</span> </code></pre> <p>e.g.</p> <pre><code class="prism language-bash"><span class="token function">ssh</span> -L <span class="token number">8888</span>:localhost:8888 zhangsan@xx.xx.xx.xx -p <span class="token number">10001</span> </code></pre> <p><code>-p</code>用来指定远程服务器用户的端口。</p> <h2> <a id="3jupyter_24" rel="nofollow"></a>3.本地访问jupyter</h2> <p>(1) 在本地浏览器访问jupyter notebook</p> <pre><code class="prism language-bash">http://localhost:8888/?token<span class="token operator">=</span>xxxxxxx </code></pre> <p><code>?token=</code>后面替换成你之前复制的token序列。</p> <p>(2) 在pycharm中配置jupyter server</p> <p>点击<code>Configure Jupyter Server...</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/03578acfd84bf48928558ac346fe4c06.jpg" alt="远程访问服务器Jupyter Notebook (浏览器访问和pycharm访问)"><br /> 在<code>Configured Server</code>处填入<code>http://localhost:8888/?token=xxxx</code></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/a923a1207beacd6bc471a90cfaf9025f.jpg" alt="远程访问服务器Jupyter Notebook (浏览器访问和pycharm访问)"></p> <p>同样的，在<code>?token=</code>后面添加之前复制的<code>token</code>序列。配置完成以后就可以使用pycharm远程访问jupyter notebook了。</p> <p><strong>参考</strong>：<br /> [1]: https://stackoverflow.com/questions/69244218/how-to-run-a-jupyter-notebook-through-a-remote-server-on-local-machine</p> </p></div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="1remote_server_3" rel="nofollow"></a>1.在remote server上运行</h2> <pre><code class="prism language-bash">jupyter notebook --no-browser --port<span class="token operator">=</span><span class="token number">8888</span> </code></pre> <p>复制远程终端显示的 <code>token</code> 序列</p> <h2> <a id="2_11" rel="nofollow"></a>2.在本地终端上运行</h2> <pre><code class="prism language-bash"><span class="token function">ssh</span> -L <span class="token number">8888</span>:localhost:8888 <span class="token operator">&lt;</span>REMOTE_USER<span class="token operator">&gt;</span>@<span class="token operator">&lt;</span>REMOTE_HOST<span class="token operator">&gt;</span> </code></pre> <p>e.g.</p> <pre><code class="prism language-bash"><span class="token function">ssh</span> -L <span class="token number">8888</span>:localhost:8888 zhangsan@xx.xx.xx.xx -p <span class="token number">10001</span> </code></pre> <p><code>-p</code>用来指定远程服务器用户的端口。</p> <h2> <a id="3jupyter_24" rel="nofollow"></a>3.本地访问jupyter</h2> <p>(1) 在本地浏览器访问jupyter notebook</p> <pre><code class="prism language-bash">http://localhost:8888/?token<span class="token operator">=</span>xxxxxxx </code></pre> <p><code>?token=</code>后面替换成你之前复制的token序列。</p> <p>(2) 在pycharm中配置jupyter server</p> <p>点击<code>Configure Jupyter Server...</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/03578acfd84bf48928558ac346fe4c06.jpg" alt="远程访问服务器Jupyter Notebook (浏览器访问和pycharm访问)"><br /> 在<code>Configured Server</code>处填入<code>http://localhost:8888/?token=xxxx</code></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/a923a1207beacd6bc471a90cfaf9025f.jpg" alt="远程访问服务器Jupyter Notebook (浏览器访问和pycharm访问)"></p> <p>同样的，在<code>?token=</code>后面添加之前复制的<code>token</code>序列。配置完成以后就可以使用pycharm远程访问jupyter notebook了。</p> <p><strong>参考</strong>：<br /> [1]: https://stackoverflow.com/questions/69244218/how-to-run-a-jupyter-notebook-through-a-remote-server-on-local-machine</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-20488.htm">宠物粮食专卖店地址（宠物粮生产基地）</a></p>
                                         <p>下一个：<a href="/news/article-20949.htm">上海宠物领养中心电话（上海宠物领养中心免费领养狗狗）</a></p>
@@ -116,16 +117,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-9-free-v2ray-subscribe.htm" title="10月9日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月9日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-v2ray.htm" title="11月7日→18.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月7日→18.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-30-free-v2ray-subscribe.htm" title="9月30日→18.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月30日→18.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-16-free-subscribe-node.htm" title="11月16日→19.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月16日→19.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-19569.htm" title="动物疫苗在哪买便宜 动物疫苗在哪买便宜点">动物疫苗在哪买便宜 动物疫苗在哪买便宜点</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-6-v2ray-clashx-node.htm" title="9月6日→22M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月6日→22M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-v2ray-subscribe.htm" title="12月3日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月3日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-free-node-subscribe.htm" title="11月1日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月1日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-9-node-share-links.htm" title="11月9日→20M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月9日→20M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-17-node-share-links.htm" title="10月17日→20.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月17日→20.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-node-share.htm" title="9月13日→20.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月13日→20.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-node-share.htm" title="11月2日→20.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月2日→20.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-node-share-links.htm" title="10月1日→18.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月1日→18.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-high-speed-nodes.htm" title="9月27日→20.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月27日→20.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-node-subscribe-links.htm" title="10月31日→22.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月31日→22.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-clash-v2ray-ss-ssr.htm" title="11月29日→21.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月29日→21.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-node-subscribe.htm" title="10月15日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月15日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe-links.htm" title="11月15日→18.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月15日→18.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25092.htm" title="动物疫苗查询系统官网入口网址（动物疫苗批号查询网）">动物疫苗查询系统官网入口网址（动物疫苗批号查询网）</a></li>
+                        <li class="py-2"><a href="/news/article-25558.htm" title="窗帘布衣柜哪个牌子好用(窗帘布衣柜哪个牌子好一点)">窗帘布衣柜哪个牌子好用(窗帘布衣柜哪个牌子好一点)</a></li>
                     </ul>
     </div>
 </div>
@@ -137,7 +138,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -164,6 +165,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                     <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
                 </div>
                 <!-- footer social icon -->

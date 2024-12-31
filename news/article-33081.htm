@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-33081.htm" />
+    <meta charset="utf-8">
+    <title>Kotlin（二） 标准函数和静态方法</title>
+        <meta name="description" content="1、标准函数 标准函数是指Standard.kt文件中定义的函数  1.1、let函数 let函数提供了函数式API编程接口，并将原始对象作为参数传递到Lambda表达式中，标准的写法如下： obj." />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="/">
+                    <span>V2ray Clash X</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Kotlin（二） 标准函数和静态方法</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="1_0" rel="nofollow"></a>1、标准函数</h2> <p>标准函数是指Standard.kt文件中定义的函数</p> <h4> <a id="11let_3" rel="nofollow"></a>1.1、let函数</h4> <p>let函数提供了函数式API编程接口，并将原始对象作为参数传递到Lambda表达式中，标准的写法如下：</p> <pre><code>obj.let {             obj1-&gt;需要执行的逻辑         }          </code></pre> <p>obj1就是obj对象这里写成obj1只是为了防止命名重复的问题，使用的场景如下：</p> <pre><code>fun doStudy(study: Study?) {         study?.readBook()         study?.doHomeWork()     } </code></pre> <p>上面代码相当于每次调用Study对象的方法，都需要对study进行判空，我们可以使用let函数配合?.即可解决这个问题。</p> <pre><code>fun doStudy(study: Study?) {         study?.let {             it.readBook()             it.doHomeWork()         }     } </code></pre> <h4> <a id="12with_28" rel="nofollow"></a>1.2、with函数</h4> <p>with函数接收两个参数：</p> <ul> <li>第一个参数：任意类型的对象</li> <li>第二个参数：一个Lambda表达式</li> </ul> <p>with函数会在Lambda表达式中提供第一个参数对象的上下文，并将Lambda表达式最后一行代码作为返回值返回。</p> <ul> <li>with函数的作用：它可以在连续调用同一个对象的多个方法时使代码变得简洁。具体示例如下：</li> </ul> <pre><code>val list= listOf&lt;String&gt;("Apple","Banana","Orange","Pear","Grape") val builder=StringBuilder() builder.append("Start eating fruit \n") for(fruit in list){     builder.append("$fruit \n") } builder.append("Ate all fruit") val result=builder.toString() println(result)     </code></pre> <p>仔细观察上面代码，我们多次使用builder对象调用append()进行字符串的拼接，这个时候我们就可以使用with函数来简化这个过程。</p> <pre><code>val list= listOf&lt;String&gt;("Apple","Banana","Orange","Pear","Grape") val result=with(StringBuilder()){     append("Start eating fruit \n")     for(fruit in list){         append("$fruit \n")     }     append("Ate all fruit") toString() } println(result) </code></pre> <h4> <a id="13run_62" rel="nofollow"></a>1.3、run函数</h4> <p>run函数的使用场景和with函数的使用场景一样，只不过用法上有点差别。</p> <ol> <li>run函数必须由对象调用。</li> <li>run函数只接受一个参数即Lambda表达式，并将调用对象作为Lambda表达式的上下文。</li> <li>Lambda表达式最后一行代码作为run函数的返回值返回。<br /> 具体示例如下：</li> </ol> <pre><code>val list=listOf("Apple","Banana","Orange","Pear","Grape") val builder=StringBuilder() val result=builder.run {     append("Start eating fruit \n")     for(fruit in list){         append("$fruit \n")     }     append("Ate all fruits")     toString() } </code></pre> <p>和with函数基本一致，只不过是将调用with函数传入StringBuilder对象改成了StringBuilder对象调用run函数。其他没有什么区别。</p> <h4> <a id="14apply_83" rel="nofollow"></a>1.4、apply函数</h4> <p>apply函数和run函数也是极其相似的，都是在某个对象上使用并且只接受一个Lambda表达式参数，调用对象作为Lambda表达式的上下文，不同的是apply函数无法指定返回值，而是返回调用对象本身。示例如下：</p> <pre><code>val list=listOf("Apple","Banana","Orange","Pear","Grape") val builder=StringBuilder() val result=builder.apply{     append("Start eating fruit \n")     for(fruit in list){         append("$fruit \n")     }     append("Ate all fruits") } println(result.toString()) </code></pre> <p>由于apply函数无法指定返回值，只返回调用对象本身，所以这里的result是StringBuilder对象。</p> <h4> <a id="15repeat_99" rel="nofollow"></a>1.5、repeat函数</h4> <p>repeat函数接收2个参数，第一个参数是Int类型的，第二个参数Lambda表达式。第一个参数的意思表示的是指Lambda表达式中内容执行的次数。</p> <pre><code>  val list=ArrayList&lt;String&gt;()         repeat(2) {             list.add("1")             list.add("2")         } //集合中的数据就是1,2,1,2 </code></pre> <p>可以看到1,2添加了2遍。</p> <h4> <a id="16also_111" rel="nofollow"></a>1.6、also函数</h4> <p>also函数接收一个参数Lambda表达式。可以在表达式执行前进行非null校验,传入参数为it,返回值固定为this自身类型</p> <pre><code>val list=listOf("Apple","Banana","Orange","Pear","Grape") val builder=StringBuilder() val result=builder?.also{     it.append("Start eating fruit \n")     for(fruit in list){         it.append("$fruit \n")     }     it.append("Ate all fruits") } println(result.toString()) </code></pre> <p>只返回调用对象本身，所以这里的result是StringBuilder对象。</p> <h2> <a id="2_127" rel="nofollow"></a>2、定义静态方法</h2> <p>在Kotlin中实现静态方法反而没那么简单，实现方式如下：</p> <h4> <a id="1_130" rel="nofollow"></a>1、使用单例类实现。</h4> <pre><code>object SIngleInstance {      fun doAction(){} } //调用也简单 SIngleInstance.doAction() </code></pre> <p>看上去是不是和Java中调用静态方法一样，其实Kotlin内部已经创建了唯一的SIngleInstance对象，然后使用对象调用doAction()方法，不过使用单例类的方法就会使类中的所有方法的调用全部变成了类似于静态方法调用的方式了。那么能不能只指定一个或部分方法变成静态方法的调用，这时候就需要companion object了。</p> <h4> <a id="2companion_object_141" rel="nofollow"></a>2、使用关键字companion object实现</h4> <pre><code class="prism language-class">    fun doAction1(){}     companion object {         fun doAction2(){             println("do action2")         }     } } </code></pre> <p>普通类Util中有2个方法doAction1()和doAction2()，他们还是有很大区别的，doAction1()的调用必须使用Util类的对象来调用，而doAction2()可以直接使用Util .doAction2()调用。<br /> 不过doAction2()其实也不是静态方法，companion object这个关键字实际上会在Util类的内部创建一个伴生类，而doAction2()这个方法就是定义在这个伴生类里面的实例方法，只不过Kotlin保证Util类只会存在一个伴生类对象，因此调用Util.doAction2()实际上调用Util类中伴生类对象的doAction2()。<br /> 由此可以看出Kotlin确实没有定义静态方法的关键字，但是提供了一些语法特性来支持静态方法调用的写法。</p> <h4> <a id="3_155" rel="nofollow"></a>3、确确实实的静态方法</h4> <h6> <a id="1_157" rel="nofollow"></a>1、注解方法实现静态方法</h6> <p>注解方式实现静态方法只能用在单例类中或companion object关键中，下面我们在companion object关键中加上注解@JvmStatic：</p> <pre><code>companion object {         @JvmStatic         fun doAction2(){             println("do action2")         }     } </code></pre> <h6> <a id="2_167" rel="nofollow"></a>2、顶层方法实现静态方法</h6> <p>顶层方法是指那些没有定义在任何类中的方法，Kotlin编译器会将所有顶层方法编译成静态方法。比如我们在新建的Kotlin FileHelper.kt中定义一个doSomething()方法</p> <pre><code>fun doSomething() {     println("do Something") } </code></pre> <ul> <li>1、在Kotlin中调用很简单，不用管包名路径，也不用创建实例对象，在任意位置都能调用该方法。</li> <li>2、但是在Java中调用，就不能按Kotlin中这样写否则会报错，在Java中没有顶层方法的概念，所有方法都必须在类中。我们刚才创建的Helper.kt文件，Kotlin编译器就会创建一个HelperKt的Java类，所以在在Java中调用方式为：</li> </ul> <pre><code>HelperKt.doSomething(); </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-32611.htm">妙三多三联是什么（妙三多三联多少钱）</a></p>
+                                        <p>下一个：<a href="/news/article-33082.htm">猫三联是三针还是一针好（猫三联一针是什么意思）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-high-speed-nodes.htm" title="11月13日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月13日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-25-free-v2ray.htm" title="9月25日→19.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月25日→19.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25092.htm" title="动物疫苗查询系统官网入口网址（动物疫苗批号查询网）">动物疫苗查询系统官网入口网址（动物疫苗批号查询网）</a></li>
+                        <li class="py-2"><a href="/news/article-24159.htm" title="宠物粮食代工厂家 宠物粮食代工厂家有哪些">宠物粮食代工厂家 宠物粮食代工厂家有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-node-share-links.htm" title="9月26日→18.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月26日→18.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-subscribe-node.htm" title="12月23日→19.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月23日→19.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20948.htm" title="远程访问服务器Jupyter Notebook (浏览器访问和pycharm访问)">远程访问服务器Jupyter Notebook (浏览器访问和pycharm访问)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-v2ray-subscribe.htm" title="12月3日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月3日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-subscribe-node.htm" title="11月10日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月10日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25558.htm" title="窗帘布衣柜哪个牌子好用(窗帘布衣柜哪个牌子好一点)">窗帘布衣柜哪个牌子好用(窗帘布衣柜哪个牌子好一点)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

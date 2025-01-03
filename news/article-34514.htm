@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-34514.htm" />
+    <meta charset="utf-8">
+    <title>FreeRTOS进阶之系统延时完全解析_操作系统_</title>
+        <meta name="description" content="目录  1. 相对延时函数vTaskDelay() 2. 绝对延时函数vTaskDelayUntil() 3.小结   FreeRTOS提供了两个系统延时函数：相对延时函数vTaskDelay()和绝" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="/">
+                    <span>V2ray Clash X</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">FreeRTOS进阶之系统延时完全解析_操作系统_</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1. 相对延时函数vTaskDelay()</a></li> <li><a href="#_label1" rel="nofollow">2. 绝对延时函数vTaskDelayUntil()</a></li> <li><a href="#_label2" rel="nofollow">3.小结</a></li> </ul> </div> <p>FreeRTOS提供了两个系统延时函数：相对延时函数vTaskDelay()和绝对延时函数</p> <p>vTaskDelayUntil()。相对延时是指每次延时都是从任务执行函数vTaskDelay()开始，延时指定的时间结束；</p> <p>绝对延时是指每隔指定的时间，执行一次调用vTaskDelayUntil()函数的任务。换句话说：任务以固定的频率执行。</p> <p>在《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jb51.net/article/243522.htm"   target="_blank" rel="nofollow">FreeRTOS任务控制</a>》一文中，已经介绍了这两个API函数的原型和用法，本文将分析这两个函数的实现原理。</p> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1. 相对延时函数vTaskDelay()</h2> <p>考虑下面的任务，任务A在执行任务主体代码后，调用相对延时函数vTaskDelay()进入阻塞状态。系统中除了任务A外，还有其它任务，但是任务A的优先级最高。</p> <div class="ay1code"> <pre class="brush:cpp;">void vTaskA( void * pvParameters )     {         /* 阻塞500ms. 注:宏pdMS_TO_TICKS用于将毫秒转成节拍数,FreeRTOS V8.1.0及          以上版本才有这个宏,如果使用低版本,可以使用 500 / portTICK_RATE_MS */         const portTickType xDelay = pdMS_TO_TICKS(500);              for( ;; )         {             //  ...           //  这里为任务主体代码           //  ...                     /* 调用系统延时函数,阻塞500ms */           vTaskDelay( xDelay );         }    }  </pre> </div> <p>对于这样一个任务，执行过程如图1-1所示。当任务A获取CPU使用权后，先执行任务A的主体代码，之后调用系统延时函数vTaskDelay()进入阻塞状态。任务A进入阻塞后，其它任务得以执行。</p> <p>FreeRTOS内核会周期性的检查任务A的阻塞是否达到，如果阻塞时间达到，则将任务A设置为就绪状态。由于任务A的优先级最高，会抢占CPU，再次执行任务主体代码，不断循环。</p> <p>从图1-1可以看出，任务A每次延时都是从调用延时函数vTaskDelay()开始算起的，延时是相对于这一时刻开始的，所以叫做相对延时函数。</p> <p>从图1-1还可以看出，如果执行任务A的过程中发生中断，那么任务A执行的周期就会变长，所以使用相对延时函数vTaskDelay()，不能周期性的执行任务A。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/5f8d73f823c767ce4c68266170084f6f.jpg"></p> <p>图1-1:相对延时函数执行示意图</p> <p>我们来看一下源码。</p> <div class="ay1code"> <pre class="brush:cpp;">void vTaskDelay( const TickType_t xTicksToDelay )  {  BaseType_t xAlreadyYielded = pdFALSE;      /* 如果延时时间为0,则不会将当前任务加入延时列表 */      if( xTicksToDelay &gt; ( TickType_t ) 0U )      {          vTaskSuspendAll();          {              /* 将当前任务从就绪列表中移除,并根据当前系统节拍计数器值计算唤醒时间,然后将任务加入延时列表 */              prvAddCurrentTaskToDelayedList( xTicksToDelay, pdFALSE );          }          xAlreadyYielded = xTaskResumeAll();      }      /* 强制执行一次上下文切换*/      if( xAlreadyYielded == pdFALSE )      {          portYIELD_WITHIN_API();      }  }</pre> </div> <p>如果延时大于0，则会将当前任务从就绪列表删除，然后加入到延时列表。是调用函数prvAddCurrentTaskToDelayedList()完成这一过程的。我们在前面一系列博文中多次提到，tasks.c中定义了很多局部静态变量，其中有一个变量xTickCount定义如下所示：</p> <div class="ay1code"> <pre class="brush:cpp;">static volatile TickType_t xTickCount = ( TickType_t ) 0U;</pre> </div> <p>这个变量用来计数，记录系统节拍中断的次数，它在启动调度器时被清零，在每次系统节拍时钟发生中断后加1。相对延时函数会使用到这个变量，xTickCount表示了当前的系统节拍中断次数，这个值加上参数规定的延时时间（以系统节拍数表示）xTicksToDelay，就是下次唤醒任务的时间，xTickCount+ xTicksToDelay会被记录到任务TCB中，随着任务一起被挂接到延时列表。</p> <p>我们知道变量xTickCount是TickType_t类型的，它也会溢出。在32位架构中，当xTicksToDelay达到4294967295后再增加，就会溢出变成0。为了解决xTickCount溢出问题，FreeRTOS使用了两个延时列表：xDelayedTaskList1和xDelayedTaskList2，并使用两个列表指针类型变量pxDelayedTaskList和pxOverflowDelayedTaskList分别指向上面的延时列表1和延时列表2（在创建任务时将延时列表指针指向延时列表）。顺便说一下，上面的两个延时列表指针变量和两个延时列表变量都是在tasks.c中定义的静态局部变量。</p> <p>如果内核判断出xTickCount+ xTicksToDelay溢出，就将当前任务挂接到列表指针pxOverflowDelayedTaskList指向的列表中，否则就挂接到列表指针pxDelayedTaskList指向的列表中。</p> <p>每次系统节拍时钟中断，中断服务函数都会检查这两个延时列表，查看延时的任务是否到期，如果时间到期，则将任务从延时列表中删除，重新加入就绪列表。如果新加入就绪列表的任务优先级大于当前任务，则会触发一次上下文切换。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2. 绝对延时函数vTaskDelayUntil()</h2> <p>考虑下面的任务，任务B首先调用绝对延时函数vTaskDelayUntil ()进入阻塞状态，阻塞时间到达后，执行任务主体代码。系统中除了任务B外，还有其它任务，但是任务B的优先级最高。</p> <div class="ay1code"> <pre class="brush:cpp;">void vTaskB( void * pvParameters )    {        static portTickType xLastWakeTime;        const portTickType xFrequency = pdMS_TO_TICKS(500);        // 使用当前时间初始化变量xLastWakeTime ,注意这和vTaskDelay()函数不同       xLastWakeTime = xTaskGetTickCount();        for( ;; )        {            /* 调用系统延时函数,周期性阻塞500ms */                  vTaskDelayUntil( &amp;xLastWakeTime,xFrequency );             //  ...           //  这里为任务主体代码,周期性执行.注意这和vTaskDelay()函数也不同           //  ...          }    }  </pre> </div> <p>对于这样一个任务，执行过程如图2-1所示。当任务B获取CPU使用权后，先调用系统延时函数vTaskDelayUntil()使任务进入阻塞状态。任务B进入阻塞后，其它任务得以执行。FreeRTOS内核会周期性的检查任务A的阻塞是否达到，如果阻塞时间达到，则将任务A设置为就绪状态。</p> <p>由于任务B的优先级最高，会抢占CPU，接下来执行任务主体代码。任务主体代码执行完毕后，会继续调用系统延时函数vTaskDelayUntil()使任务进入阻塞状态，周而复始。</p> <p>从图2-1可以看出，从调用函数vTaskDelayUntil()开始，每隔固定+<br />-周期，任务B的主体代码就会被执行一次，即使任务B在执行过程中发生中断，也不会影响这个周期性，只是会缩短其它任务的执行时间！所以这个函数被称为绝对延时函数，它可以用于周期性的执行任务A的主体代码。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/a91c2a0f77ff3e331a01eb3c1629dae9.jpg"></p> <p>图2-1：绝对延时函数执行示意图</p> <p>函数vTaskDelayUntil()是如何做到周期性的呢，我们来看一下源码。</p> <div class="ay1code"> <pre class="brush:cpp;">void vTaskDelayUntil( TickType_t * const pxPreviousWakeTime, const TickType_t xTimeIncrement )  {  TickType_t xTimeToWake;  BaseType_t xAlreadyYielded, xShouldDelay = pdFALSE;      vTaskSuspendAll();      {          /* 保存系统节拍中断次数计数器 */          const TickType_t xConstTickCount = xTickCount;          /* 计算任务下次唤醒时间(以系统节拍中断次数表示)   */          xTimeToWake = *pxPreviousWakeTime + xTimeIncrement;          /* *pxPreviousWakeTime中保存的是上次唤醒时间,唤醒后需要一定时间执行任务主体代码,如果上次唤醒时间大于当前时间,说明节拍计数器溢出了 */          if( xConstTickCount &lt; *pxPreviousWakeTime )          {              /*只有当周期性延时时间大于任务主体代码执行时间,才会将任务挂接到延时列表.*/              if( ( xTimeToWake &lt; *pxPreviousWakeTime ) &amp;&amp; ( xTimeToWake &gt; xConstTickCount ) )              {                  xShouldDelay = pdTRUE;              }          }          else          {              /* 也都是保证周期性延时时间大于任务主体代码执行时间 */              if( ( xTimeToWake &lt; *pxPreviousWakeTime ) || ( xTimeToWake &gt; xConstTickCount ) )              {                  xShouldDelay = pdTRUE;              }          }          /* 更新唤醒时间,为下一次调用本函数做准备. */          *pxPreviousWakeTime = xTimeToWake;             if( xShouldDelay != pdFALSE )          {              /* 将本任务加入延时列表,注意阻塞时间并不是以当前时间为参考,因此减去了当前系统节拍中断计数器值*/              prvAddCurrentTaskToDelayedList( xTimeToWake - xConstTickCount, pdFALSE );          }      }      xAlreadyYielded = xTaskResumeAll();         /* 强制执行一次上下文切换 */      if( xAlreadyYielded == pdFALSE )      {          portYIELD_WITHIN_API();      }  }</pre> </div> <p>与相对延时函数vTaskDelay不同，本函数增加了一个参数pxPreviousWakeTime用于指向一个变量，变量保存上次任务解除阻塞的时间。这个变量在任务开始时必须被设置成当前系统节拍中断次数（见上文的任务B举例），此后函数vTaskDelayUntil()在内部自动更新这个变量。</p> <p>由于变量xTickCount可能会溢出，所以程序必须检测各种溢出情况，并且要保证延时周期不得小于任务主体代码执行时间。这很好理解，不可能出现每5毫秒执行一个需要20毫秒才能执行完的任务。<br />如果我们以横坐标表示变量xTickCount的范围，则横坐标左端为0，右端为变量xTickCount所能表示的最大值。在如图2-2所示的三种情况下，才可以将任务加入延时列表。</p> <p>图2-2中</p> <blockquote> <p>*pxPreviousWakeTime和xTimeToWake之间表示任务周期性延时时间，</p> <p>*pxPreviousWakeTime和xConstTickCount之间表示任务B主体代码执行时间。</p> </blockquote> <p>图2-2中</p> <p>第一种情况处理系统节拍中断计数器（xConstTickCount）和唤醒时间计数器（xTimeToWake）溢出情况；</p> <p>第二种情况处理唤醒时间计数器（xTimeToWake）溢出情况</p> <p>第三种情况处理常规无溢出的情况。</p> <p>从图中可以看出，不管是溢出还是无溢出，都要求在下次唤醒任务之前，当前任务主体代码必须被执行完。表现在图2-2中，就是变量xTimeToWake总是大于变量xConstTickCount（每溢出一次的话相当于加上一次最大值Max）。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/0213b12aa25c6658b9bad285c81b2b04.jpg"></p> <p>图2-2：将任务加入延时列表的三种情况</p> <p>计算的唤醒时间合法后，就将当前任务加入延时列表，同样延时列表也有两个。每次系统节拍中断，中断服务函数都会检查这两个延时列表，查看延时的任务是否到期，如果时间到期，则将任务从延时列表中删除，重新加入就绪列表。如果新加入就绪列表的任务优先级大于当前任务，则会触发一次上下文切换。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.小结</h2> <p>上面的例子中，调用系统延时的任务都是最高优先级，这是为了便于分析而特意为之的，实际上的任务可不一定能设置为最高优先级。对于相对延时，如果任务不是最高优先级，则任务执行周期更不可测，这个问题不大，我们本来也不会使用它作为精确延时；</p> <p>对于绝对延时函数，如果任务不是最高优先级，则仍然能周期性的将任务解除阻塞，但是解除阻塞的任务不一定能获得CPU权限，因此任务主体代码也不会总是精确周期性执行。</p> <p>如果要想精确周期性执行某个任务，可以使用系统节拍钩子函数vApplicationTickHook()，它在系统节拍中断服务函数中被调用，因此这个函数中的代码必须简洁。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34037.htm">动物疫苗专业就业前景（动物疫苗专业就业前景如何）</a></p>
+                                        <p>下一个：<a href="/news/article-34515.htm">开宠物店需要干什么（开宠物店需要准备什么?）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-6-v2ray-clashx-node.htm" title="9月6日→22M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月6日→22M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22322.htm" title="宠物粮生产设备哪家好 宠物粮生产设备哪家好用">宠物粮生产设备哪家好 宠物粮生产设备哪家好用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-free-high-speed-nodes.htm" title="9月11日→19.8M/S|2024年最新免费节点V2ray ClashX订阅链接地址">9月11日→19.8M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-31655.htm" title="回收宠物电话多少（宠物回收店价格表）">回收宠物电话多少（宠物回收店价格表）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-node-subscribe-links.htm" title="12月4日→21M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月4日→21M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23689.htm" title="小动物打什么针（小动物打什么针可以死）">小动物打什么针（小动物打什么针可以死）</a></li>
+                        <li class="py-2"><a href="/news/article-33081.htm" title="Kotlin（二） 标准函数和静态方法">Kotlin（二） 标准函数和静态方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-v2ray-subscribe.htm" title="11月27日→21.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月27日→21.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20949.htm" title="上海宠物领养中心电话（上海宠物领养中心免费领养狗狗）">上海宠物领养中心电话（上海宠物领养中心免费领养狗狗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-node-subscribe-links.htm" title="10月10日→18.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月10日→18.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

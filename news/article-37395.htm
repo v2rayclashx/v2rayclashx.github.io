@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-37395.htm" />
+    <meta charset="utf-8">
+    <title>字符数组和字符串的区别，C语言字符数组和字符串区别详解</title>
+        <meta name="description" content="C 语言中并不存在字符串这个数据类型，而是使用字符数组来保存字符串。那么，字符数组就一定是字符串吗？ 一定不是，字符数组和字符串是完全不相同的两个概念，千万不要混淆。分析如下所示的示例代码。 #inc" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="/">
+                    <span>V2ray Clash X</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">字符数组和字符串的区别，C语言字符数组和字符串区别详解</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>C 语言中并不存在字符串这个数据类型，而是使用字符数组来保存字符串。那么，字符数组就一定是字符串吗？</p> <p>一定不是，字符数组和字符串是完全不相同的两个概念，千万不要混淆。分析如下所示的示例代码。</p> <pre><code class="prism language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span><span class="token keyword">int</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">/*字符数组赋初值*/</span><span class="token keyword">char</span> cArr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">'I'</span><span class="token punctuation">,</span><span class="token string">'L'</span><span class="token punctuation">,</span><span class="token string">'O'</span><span class="token punctuation">,</span><span class="token string">'V'</span><span class="token punctuation">,</span><span class="token string">'E'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">/*字符串赋初值*/</span><span class="token keyword">char</span> sArr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"ILOVEC"</span><span class="token punctuation">;</span><span class="token comment">/*用sizeof（）求长度*/</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"cArr的长度=%d\n"</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>cArr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sArr的长度=%d\n"</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>sArr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">/*用strlen（）求长度*/</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"cArr的长度=%d\n"</span><span class="token punctuation">,</span><span class="token function">strlen</span><span class="token punctuation">(</span>cArr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sArr的长度=%d\n"</span><span class="token punctuation">,</span><span class="token function">strlen</span><span class="token punctuation">(</span>sArr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">/*用printf的%s打印内容*/</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"cArr的内容=%s\n"</span><span class="token punctuation">,</span> cArr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sArr的内容=%s\n"</span><span class="token punctuation">,</span> sArr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <h3><a id="_26" rel="nofollow"></a>运行结果为：</h3> <p>cArr的长度=6<br /> sArr的长度=7<br /> cArr的长度=6<br /> sArr的长度=6<br /> cArr的内容=ILOVEC<br /> sArr的内容=ILOVEC</p> <p>从代码及其运行结果中可以看出如下几点。</p> <p>首先，从概念上讲，<code>cArr</code> 是一个字符数组，而<code>sArr</code> 是一个字符串。因此，对于<code>sArr</code>，编译时会自动在末尾增加一个 null 字符（也就是’\0’，用十六进制表示为 0x00）；而对于<code>cArr</code>，则不会自动增加任何东西。</p> <p>记住，这里的<code>sArr</code> 必须是<code>char sArr[7]="ILOVEC"</code>，而不能够是<code>char sArr[6]="ILOVEC"</code>。</p> <p>其次，<code>sizeof()</code>运算符求的是字符数组的长度，而不是字符串长度。因此，对于<code>sizeof(cArr)</code>，其运行结果为 6；而对于<code>sizeof(sArr)</code>，其运行结果为 7（之所以为 7，是因为<code>sArr</code> 是一个字符串，编译时会自动在末尾增加一个 null 字符）。因此，对于以下代码：</p> <pre><code class="prism language-c"><span class="token comment">/*字符数组赋初值*/</span><span class="token keyword">char</span> cArr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">'I'</span>，<span class="token string">'L'</span>，<span class="token string">'O'</span>，<span class="token string">'V'</span>，<span class="token string">'E'</span>，<span class="token string">'C'</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">/*字符串赋初值*/</span><span class="token keyword">char</span> sArr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"ILOVEC"</span><span class="token punctuation">;</span></code></pre> <p>也可以写成如下等价形式：</p> <pre><code class="prism language-c"><span class="token comment">/*字符数组赋初值*/</span><span class="token keyword">char</span> cArr<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">'I'</span>，<span class="token string">'L'</span>，<span class="token string">'O'</span>，<span class="token string">'V'</span>，<span class="token string">'E'</span>，<span class="token string">'C'</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">/*字符串赋初值*/</span><span class="token keyword">char</span> sArr<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"ILOVEC"</span><span class="token punctuation">;</span></code></pre> <p>最后，对于字符串<code>sArr</code>，可以直接使用<code>print</code>f 的<code>%s</code> 打印其内容；而对字符数组，很显然使用<code>printf</code> 的<code>%s</code> 打印其内容是不合适的。</p> <p>通过对以上代码的分析，现在我们可以很简单地得出字符数组和字符串二者之间的区别：</p> <ul> <li>对于字符数组，其长度是固定的，其中任何一个数组元素都可以为<code>null</code> 字符。因此，字符数组不一定是字符串。</li> <li>对于字符串，它必须以<code>null</code> 结尾，其后的字符不属于该字符串。字符串一定是字符数组，它是最后一个字符为<code>null</code> 字符的字符数组。</li> <li>数组的元素可以是任意一种类型，而字符串是一种特殊的数组，它使用了一种众所周知的确定其长度的规则。</li> </ul> <p>有两种类型的语言，一种简单地将字符串看作是一个字符数组，另一种将字符串看作是一种特殊的类型。C属于前一种，但有一点补充，即C字符串是以一个NUL字符结束的。数组的值和数组中第一个元素的地址(或指向该元素的指针)是相同的，因此通常一个C字符串和一个字符指针是等价的。</p> <p>一个数组的长度可以是任意的。当数组名用作函数的参数时，函数无法通过数组名本身知道数组的大小，因此必须引入某种规则。对字符串来说，这种规则就是字符串的最后一个字符是ASCII字符NUL(’\0’)。</p> <p>在C中，int类型值的字面值可以是42这样的值，字符的字面值可以是‘*’这样的值，浮点型值的字面值可以是4.2el这样的单精度值或双精度值。</p> <p>注意：实际上，一个char类型字面值是一个int类型字面值的另一种表示方式，只不过使用了一种有趣的句法，例如当42和’*'都表示char类型的值时，它们是两个完全相同的值。然而，在C++中情况有所不同，C++有真正的char类型字面值和char类型函数参数，并且通常会更仔细地区分char类型和int类型，整数数组和字符数组没有字面值。然而，如果没有字符串字面值，程序编写起来就会很困难，因此C提供了字符串字面值。需要注意的是，按照惯例C字符串总是以NUL字符结束，因此C字符串的字面值也以NUL字符结束，例如，“six times nine”的长度是15个字符(包括NUL终止符)，而不是你看得见的14个字符。</p> <p>关于字符串字面值还有一条鲜为人知但非常有用的规则，如果程序中有两条紧挨着的字符串字面值，编译程序会将它们当作一条长的字符串字面值来对待，并且只使用一个NUL终止符。也就是说，“Hello，”world”和“Hello，world”是相同的，而以下这段代码中的几条字符串字面值也可以任意分割组合：</p> <pre><code class="prism language-c"><span class="token keyword">char</span>    message<span class="token punctuation">[</span><span class="token punctuation">]</span>＝ ”This is an extremely<span class="token keyword">long</span> prompt\n” ”How<span class="token keyword">long</span> is it<span class="token operator">?</span>\n” ”It's so<span class="token keyword">long</span>，\n” ”It wouldn't fit On one line\n”；</code></pre> <p>在定义一个字符串变量时，你需要有一个足以容纳该字符串的数组或者指针，并且要保证为NUL终止符留出空间，例如，以下这段代码中就有一个问题：</p> <pre><code class="prism language-c"><span class="token keyword">char</span> greeting<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span>；<span class="token function">strcpy</span><span class="token punctuation">(</span>greeting，”Hello，world”<span class="token punctuation">)</span>；<span class="token comment">/*trouble*/</span></code></pre> <p>在上例中，greeting只有容纳12个字符的空间，而“Hello，world”的长度为13个字符(包括NUL终止符)，因此NUL字符会被拷贝到greeting以外的某个位置，这可能会毁掉greetlng附近内存空间中的某些数据。再请看下例：</p> <pre><code class="prism language-c"><span class="token keyword">char</span>  greeting<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span>＝”Hello，world”；<span class="token comment">/*notastring*/</span></code></pre> <p>上例是没有问题的，但此时greeting是一个字符数组，而不是一个字符串。因为上例没有为NUL终止符留出空间，所以greeting不包含NUL字符。更好一些的方法是这样写：<br /> char greeting[]＝”Hello，world”;<br /> 这样编译程序就会计算出需要多少空间来容纳所有内容，包括NUL字符。</p> <p>字符串字面值是字符(char类型)数组，而不是字符常量(const char类型)数组。尽管ANSIC委员会可以将字符串字面值重新定义为字符常量数组，但这会使已有的数百万行代码突然无法通过编译，从而引起巨大的混乱。如果你试图修改字符串字面值中的内容，编译程序是</p> <p>不会阻止你的，但你不应该这样做。编译程序可能会选择禁止修改的内存区域来存放字符串字面值，例如ROM或者由内存映射寄存器禁止写操作的内存区域。但是，即使字符串字面值被存放在允许修改的内存区域中，编译程序还可能会使它们被共享。例如，如果你写了以下代码(并且字符串字面值是允许修改的)：</p> <pre><code class="prism language-c"><span class="token keyword">char</span><span class="token operator">*</span>p<span class="token operator">=</span><span class="token string">"message"</span>；<span class="token keyword">char</span><span class="token operator">*</span>q<span class="token operator">=</span><span class="token string">"message"</span>； p<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>＝<span class="token string">'\0'</span><span class="token punctuation">;</span><span class="token comment">/* p now points to”mess”*/</span></code></pre> <p>编译程序就会作出两种可能的反应，一种是为p和q创建两个独立的字符串，在这种情况下，q仍然是“message”；一种是只创建一个字符串(p和q都指向它)，在这种情况下，q将变成“mess”。</p> <p>注意：有人称这种现象为“C的幽默”，正是因为这种幽默，绝大多数C程序员才会整天被自己编写的程序所困扰，难得忙里偷闲一次。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-36908.htm">动物疫苗一般在哪里打的呢多少钱（动物疫苗厂）</a></p>
+                                        <p>下一个：<a href="/news/article-37396.htm">上海宠物医院在线咨询（上海宠物医院在线咨询医生）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-node-subscribe-links.htm" title="12月4日→21M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月4日→21M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-node-subscribe-links.htm" title="12月12日→22.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月12日→22.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36185.htm" title="近期电影上映（近期电影上映时间）">近期电影上映（近期电影上映时间）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-clash-v2ray-ss-ssr.htm" title="12月7日→22.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月7日→22.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-v2ray.htm" title="12月31日→21.7M/S|2025年最新免费节点V2ray ClashX订阅链接地址">12月31日→21.7M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-node-subscribe.htm" title="12月9日→19.8M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月9日→19.8M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-high-speed-nodes.htm" title="10月20日→18.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月20日→18.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-33081.htm" title="Kotlin（二） 标准函数和静态方法">Kotlin（二） 标准函数和静态方法</a></li>
+                        <li class="py-2"><a href="/news/article-31654.htm" title="动物防疫疫苗中标公告公示时间（动物疫苗厂家电话）">动物防疫疫苗中标公告公示时间（动物疫苗厂家电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-node-subscribe.htm" title="12月6日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月6日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

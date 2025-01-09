@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-37895.htm" />
+    <meta charset="utf-8">
+    <title>AJAX原理以及axios、fetch区别实例详解_AJAX相关</title>
+        <meta name="description" content="目录  AJAX原理 Promise封装Ajax JQ Ajax、Axios、Fetch的核心区别  JQuery Ajax Axios Fetch  补充：为什么要用axios?  总结     A" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="/">
+                    <span>V2ray Clash X</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">AJAX原理以及axios、fetch区别实例详解_AJAX相关</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">AJAX原理</a></li> <li><a href="#_label1" rel="nofollow">Promise封装Ajax</a></li> <li><a href="#_label2" rel="nofollow">JQ Ajax、Axios、Fetch的核心区别</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_0" rel="nofollow">JQuery Ajax</a></li> <li><a href="#_lab2_2_1" rel="nofollow">Axios</a></li> <li><a href="#_lab2_2_2" rel="nofollow">Fetch</a></li> </ul> <li><a href="#_label3" rel="nofollow">补充：为什么要用axios?</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label4" rel="nofollow">总结</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>AJAX原理</h2> <ul> <li>Ajax的原理简单来说是在用户和服务器之间加了—个中间层(AJAX引擎)，通过XmlHttpRequest对象来向服务器发异步请求，从服务器获得数据，然后用javascript来操作DOM而更新页面。使用户操作与服务器响应异步化。</li> <li>Ajax的过程只涉及JavaScript、XMLHttpRequest和DOM。XMLHttpRequest是ajax的核心机制</li> </ul> <p>XMLHttpRequest（XHR）对象用于与服务器交互。通过 XMLHttpRequest 可以在不刷新页面的情况下请求特定 URL，获取数据。这允许网页在不影响用户操作的情况下，更新页面的局部内容。XMLHttpRequest 可以用于获取任何类型的数据，而不仅仅是 XML。甚至支持 HTTP以外的协议（包括 file:// 和 FTP），尽管可能受到更多出于安全等原因的限制。</p> <div class="ay1code"> <pre class="brush:js;">/** 1. 创建Ajax对象 **/  var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject('Microsoft.XMLHTTP');// 兼容IE6及以下版本  /** 2. 配置 Ajax请求 **/  xhr.open('get', url, true)  /** 3. 发送请求 **/  xhr.send(null); // 严谨写法  /** 4. 监听请求，接受响应 **/  xhr.onreadystatechange = function(){      if(xhr.readyState == 4){          if(xhr.status == 200){              success(xhr.responseText);          } else {               /** false **/              fail &amp;&amp; fail(xhr.status);          }      }  }</pre> </div> <ul> <li> <p>onreadystatechange：当 readyState 属性发生变化时，调用的事件处理函数</p> </li> <li> <p>readyState：</p> <table> <tbody> <tr> <th>值</th> <th>状态</th> <th>描述</th> </tr> <tr> <td>0</td> <td>UNSENT</td> <td>代理被创建，但尚未调用 open() 方法。</td> </tr> <tr> <td>1</td> <td>OPENED</td> <td>open() 方法已经被调用。</td> </tr> <tr> <td>2</td> <td>HEADERS_RECEIVED</td> <td>send() 方法已经被调用，并且头部和状态已经可获得。</td> </tr> <tr> <td>3</td> <td>LOADING</td> <td>下载中； responseText 属性已经包含部分数据。</td> </tr> <tr> <td>4</td> <td>DONE</td> <td>下载操作已完成。</td> </tr> </tbody> </table> </li> <li> <p>response：返回的包含整个响应实体</p> </li> <li> <p>responseText：返回一个DOMString，该 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.mozilla.org/zh-CN/docs/Web/API/DOMString"  target="_blank" rel="nofollow">DOMString</a> 包含对请求的响应，如果请求未成功或尚未发送，则返回 null。</p> </li> <li> <p>responseType：一个用于定义响应类型的枚举值（enumerated value）。</p> <table> <tbody> <tr> <th>类型</th> <th>解释</th> </tr> <tr> <td>“ ”</td> <td>空的 responseType 字符串与默认类型 "text" 相同。</td> </tr> <tr> <td>"arraybuffer"</td> <td>response 是一个包含二进制数据的 JavaScript <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer"   target="_blank" rel="nofollow">ArrayBuffer</a>。</td> </tr> <tr> <td>"blob"</td> <td>response 是一个包含二进制数据的 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.mozilla.org/zh-CN/docs/Web/API/Blob"   target="_blank" rel="nofollow">Blob</a> 对象。</td> </tr> <tr> <td>"document"</td> <td>response 是一个 HTMLDocument或XMLDocument</td> </tr> <tr> <td>"json"</td> <td>response是通过将接收到的数据内容解析为JSON的JS对象</td> </tr> <tr> <td>"text"</td> <td>response 是 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.mozilla.org/zh-CN/docs/Web/API/DOMString"   target="_blank" rel="nofollow">DOMString</a> 对象中的文本。</td> </tr> <tr> <td>"ms-stream"</td> <td>response是流式下载的一部分；此响应类型仅允许用于下载请求，并且仅受 Internet Explorer 支持。</td> </tr> </tbody> </table> </li> <li> <p>status：返回一个无符号短整型（unsigned short）数字，代表请求的响应状态。</p> <div class="ay1code"> <pre class="brush:js;">var xhr = new XMLHttpRequest();  console.log('UNSENT', xhr.status);    xhr.open('GET', '/server', true);  console.log('OPENED', xhr.status);    xhr.onprogress = function () {    console.log('LOADING', xhr.status);  };    xhr.onload = function () {    console.log('DONE', xhr.status);  };    xhr.send(null);    /**   * 输出如下：   *   * UNSENT（未发送） 0   * OPENED（已打开） 0   * LOADING（载入中） 200   * DONE（完成） 200   */</pre> </div> </li> <li> <p>withCredentials：一个布尔值，用来指定跨域 Access-Control 请求是否应当带有授权信息，如 cookie 或授权 header 头。<code>xhr.withCredentials=true</code></p> </li> <li> <p>upload：代表上传进度</p> </li> </ul> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"   target="_blank" rel="nofollow">其他更多XMLHttpRequest相关api</a></p> <p><strong>ajax 有那些优缺点?</strong></p> <ul> <li> <p>优点：</p> <ul> <li>通过异步模式，提升了用户体验.</li> <li>优化了浏览器和服务器之间的传输，减少不必要的数据往返，减少了带宽占用.</li> <li>Ajax在客户端运行，承担了一部分本来由服务器承担的工作，减少了大用户量下的服务器负载。</li> <li>Ajax可以实现动态不刷新（局部刷新）</li> </ul> </li> <li> <p>缺点：</p> <ul> <li>安全问题 AJAX暴露了与服务器交互的细节。</li> <li>对搜索引擎的支持比较弱。</li> <li>不容易调试。</li> </ul> </li> </ul> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>Promise封装Ajax</h2> <p><strong>promise 封装实现：</strong></p> <div class="ay1code"> <pre class="brush:js;">// promise 封装实现：  function getJSON(url) {    // 创建一个 promise 对象    let promise = new Promise(function(resolve, reject) {      let xhr = new XMLHttpRequest();        // 新建一个 http 请求      xhr.open("GET", url, true);        // 设置状态的监听函数      xhr.onreadystatechange = function() {        if (this.readyState !== 4) return;          // 当请求成功或失败时，改变 promise 的状态        if (this.status === 200) {          resolve(this.response);        } else {          reject(new Error(this.statusText));        }      };        // 设置错误监听函数      xhr.onerror = function() {        reject(new Error(this.statusText));      };        // 设置响应的数据类型      xhr.responseType = "json";        // 设置请求头信息      xhr.setRequestHeader("Accept", "application/json");        // 发送 http 请求      xhr.send(null);    });    return promise;  }</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>JQ Ajax、Axios、Fetch的核心区别</h2> <p class="maodian"><a name="_lab2_2_0" rel="nofollow"></a></p> <h3>JQuery Ajax</h3> <blockquote> <p>Ajax前后端数据通信「同源、跨域」</p> </blockquote> <div class="ay1code"> <pre class="brush:js;">// 用户登录 -&gt; 登录成功 -&gt; 获取用户信息  /* 回调地狱 */  $.ajax({      url: 'http://127.0.0.1:8888/user/login',      method: 'post',      data: Qs.stringify({          account: '18310612838',          password: md5('1234567890')      }),      success(result) {          if (result.code === 0) {              // 登录成功              $.ajax({                  url: 'http://127.0.0.1:8888/user/list',                  method: 'get',                  success(result) {                      console.log(result);                  }              });          }      }  });</pre> </div> <p>优缺点：</p> <ul> <li>本身是针对MVC的编程,不符合现在前端MVVM的浪潮</li> <li>基于原生的XHR开发，XHR本身的架构不清晰，已经有了fetch的替代方案</li> <li>JQuery整个项目太大，单纯使用ajax却要引入整个JQuery非常的不合理（采取个性化打包的方案又不能享受CDN服务）</li> </ul> <p class="maodian"><a name="_lab2_2_1" rel="nofollow"></a></p> <h3>Axios</h3> <blockquote> <p>Axios也是对ajax的封装，基于Promise管理请求，解决回调地狱问题</p> </blockquote> <div class="ay1code"> <pre class="brush:js;">axios({      method: 'post',      url: '/user/login',      data: {          username: 'name',          password: 'password'      }  })  .then(function (response) {      console.log(response);  })  .catch(function (error) {      console.log(error);  });  // 或使用 async await  (async function () {      let result1 = await axios.post('/user/login', {          username: 'name',          password: 'password'      });      let result2 = await axios.get('/user/list');      console.log(result1, result2);  })(); </pre> </div> <p>优缺点：</p> <ul> <li>从浏览器中创建 XMLHttpRequest</li> <li>从 node.js 发出 http 请求</li> <li>支持 Promise API</li> <li>拦截请求和响应</li> <li>转换请求和响应数据</li> <li>取消请求</li> <li>自动转换JSON数据</li> <li>客户端支持防止CSRF/XSRF</li> </ul> <p class="maodian"><a name="_lab2_2_2" rel="nofollow"></a></p> <h3>Fetch</h3> <blockquote> <p>Fetch是ES6新增的通信方法，不是ajax，但是他本身实现数据通信，就是基于promise管理的</p> </blockquote> <div class="ay1code"> <pre class="brush:js;">try {    let response = await fetch(url, options);    let data = response.json();    console.log(data);  } catch(e) {    console.log("Oops, error", e);  }</pre> </div> <p>示例：</p> <div class="ay1code"> <pre class="brush:js;">(async function () {      let result = await fetch('http://127.0.0.1:8888/user/login', {          method: 'post',          headers: {              'Content-Type': 'application/x-www-form-urlencoded'          },          body: Qs.stringify({              name: 'name',              password: 'password'          })      })      let data = result.json();      console.log(data)  ​      let result2 = await fetch('http://127.0.0.1:8888/user/list').then(response =&gt; {          return response.json();      });      console.log(result2);  })(); </pre> </div> <p>优缺点：</p> <ul> <li>fetcht只对网络请求报错，对400，500都当做成功的请求，需要封装去处理</li> <li>fetch默认不会带cookie，需要添加配置项</li> <li>fetch不支持abort，不支持超时控制，使用setTimeout及Promise.reject的实现的超时控制并不能阻止请求过程继续在后台运行，造成了量的浪费</li> <li>fetch没有办法原生监测请求的进度，而XHR可以</li> </ul> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>补充：为什么要用axios?</h2> <p>axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端，它本身具有以下特征：</p> <ul> <li>从浏览器中创建 XMLHttpRequest</li> <li>从 node.js 发出 http 请求</li> <li>支持 Promise API</li> <li>拦截请求和响应</li> <li>转换请求和响应数据</li> <li>取消请求</li> <li>自动转换JSON数据</li> <li>客户端支持防止CSRF/XSRF</li> <li>axios既提供了并发的封装，也没有fetch的各种问题，而且体积也较小，当之无愧现在最应该选用的请求的方式。</li> </ul> <p>三选一绝必是axios了。其流程图如下：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220427/894c2f6e99ebcb6495ae9ddf12638190.jpg"></p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>总结</h2> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37396.htm">上海宠物医院在线咨询（上海宠物医院在线咨询医生）</a></p>
+                                        <p>下一个：<a href="/news/article-37896.htm">猫咪疫苗要打几针?（猫咪疫苗要打几针才能洗澡）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-33081.htm" title="Kotlin（二） 标准函数和静态方法">Kotlin（二） 标准函数和静态方法</a></li>
+                        <li class="py-2"><a href="/news/article-18685.htm" title="厦门宠物狗领养 厦门宠物狗领养中心">厦门宠物狗领养 厦门宠物狗领养中心</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-clash-v2ray-ss-ssr.htm" title="1月4日→18.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月4日→18.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-node-share.htm" title="10月24日→22M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月24日→22M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-node-share.htm" title="11月14日→21M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月14日→21M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-33082.htm" title="猫三联是三针还是一针好（猫三联一针是什么意思）">猫三联是三针还是一针好（猫三联一针是什么意思）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-subscribe-node.htm" title="1月5日→19.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月5日→19.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-node-subscribe-links.htm" title="10月10日→18.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月10日→18.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-subscribe-node.htm" title="10月8日→18.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月8日→18.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30704.htm" title="实现领养宠物的功能对象（宠物领养制度）">实现领养宠物的功能对象（宠物领养制度）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

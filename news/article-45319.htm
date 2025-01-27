@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-45319.htm" />
+    <meta charset="utf-8">
+    <title>vue 项目安装 node-sass 失败报错的解决办法 附nvm使用方法</title>
+        <meta name="description" content="直接通过npm install 安装会报错  这个时候看下node版本 node -v E:\workspace\myproject&gt;node -v v16.14.1 我的版本是v16.14.1" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-45319.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="vue 项目安装 node-sass 失败报错的解决办法 附nvm使用方法" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/6b1ad92bae3f1b0ad6facd87a311d41e.webp" />
+        <meta property="og:release_date" content="2025-01-24T09:26:53" />
+    <meta property="og:updated_time" content="2025-01-24T09:26:53" />
+        <meta property="og:description" content="直接通过npm install 安装会报错  这个时候看下node版本 node -v E:\workspace\myproject&gt;node -v v16.14.1 我的版本是v16.14.1" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue 项目安装 node-sass 失败报错的解决办法 附nvm使用方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="/">
+                    <span>V2ray Clash X</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">vue 项目安装 node-sass 失败报错的解决办法 附nvm使用方法</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>直接通过npm install 安装会报错</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220607/6ce7f2493f01b26f09a2a9e4a6ff84b7.jpg"></p> <p>这个时候看下node版本 node -v</p> <p>E:\workspace\myproject&gt;node -v<br /> v16.14.1</p> <p>我的版本是v16.14.1 这个时候我们安装下 nvm 这个是一个node版本管理工具</p> <p>安装包下载地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/coreybutler/nvm-windows/releases"  title="https://github.com/coreybutler/nvm-windows/releases" rel="nofollow">https://github.com/coreybutler/nvm-windows/releases</a>， windows系统下载nvm-setup.zip安装包&nbsp; &nbsp;或者百度一下 下载安装也可以&nbsp; 一路回车 安装完成就可以了。</p> <p>再次打开命令行窗口 一定要用管理员身份运行 否则会有乱码</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220607/49ddbfaa3a8f2a169afdef919b339d0f.jpg"></p> <p>&nbsp;打开后看下可以 nvm 版本&nbsp;&nbsp;nvm verson</p> <p>E:\workspace\myproject&gt;nvm verson</p> <p>Running version 1.1.9.</p> <p>可以看到已经安装成功了 ，可以用nvm 切换node版本，我这安装这个版本&nbsp; nvm use 14.16.1</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220607/4ad0d8a8390b8b5632a63cc4bf1158b1.jpg"></p> <p>&nbsp;这个切换完成后 开始安装 yarn&nbsp; 直接通过npm安装就可以了&nbsp;npm install -g yarn</p> <pre><code class="language-bash">C:\Windows\system32&gt;yarn -v 1.22.18</code></pre> <p>说明已经安装成功</p> <p>然后 yarn install</p> <p>结果</p> <pre><code class="language-javascript">success Saved lockfile. Done in 68.03s.</code></pre> <p><strong>安装成功</strong></p> <p>启动命令</p> <pre><code class="language-javascript">yarn run serve   DONE  Compiled successfully in 18704ms                                                                     上午11:06:01     App running at:   - Local:   http://localhost:8080/   - Network: http://192.168.0.24:8080/    Note that the development build is not optimized.   To create a production build, run yarn build.</code></pre> <p><strong>启动成功</strong></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-44807.htm">有免费领养宠物的软件吗安全吗可靠吗（有免费领养宠物的软件吗安全吗可靠吗可信吗）</a></p>
+                                        <p>下一个：<a href="/news/article-45320.htm">动物医院资质要求是什么内容呀（符合动物医院法定条件）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-free-subscribe-node.htm" title="12月10日→18.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月10日→18.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37896.htm" title="猫咪疫苗要打几针?（猫咪疫苗要打几针才能洗澡）">猫咪疫苗要打几针?（猫咪疫苗要打几针才能洗澡）</a></li>
+                        <li class="py-2"><a href="/news/article-24628.htm" title="全国排名前十的兽药厂家有哪些（国内知名兽药厂家）">全国排名前十的兽药厂家有哪些（国内知名兽药厂家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-clash-v2ray-ss-ssr.htm" title="11月18日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月18日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22780.htm" title="动物医院需要几个兽医资格证书呢英语（符合动物医院法定条件）">动物医院需要几个兽医资格证书呢英语（符合动物医院法定条件）</a></li>
+                        <li class="py-2"><a href="/news/article-42832.htm" title="动物医院工作怎么样（动物医院工资怎么样）">动物医院工作怎么样（动物医院工资怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-v2ray-subscribe.htm" title="12月15日→21M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月15日→21M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-v2ray.htm" title="1月13日→22.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月13日→22.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-35644.htm" title="动物医院设备设施清单 动物医院设备设施清单表">动物医院设备设施清单 动物医院设备设施清单表</a></li>
+                        <li class="py-2"><a href="/news/article-21858.htm" title="宠物粮业务员好干吗工资多少一个月（宠物粮食业务员）">宠物粮业务员好干吗工资多少一个月（宠物粮食业务员）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">80</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

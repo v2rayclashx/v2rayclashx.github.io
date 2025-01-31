@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-47264.htm" />
+    <meta charset="utf-8">
+    <title>java学习 枚举和注解</title>
+        <meta name="description" content="java学习----枚举和注解  枚举   自定义类实现枚举 使用enum关键字实现枚举 enum常用方法举例 使用细节   注解   注解的理解 元注解   @Retention 注解 @Docum" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-47264.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="java学习 枚举和注解" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/20da9dced4c2d7213a8a5da74683d1a7.webp" />
+        <meta property="og:release_date" content="2025-01-28T09:31:11" />
+    <meta property="og:updated_time" content="2025-01-28T09:31:11" />
+        <meta property="og:description" content="java学习----枚举和注解  枚举   自定义类实现枚举 使用enum关键字实现枚举 enum常用方法举例 使用细节   注解   注解的理解 元注解   @Retention 注解 @Docum" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java学习 枚举和注解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="/">
+                    <span>V2ray Clash X</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">java学习 枚举和注解</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>java学习----枚举和注解</h3> <ul> <li><a href="#_1" rel="nofollow">枚举</a></li> <li> <ul> <li><a href="#_2" rel="nofollow">自定义类实现枚举</a></li> <li><a href="#enum_47" rel="nofollow">使用enum关键字实现枚举</a></li> <li><a href="#enum_91" rel="nofollow">enum常用方法举例</a></li> <li><a href="#_119" rel="nofollow">使用细节</a></li> </ul> </li> <li><a href="#_126" rel="nofollow">注解</a></li> <li> <ul> <li><a href="#_127" rel="nofollow">注解的理解</a></li> <li><a href="#_192" rel="nofollow">元注解</a></li> <li> <ul> <li><a href="#Retention__201" rel="nofollow">@Retention 注解</a></li> <li><a href="#Documented_212" rel="nofollow">@Documented</a></li> </ul> </li> </ul> </li> </ul> </div> </h1> <h2><a id="_2" rel="nofollow"></a>自定义类实现枚举</h2> <p><strong>步骤：</strong><br /> 1.不需要提供setxxx方法，因为枚举对象的属性只需读。</p> <p>2.对枚举对象使用 final + static修饰，实现底层优化。</p> <p>3.枚举对象名通常全部使用大写，这是一个命名规范。</p> <p>4.构造器私有化，但是对象向外暴露。</p> <pre><code class="prism language-javascript"><span class="token keyword">package</span> Enum<span class="token punctuation">;</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">DefineMyself</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token parameter">String<span class="token punctuation">[</span><span class="token punctuation">]</span> args</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Season<span class="token punctuation">.</span><span class="token constant">SPRING</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Season<span class="token punctuation">.</span><span class="token constant">SUMMER</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">class</span><span class="token class-name">Season</span><span class="token punctuation">{<!-- --></span><span class="token keyword">private</span> String name<span class="token punctuation">;</span><span class="token keyword">private</span> String weather<span class="token punctuation">;</span><span class="token keyword">public</span><span class="token keyword">static</span> final Season<span class="token constant">SPRING</span><span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">Season</span><span class="token punctuation">(</span><span class="token string">"春天"</span><span class="token punctuation">,</span><span class="token string">"温暖"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">public</span><span class="token keyword">static</span> final Season<span class="token constant">SUMMER</span><span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">Season</span><span class="token punctuation">(</span><span class="token string">"夏天"</span><span class="token punctuation">,</span><span class="token string">"炎热"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">private</span><span class="token function">Season</span><span class="token punctuation">(</span><span class="token parameter">String name<span class="token punctuation">,</span> String weather</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">=</span> name<span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>weather<span class="token operator">=</span> weather<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">public</span> String<span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> name<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">public</span> String<span class="token function">getWeather</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> weather<span class="token punctuation">;</span><span class="token punctuation">}</span>      @Override<span class="token keyword">public</span> String<span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token string">"Season{"</span><span class="token operator">+</span><span class="token string">"name='"</span><span class="token operator">+</span> name<span class="token operator">+</span><span class="token string">'\''</span><span class="token operator">+</span><span class="token string">", weather='"</span><span class="token operator">+</span> weather<span class="token operator">+</span><span class="token string">'\''</span><span class="token operator">+</span><span class="token string">'}'</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h2><a id="enum_47" rel="nofollow"></a>使用enum关键字实现枚举</h2> <blockquote> <p>1.但我们使用enum关键字来创建一个枚举类时，默认会继承Enum类，同时该类使用了final修饰。</p> </blockquote> <blockquote> <p>2.传统的 public static final Season SPRING = new Season(“春天”,“温暖”); 变成了SPRING(“春天”,“温暖”),我们要注意它调用的是哪一个构造器。</p> </blockquote> <blockquote> <p>3.如果调用的是无参构造器创建的枚举对象，则实参列表和小括号都可以省略。</p> </blockquote> <blockquote> <p>枚举对象必须放在枚举类的首行。</p> </blockquote> <pre><code class="prism language-javascript"><span class="token keyword">package</span> Enum<span class="token punctuation">;</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">DefineMyself</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token parameter">String<span class="token punctuation">[</span><span class="token punctuation">]</span> args</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Season<span class="token punctuation">.</span><span class="token constant">SPRING</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Season<span class="token punctuation">.</span><span class="token constant">SUMMER</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">enum</span> Season<span class="token punctuation">{<!-- --></span><span class="token constant">SPRING</span><span class="token punctuation">(</span><span class="token string">"春天"</span><span class="token punctuation">,</span><span class="token string">"温暖"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token constant">SUMMER</span><span class="token punctuation">(</span><span class="token string">"夏天"</span><span class="token punctuation">,</span><span class="token string">"炎热"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">public</span> String name<span class="token punctuation">;</span><span class="token keyword">public</span> String weather<span class="token punctuation">;</span><span class="token keyword">private</span><span class="token function">Season</span><span class="token punctuation">(</span><span class="token parameter">String name<span class="token punctuation">,</span> String weather</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">=</span> name<span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>weather<span class="token operator">=</span> weather<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">public</span> String<span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> name<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">public</span> String<span class="token function">getWeather</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> weather<span class="token punctuation">;</span><span class="token punctuation">}</span>      @Override<span class="token keyword">public</span> String<span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token string">"Season{"</span><span class="token operator">+</span><span class="token string">"name='"</span><span class="token operator">+</span> name<span class="token operator">+</span><span class="token string">'\''</span><span class="token operator">+</span><span class="token string">", weather='"</span><span class="token operator">+</span> weather<span class="token operator">+</span><span class="token string">'\''</span><span class="token operator">+</span><span class="token string">'}'</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>注意使用enum关键字创建枚举类时对象依然有 static 和 final 修饰<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/77e922b4517082740b819b1091ee10b7.jpg" alt="java学习 枚举和注解"></p> <h2><a id="enum_91" rel="nofollow"></a>enum常用方法举例</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/c53288b3dabbf05c560994c1d40aa541.jpg" alt="java学习 枚举和注解"><br /> values : 返回当前枚举类中的所有常量。返回的是一个数组。</p> <pre><code class="prism language-javascript"><span class="token keyword">class</span><span class="token class-name">Untitled</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token parameter">String<span class="token punctuation">[</span><span class="token punctuation">]</span> args</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		Season season<span class="token operator">=</span> Season<span class="token punctuation">.</span><span class="token constant">SPRING</span><span class="token punctuation">;</span> 		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>season<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>season<span class="token punctuation">.</span><span class="token function">ordinal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出0</span> 		Season<span class="token punctuation">[</span><span class="token punctuation">]</span> seasons<span class="token operator">=</span> Season<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">for</span><span class="token punctuation">(</span>Season s1<span class="token operator">:</span> seasons<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 			System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出SPRING和SUMMER</span><span class="token punctuation">}</span> 		Season value<span class="token operator">=</span> Season<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token string">"SPRING"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出SPRING</span> 		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>season<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>Season<span class="token punctuation">.</span><span class="token constant">SUMMER</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//0-1=-1，输出-1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">enum</span> Season<span class="token punctuation">{<!-- --></span><span class="token constant">SPRING</span><span class="token punctuation">(</span><span class="token string">"春天"</span><span class="token punctuation">,</span><span class="token string">"温暖"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token constant">SUMMER</span><span class="token punctuation">(</span><span class="token string">"夏天"</span><span class="token punctuation">,</span><span class="token string">"炎热"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">private</span> String name<span class="token punctuation">;</span><span class="token keyword">private</span> String weather<span class="token punctuation">;</span><span class="token keyword">private</span><span class="token function">Season</span><span class="token punctuation">(</span><span class="token parameter">String name<span class="token punctuation">,</span>String weather</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">=</span> name<span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>weather<span class="token operator">=</span> weather<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h2><a id="_119" rel="nofollow"></a>使用细节</h2> <p>1.使用enum关键字后，就不能再继承其他类了，因为enum会隐式继承Enum,而JAVA是单继承机制。</p> <p>2.枚举类和普通类一样，可以实现接口。</p> <pre><code class="prism language-javascript"><span class="token keyword">enum</span> 类名<span class="token keyword">implements</span> 接口<span class="token number">1</span>，接口<span class="token number">2</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre> </h1> <h2><a id="_127" rel="nofollow"></a>注解的理解</h2> <blockquote> <p>注解（Annotation）也被称为元数据，用于修饰解释，包，类，方法，属性，构造器，局部变量的数据信息。</p> </blockquote> <blockquote> <p>和注释一样，不影响程序的逻辑，但注解可以被编译和运行，相当于嵌入在代码中的补充信息。</p> </blockquote> <p>使用Annotation时要在前面加@符号，并把Annotation当成修饰符使用，用于修饰它支持的程序元素。</p> <p><strong>三个基本的Annotation:</strong><br /> 1.@Override :限定某个方法，是重写父类方法，该注解只能用于方法。</p> <p>说明：如果使用了@Override，则接下来的方法必须重写父类方法，如果没有，那么编译器会报错。</p> <pre><code class="prism language-javascript"><span class="token comment">//@Override的源码</span> @<span class="token function">Target</span><span class="token punctuation">(</span>ElementType<span class="token punctuation">.</span><span class="token constant">METHOD</span><span class="token punctuation">)</span> @<span class="token function">Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span><span class="token constant">SOURCE</span><span class="token punctuation">)</span><span class="token keyword">public</span> @<span class="token keyword">interface</span><span class="token class-name">Override</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span></code></pre> <p>注意：@interface表示一个注解类，不是接口。<br /> @Target是修饰注解的注解，称为元注解。</p> <p>2.@Deprecated : 用于表示某个程序元素(类，方法等)已经过时。</p> <pre><code class="prism language-javascript"><span class="token keyword">package</span> annotation_<span class="token punctuation">;</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">deprecated_</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token parameter">String<span class="token punctuation">[</span><span class="token punctuation">]</span> args</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//A上出现一个横线，表示过时，不推荐使用，但是仍可以使用</span><span class="token constant">A</span> a<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span> @Deprecated<span class="token keyword">class</span><span class="token class-name">A</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span> int n1<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p>@Deprecated可以用作JDK新旧版本的兼容和过渡使用。</p> <p>3.@SuppressWarnings : 抑制编译器警告。</p> <pre><code class="prism language-javascript"><span class="token keyword">package</span> annotation_<span class="token punctuation">;</span><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token punctuation">;</span><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span> @<span class="token function">SuppressWarnings</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token string">"all"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">SuppressWarnings_</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token parameter">String<span class="token punctuation">[</span><span class="token punctuation">]</span> args</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         int i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>         List list<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"jack"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token comment">//作用的类型TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE</span><span class="token comment">//可以传入一个数组</span><span class="token comment">/* @Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE}) @Retention(RetentionPolicy.SOURCE) public @interface SuppressWarnings {     String[] value(); }  */</span></code></pre> <h2><a id="_192" rel="nofollow"></a>元注解</h2> <p>JDK 的元 Annotation 用于修饰其他 Annotation，可以增强对源代码的理解</p> <p><strong>元注解的种类：</strong></p> <p>(1) Retention //指定注解的作用范围，三种 SOURCE,CLASS,RUNTIME<br /> (2) Target // 指定注解可以在哪些地方使用<br /> (3) Documented //指定该注解是否会在 javadoc 体现<br /> (4) Inherited //子类会继承父类注解</p> <h3><a id="Retention__201" rel="nofollow"></a>@Retention 注解</h3> <blockquote> <p>说明只能用于修饰一个 Annotation 定义, 用于指定该 Annotation 可以保留多长时间, @Rentention 包含一个 RetentionPolicy 类型的成员变量, 使用 @Rentention 时必须为该 value 成员变量指定值:</p> </blockquote> <p>@Retention 的三种值<br /> (1) RetentionPolicy.SOURCE: 编译器使用后，直接丢弃这种策略的注释</p> <p>(2) RetentionPolicy.CLASS: 编译器将把注解记录在 class 文件中. 当运行 Java 程序时, JVM 不会保留注解。 这是默认值</p> <p>(3) RetentionPolicy.RUNTIME:编译器将把注解记录在 class 文件中. 当运行 Java 程序时, JVM 会保留注解. 程序可以 通过反射获取该注解</p> <h3><a id="Documented_212" rel="nofollow"></a>@Documented</h3> <blockquote> <p>用于指定被元注解修饰的注解类将被javadoc工具提取成文档，即在生成文档时，可以看到该注解。</p> </blockquote> <p>定义Documented的注解的Rentention必须设置为RUNTIME</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46781.htm">同城宠物猫领养（同城宠物猫领养平台）</a></p>
+                                        <p>下一个：<a href="/news/article-47265.htm">卖宠物粮食生意怎么样 卖宠物粮食生意怎么样啊</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-node-share.htm" title="12月11日→22.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月11日→22.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-v2ray.htm" title="10月12日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月12日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-v2ray-subscribe.htm" title="12月3日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月3日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22322.htm" title="宠物粮生产设备哪家好 宠物粮生产设备哪家好用">宠物粮生产设备哪家好 宠物粮生产设备哪家好用</a></li>
+                        <li class="py-2"><a href="/news/article-35125.htm" title="芭比堂宠物医院投诉（芭比堂宠物医院朝阳北路）">芭比堂宠物医院投诉（芭比堂宠物医院朝阳北路）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-v2ray.htm" title="11月4日→18.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月4日→18.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24628.htm" title="全国排名前十的兽药厂家有哪些（国内知名兽药厂家）">全国排名前十的兽药厂家有哪些（国内知名兽药厂家）</a></li>
+                        <li class="py-2"><a href="/news/article-45798.htm" title="动物疫苗厂家查询系统官网（动物疫苗厂家查询系统官网入口）">动物疫苗厂家查询系统官网（动物疫苗厂家查询系统官网入口）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-free-node-subscribe.htm" title="1月30日→19.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月30日→19.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-node-subscribe.htm" title="12月5日→20M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月5日→20M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

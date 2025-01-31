@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-48755.htm" />
+    <meta charset="utf-8">
+    <title>机器学习笔记：Python底层实现KNN</title>
+        <meta name="description" content="小白纯新手，自学了sklearn，想要挑战用python手写机器学习中的主要算法。   借助python自带的pandas库导入数据，很简单。用的数据是下载到本地的红酒集。 代码如下（示例）： imp" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-48755.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="机器学习笔记：Python底层实现KNN" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/df13deedbb13f0653e8e05805e6024ec.webp" />
+        <meta property="og:release_date" content="2025-01-31T07:16:51" />
+    <meta property="og:updated_time" content="2025-01-31T07:16:51" />
+        <meta property="og:description" content="小白纯新手，自学了sklearn，想要挑战用python手写机器学习中的主要算法。   借助python自带的pandas库导入数据，很简单。用的数据是下载到本地的红酒集。 代码如下（示例）： imp" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="机器学习笔记：Python底层实现KNN">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="/">
+                    <span>V2ray Clash X</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">机器学习笔记：Python底层实现KNN</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p><span style="color:#999aaa;">小白纯新手，自学了sklearn，想要挑战用python手写机器学习中的主要算法。</span></p> <hr/> </h1> <p>借助python自带的pandas库导入数据，很简单。用的数据是下载到本地的红酒集。</p> <p><span style="color:#999aaa;">代码如下（示例）：</span></p> <pre><code class="language-c language-python">import pandas as pd def read_xlsx(csv_path):     data = pd.read_csv(csv_path)     print(data)     return data</code></pre> <h2 id="2.%E8%AF%BB%E5%85%A5%E6%95%B0%E6%8D%AE"><a id="2_49" rel="nofollow"></a>2.归一化</h2> <p>KNN算法中将用到距离，因此归一化是一个重要步骤，可以消除数据的量纲。我用了归一化，消除量纲也可以用标准化，但是作为新手，我觉得归一化比较简单。</p> <p>其中最大最小值的计算用到了python中的numpy库，pandas导入的数据是DateFrame形式的，np.array()用来将DateFrame形式转化为可以用numpy计算的ndarray形式。</p> <p><span style="color:#999aaa;">代码如下（示例）：</span></p> <pre><code class="language-c language-python">import numpy as np def MinMaxScaler(data):     col = data.shape[1]     for i in range(0, col-1):         arr = data.iloc[:, i]         arr = np.array(arr) #将DataFrame形式转化为ndarray形式，方便后续用numpy计算         min = np.min(arr)         max = np.max(arr)         arr = (arr-min)/(max-min)         data.iloc[:, i] = arr     return data</code></pre> <h2>3.分训练集和测试集</h2> <p>先将数据值和标签值分别用x和y划分开，设置随机数种子random_state，若不设置，则每次运行的结果会不相同。test_size表示测试集比例。</p> <pre><code class="language-python">def train_test_split(data, test_size=0.2, random_state=None):     col = data.shape[1]     x = data.iloc[:, 0:col-1]     y = data.iloc[:, -1]     x = np.array(x)     y = np.array(y)     # 设置随机种子，当随机种子非空时，将锁定随机数     if random_state:         np.random.seed(random_state)         # 将样本集的索引值进行随机打乱         # permutation随机生成0-len(data)随机序列     shuffle_indexs = np.random.permutation(len(x))     # 提取位于样本集中20%的那个索引值     test_size = int(len(x) * test_size)     # 将随机打乱的20%的索引值赋值给测试索引     test_indexs = shuffle_indexs[:test_size]     # 将随机打乱的80%的索引值赋值给训练索引     train_indexs = shuffle_indexs[test_size:]     # 根据索引提取训练集和测试集     x_train = x[train_indexs]     y_train = y[train_indexs]     x_test = x[test_indexs]     y_test = y[test_indexs]     # 将切分好的数据集返回出去     # print(y_train)     return x_train, x_test, y_train, y_test</code></pre> <h2>4.计算距离</h2> <p>此处用到欧氏距离，pow()函数用来计算幂次方。length指属性值数量，在计算最近邻时用到。</p> <pre><code class="language-python">def CountDistance(train,test,length):     distance = 0     for x in range(length):         distance += pow(test[x] - train[x], 2)**0.5     return distance</code></pre> <h2>5.选择最近邻</h2> <p>计算测试集中的一条数据和训练集中的每一条数据的距离，选择距离最近的k个，以少数服从多数原则得出标签值。其中argsort返回的是数值从小到大的索引值，为了找到对应的标签值。</p> <p>tip:用numpy计算众数的方法</p> <pre><code class="language-html">import numpy as np #bincount（）：统计非负整数的个数，不能统计浮点数 counts = np.bincount(nums) #返回众数 np.argmax(counts)</code></pre> <p>少数服从多数原则，计算众数，返回标签值。</p> <pre><code class="language-python">def getNeighbor(x_train,test,y_train,k):     distance = []     #测试集的维度     length = x_train.shape[1]     #测试集合所有训练集的距离     for x in range(x_train.shape[0]):         dist = CountDistance(test, x_train[x], length)         distance.append(dist)     distance = np.array(distance)     #排序     distanceSort = distance.argsort()     # distance.sort(key= operator.itemgetter(1))     # print(len(distance))     # print(distanceSort[0])     neighbors =[]     for x in range(k):         labels = y_train[distanceSort[x]]         neighbors.append(labels)         # print(labels)     counts = np.bincount(neighbors)     label = np.argmax(counts)     # print(label)     return label</code></pre> <p>调用函数时：</p> <pre><code class="language-python">getNeighbor(x_train,x_test[0],y_train,3)</code></pre> <h2>&nbsp;6.计算准确率</h2> <p>用以上KNN算法预测测试集中每一条数据的标签值，存入result数组，将预测结果与真实值比较，计算预测正确的个数与总体个数的比值，即为准确率。</p> <pre><code class="language-python">def getAccuracy(x_test,x_train,y_train,y_test):     result = []     k = 3     # arr_label = getNeighbor(x_train, x_test[0], y_train, k)     for x in range(len(x_test)):         arr_label = getNeighbor(x_train, x_test[x], y_train, k)         result.append(arr_label)     correct = 0     for x in range(len(y_test)):         if result[x] == y_test[x]:            correct += 1     # print(correct)     accuracy = (correct / float(len(y_test))) * 100.0     print("Accuracy:", accuracy, "%")     return accuracy</code></pre> <hr/> <h2><a id="_67" rel="nofollow"></a>总结</h2> <p>KNN算是机器学习中最简单的算法，实现起来相对简单，但对于我这样的新手，还是花费了大半天时间才整出来。</p> <p>在github上传了项目：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/chenyi369/KNN"  rel="nofollow">https://github.com/chenyi369/KNN</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48754.htm">python读取HDFS文件</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-node-share.htm" title="11月2日→20.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月2日→20.5M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-free-high-speed-nodes.htm" title="10月27日→21.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">10月27日→21.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27417.htm" title="Python中安装pandas出现问题总结">Python中安装pandas出现问题总结</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-clash-v2ray-ss-ssr.htm" title="1月4日→18.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月4日→18.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-free-v2ray.htm" title="12月24日→20.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月24日→20.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38869.htm" title="符合动物医院法定条件有哪些内容要求（动物医院资质级别有哪些）">符合动物医院法定条件有哪些内容要求（动物医院资质级别有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-40845.htm" title="netty系列之:netty中的核心编码器bytes数组">netty系列之:netty中的核心编码器bytes数组</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-node-share-links.htm" title="1月8日→19.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月8日→19.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-34514.htm" title="FreeRTOS进阶之系统延时完全解析_操作系统_">FreeRTOS进阶之系统延时完全解析_操作系统_</a></li>
+                        <li class="py-2"><a href="/news/article-20027.htm" title="长春宠物领养中心在哪儿（长春宠物领养长春宠物赠送）">长春宠物领养中心在哪儿（长春宠物领养长春宠物赠送）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-49263.htm" />
+    <meta charset="utf-8">
+    <title>使用Jenkins实现前端自动化打包部署（Linux版本）</title>
+        <meta name="description" content="　　我们这边好多小组觉得每次测试人员叫我们开发打包部署到某某个测试环境人工操作比较麻烦，因为他们想做到只专注于开发，不管这些琐碎的事。于是有个组长问我前端能不能用Jenkins去执行这一个固定的流程，" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-49263.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="使用Jenkins实现前端自动化打包部署（Linux版本）" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/60949e972ab1f3a261dda4a5ca75059b.webp" />
+        <meta property="og:release_date" content="2025-02-01T07:12:49" />
+    <meta property="og:updated_time" content="2025-02-01T07:12:49" />
+        <meta property="og:description" content="　　我们这边好多小组觉得每次测试人员叫我们开发打包部署到某某个测试环境人工操作比较麻烦，因为他们想做到只专注于开发，不管这些琐碎的事。于是有个组长问我前端能不能用Jenkins去执行这一个固定的流程，" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="使用Jenkins实现前端自动化打包部署（Linux版本）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">使用Jenkins实现前端自动化打包部署（Linux版本）</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>　　我们这边好多小组觉得每次测试人员叫我们开发打包部署到某某个测试环境人工操作比较麻烦，因为他们想做到只专注于开发，不管这些琐碎的事。于是有个组长问我前端能不能用Jenkins去执行这一个固定的流程，因为他们后端都是用Jenkins去实现自动化打包部署。我之前没用过Jenkins，于是我去Jenkins官网看了下，发现确实是可以使用Jenkins实现前端自动化打包部署的，因为Jenkins可以执行远程shell脚本，我们开发是在Windows下，只是相当于在Linux下打包而已，而前端项目完全是可以在Linux环境下打包的。（顺便提一句，我们的Jenkins部署在CentOS下，所以以下示例代码均以CentOS环境为例，示例中的Jenkins语言文字汉化不完整，不过大家按图索骥应该也能找到相应的位置）</p> <p><span style="font-size: 16px"><strong>1.安装nodejs，publish over ssh插件</strong></span></p> <p>　　打开Jenkins首页-&gt;Manage Jenkins-&gt;Manage Plugins</p> <p>　　这里有两种安装方式，一种是联网直接在“可安装”这个tab页中搜索安装；还有一种是离线安装。由于我们处于内网，所以我用了第二种方式离线安装，此处以离线安装nodejs插件为例。Jenkins插件地址：https://plugins.jenkins.io</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8b44c489d659e19d6b81bd9fd577f0bb.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ffb93feb413138ea9938c23796bb422b.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p>　　然后你就会获得一个名为nodejs.hpi的离线插件。然后通过“高级”这个tab页里的上传插件功能导入这个插件即可。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/207236c30448311ebe939cdac015eec4.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p>&nbsp;　　安装好插件之后需要重启Jenkins，只要在Jenkins的url后添加/restart回车稍等几分钟即可。</p> <p><span style="font-size: 16px"><strong>&nbsp;2.在jenkins所在的Linux主机上安装node.js并配置环境变量。</strong></span></p> <p>　　下载node.js的release包，推荐清华大学开源软件镜像网：https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/，要不墙的你怀疑人生。找到你想要的node版本，查看Linux架构可用arch命令，如下图所示，x64就是x86_64的简称，此处以下载最新版node为例，一般不推荐最新版，容易出各种莫名其妙的bug，最好和开发node版本一样，然后点击下载。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/499f302d33819ed6d3bfc1a126066240.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p style="text-align: center"><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e152a42f9392f7e26135e47e15c034a7.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p style="text-align: left">　　这里建议再安装一个node-sass的release包，因为每次前端npm install出问题有一半原因都是因为node-sass安装出问题，而且内网也没联网，这里我也就一起离线安装了。这个node-sass版本需要与node版本相匹配，否则会报错，具体可以参考我这篇文章https://www.cnblogs.com/jdWu-d/p/13594721.html。如果觉得自己npm install没啥问题就可以跳过不用看了。</p> <p style="text-align: left">　　然后将这两个release包上传到服务器的某个目录下，我以某个用户下新建的node文件目录存放release包，以某用户下.bash_profile配置局部环境变量为例，如需全局环境变量，可到etc/profile配置。</p> <p style="text-align: left"><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/10bfecb201429f3205cc4c64d5c98dcf.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p>　　在.bash_profile文件下添加</p> <div class="cnblogs_code"> <pre>export PATH=/nodejs的release包所在路径/<span style="color: rgba(0, 0, 0, 1)">bin:$PATH export SASS_BINARY_PATH</span>=/node-sass的release包所在路径  //如无离线安装node-sass，则可不配置</pre> </div> <p>　　添加完毕后保存退出编辑，然后用source .bash_profile命令刷新局部变量。然后node -v测试是否安装成功</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c75db741cd05a3c7dff0038c0c6e1c17.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p><strong><span style="font-size: 16px">&nbsp;3.jenkins系统配置和全局工具配置</span></strong></p> <p>　　（1）打开Jenkins首页-&gt;Manage Jenkins-&gt;Configure System-&gt;全局属性-&gt;Environment variables-&gt;新增键值队列表，如果不设置此项，会导致Jenkins内部无法识别node及npm等命令，最后在执行npm run build的时候会报错：npm:未找到命令。</p> <p>　　　　&nbsp; &nbsp;Linux查看PATH命令为echo $PATH</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/afe4d4f423351f6a9d9c271b971b0136.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0dfce55990d11e9bb22faf24487cb5b1.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p style="text-align: center"><span style="font-size: 12px">为了方便，我直接把所有PATH直接添加进去，大家自己可以按需添加，SASS_BINARY_PATH如无离线安装node-sass则无必要添加</span></p> <p style="text-align: left"> <p style="text-align: left">　　（2）打开Jenkins首页-&gt;Manage Jenkins-&gt;Global Tool Configure-&gt;nodejs安装，别名随便取，安装目录填nodejs的release包所在路径，然后保存</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/119cf8db7082f44ef94feb415deaf1b5.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p><span style="font-size: 16px"><strong>&nbsp;4.写测试脚本</strong></span></p> <p>　　此步骤只是为了验证上述的配置是否生效，自信的可以直接跳过此步骤查看步骤5</p> <p>　　打开Jenkins首页-&gt;new item-&gt;Freestyle Project</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5519e200b098f372413729cfee8fd205.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p>&nbsp;　　在构建环境中勾选“Provide Node&amp;npm bin/folder to PATH”选择步骤3中nodejs安装填写的那个别名，测试语句node -v &amp; npm -v。然后保存。<img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3bbcd8737e0967a0b9ec8b9ab9cec33d.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p>&nbsp;　　在项目列表，右键Build Now。<img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9c4f4bc647b43ce7c5bca2ee33583999.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p>　　在构建历史中查看，看到蓝色即成功，红色即失败，点击进入详情页面，查看控制台输出，看见有输出node和npm的版本，则证明上述配置生效。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/4fb7d664066073d7725bea06da60b293.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c978daaf1b276dd6185a46151c6c9f3c.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p><strong><span style="font-size: 16px">5.添加凭据</span></strong></p> <p>　　打开Jenkins首页-&gt;凭据-&gt;系统-&gt;全局凭据-&gt;添加凭据，分别添加github及目标主机的账户密码，注意，其中ID是唯一且不可修改的。这些ID将会与步骤6脚本中的credentialsId（“examples”，“172.XXX.XXX.XXX”）相对应，否则会报错。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ed20d4247c20c70a84c239d05ff6657e.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/4b70c61d16c21eced7b9cdcb735c01f0.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p><span style="font-size: 16px"><strong>6.写流水线脚本</strong></span></p> <p>　　建立一个流水线项目，打开Jenkins首页-&gt;new item-&gt;流水线，在脚本中填写代码下载-&gt;打包-&gt;部署流程的脚本代码。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d73d0864bbfb977297c13ba45b2f0b90.jpg" alt="使用Jenkins实现前端自动化打包部署（Linux版本）"></p> <p>&nbsp;　　流水线语法有两种，一种是声明式语法，一种是脚本式语法，官方文档手册传送门：https://www.jenkins.io/zh/doc/book/pipeline/syntax/。这里以脚本式语法为例，具体代码如下：</p> <div class="cnblogs_code"> <pre>node("master"<span style="color: rgba(0, 0, 0, 1)">){</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">清理工作区</span>     step([$class:'WsCleanup'<span style="color: rgba(0, 0, 0, 1)">])</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">工程部署目标服务器ip</span>     def deploy_ip='172.XXX.XXX.XXX'<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">目标服务器dist包所在目标目录</span>     def path='/home/XXXX/nginx/html'<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">当前日期</span>     def cur_date="`date + %Y%m%d`"<span style="color: rgba(0, 0, 0, 1)">     stage(</span>'代码下载'<span style="color: rgba(0, 0, 0, 1)">){         checkout([$class:</span>'GitSCM',branches: [[name:'*/test']], doGenerateSubmoduleConfigurations:<span style="color: rgba(0, 0, 255, 1)">false</span>, extensions: [], submoduleCfg: [],userRemoteConfigs: [[credentialsId: 'examples', url: 'http://172.XXX.XXX.XXX/XXX/XXX.git'<span style="color: rgba(0, 0, 0, 1)">]]])     }     stage(</span>'打包代码'<span style="color: rgba(0, 0, 0, 1)">){         sh</span>'''<span style="color: rgba(0, 0, 0, 1)">             cd /home/XXX/.jenkins/workspace/fronted_build_test             npm install  #此处也可用unzip node_modules.zip，详见下方解释             chmod -R 755 ./*             npm run build &amp; sleep 1m             mv dist distJenkinsTest  #也可以在vue.config.js里的outputDir里自己设置包名</span>'''<span style="color: rgba(0, 0, 0, 1)">     }     withCredentials([usernamePassword(credentialsId:</span>'172.XXX.XXX.XXX', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'<span style="color: rgba(0, 0, 0, 1)">)]){         stage(</span>'部署dist包'<span style="color: rgba(0, 0, 0, 1)">){</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">创建必要的文件夹</span>             sh "sshpass -p '$PASSWORD' ssh -o StrictHostKeyChecking=no $USERNAME@$deploy_ip \" if [ ! -d $path/backup ]; then mkdir $path/backup; fi\" "<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">备份旧dist文件</span>             sh "sshpass -p '$PASSWORD' ssh -o StrictHostKeyChecking=no $USERNAME@$deploy_ip \" if [ -d $path/distJenkinsTest ]; then mv $path/distJenkinsTest/ $path/backup/distJenkinsTest-$cur_date; fi\" "<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">将新dist包上传到目标服务器目标目录</span>             sh "sshpass -p '$PASSWORD' scp -r distJenkinsTest $USERNAME@$deploy_ip:$path "<span style="color: rgba(0, 0, 0, 1)">         } }</span></pre> </div> <p>　　打包代码中，我还是建议可以第一次构建可以npm install，然后在workspace里把npm install后生成的node_modules文件压缩成node_modules.zip，之后可以使用unzip node_modules.zip，因为只要项目中不引入新的模块和插件node_modules文件夹内的内容是不会变的，没必要每次都npm install，经常npm install不仅考验网速，而且还容易报错。Linux下压缩node_modules文件夹请用命令<strong><span style="color: rgba(255, 0, 0, 1)">zip -r -y&nbsp;node_modules.zip&nbsp;node_modules/</span></strong><span style="color: rgba(0, 0, 0, 1)">，</span>因为node_modules文件夹里有很多符号链接，没有使用”-y“参数会导致npm run build打包的时候这文件找不到那文件找不到，这模块丢失那模块丢失。</p> <p>&nbsp;　　至此，就可以一劳永逸的使用Jenkins实现前端的自动化打包部署了，你也不会在群里看见测试@你的名字喊你部署包到哪个环境了</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-49262.htm">flex布局实现 内容区域高度自适应</a></p>
+                                        <p>下一个：<a href="/news/article-49778.htm">宠物店领养协议书 宠物店领养协议书范本</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-41842.htm" title="不建议养的5种猫（懒人养什么猫最省心）">不建议养的5种猫（懒人养什么猫最省心）</a></li>
+                        <li class="py-2"><a href="/news/article-36422.htm" title="动物防疫站给猫打疫苗贵吗多少钱一次（动物防疫站可以给猫看病吗）">动物防疫站给猫打疫苗贵吗多少钱一次（动物防疫站可以给猫看病吗）</a></li>
+                        <li class="py-2"><a href="/news/article-33081.htm" title="Kotlin（二） 标准函数和静态方法">Kotlin（二） 标准函数和静态方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-v2ray.htm" title="12月20日→18.8M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月20日→18.8M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50297.htm" title="iSCSI服务器CHAP双向认证配置">iSCSI服务器CHAP双向认证配置</a></li>
+                        <li class="py-2"><a href="/news/article-26488.htm" title="动物疫苗研究进展（动物疫苗研制）">动物疫苗研究进展（动物疫苗研制）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-clash-v2ray-ss-ssr.htm" title="12月26日→20.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月26日→20.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-v2ray-subscribe.htm" title="12月2日→18.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月2日→18.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43828.htm" title="上海宠物医院收费价目表查询（上海良心的宠物医院）">上海宠物医院收费价目表查询（上海良心的宠物医院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-node-subscribe-links.htm" title="12月12日→22.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月12日→22.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

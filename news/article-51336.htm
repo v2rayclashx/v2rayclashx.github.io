@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-51336.htm" />
+    <meta charset="utf-8">
+    <title>SpringBoot项目使用EasyPoi实现导入导出，就是这么的丝滑</title>
+        <meta name="description" content="在项目的开发工程中，经常有导入导出数据的常见功能场景，Apache的POI是处理导入导出中最常用的，但是其原生的用法太复杂，很繁琐，总是在Copy… ，无意间发现一款简单粗暴的神器EasyPoi，Ea" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-51336.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="SpringBoot项目使用EasyPoi实现导入导出，就是这么的丝滑" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/68f2f22df75004879d5a77c0fa9056f0.webp" />
+        <meta property="og:release_date" content="2025-02-05T08:18:29" />
+    <meta property="og:updated_time" content="2025-02-05T08:18:29" />
+        <meta property="og:description" content="在项目的开发工程中，经常有导入导出数据的常见功能场景，Apache的POI是处理导入导出中最常用的，但是其原生的用法太复杂，很繁琐，总是在Copy… ，无意间发现一款简单粗暴的神器EasyPoi，Ea" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot项目使用EasyPoi实现导入导出，就是这么的丝滑">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">SpringBoot项目使用EasyPoi实现导入导出，就是这么的丝滑</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>在项目的开发工程中，经常有导入导出数据的常见功能场景，Apache的POI是处理导入导出中最常用的，但是其原生的用法太复杂，很繁琐，总是在Copy… ，无意间发现一款简单粗暴的神器EasyPoi，EasyPoi也是基于POI的，在SpringBoot中也是做了很好的封装，让我们能够在SpringBoot 快速地使用 EasyPoi 进行开发，很方便，而且支持多种格式的导入导出。</p> <p>本篇文章就给大家介绍下EasyPoi。</p> <hr/> </h1> <p>EasyPoi功能如同名字easy，主打的功能就是容易,让一个没见接触过poi的人员就可以方便的写出Excel导出，Excel模板导出，Excel导入，Word模板导出，通过简单的注解和模板语言(熟悉的表达式语法)，完成以前复杂的写法。</p> </h1> <ul> <li>基于注解的导入导出，修改注解就可以修改Excel</li> <li>支持常用的样式自定义</li> <li>基于map可以灵活定义的表头字段</li> <li>支持一对多的导出，导入</li> <li>支持模板的导出，一些常见的标签,自定义标签</li> <li>支持HTML/Excel转换，如果模板还不能满足用户的变态需求，请用这个功能</li> <li>支持word的导出，支持图片、Excel</li> </ul> </h1> <p>easypoi起因就是Excel的导入导出，最初的模板是实体和Excel的对应，model–row，filed–col 这样利用注解我们可以和容易做到excel到导入导出。</p> <h2>1.@Excel</h2> <p>这个是必须使用的注解，如果需求简单只使用这一个注解也是可以的，涵盖了常用的Excel需求。</p> <table> <thead> <tr> <th>属性</th> <th>类型</th> <th>默认值</th> <th>功能</th> </tr> </thead> <tbody> <tr> <td>name</td> <td>String</td> <td>null</td> <td>列名</td> </tr> <tr> <td>orderNum</td> <td>String</td> <td>“0”</td> <td>列的排序</td> </tr> <tr> <td>replace</td> <td>String[]</td> <td>{}</td> <td>值的替换 {a_id,b_id}</td> </tr> <tr> <td>type</td> <td>int</td> <td>1</td> <td>导出类型 1 是文本 2 是图片,3 是函数,10 是数字 默认是文本</td> </tr> <tr> <td>exportFormat</td> <td>String</td> <td>“”</td> <td>导出的时间格式,以这个是否为空来判断是否需要格式化日期</td> </tr> <tr> <td>importFormat</td> <td>String</td> <td>“”</td> <td>导入的时间格式,以这个是否为空来判断是否需要格式化日期</td> </tr> <tr> <td>format</td> <td>String</td> <td>“”</td> <td>时间格式,相当于同时设置了exportFormat 和 importFormat</td> </tr> <tr> <td>suffix</td> <td>String</td> <td>“”</td> <td>文字后缀,如% 90 变成90%</td> </tr> <tr> <td>isHyperlink</td> <td>boolean</td> <td>false</td> <td>超链接,如果是需要实现接口返回对象</td> </tr> <tr> <td>isImportField</td> <td>boolean</td> <td>true</td> <td>校验字段,看看这个字段是不是导入的Excel中有,如果没有说明是错误的Excel,读取失败,支持name_id</td> </tr> <tr> <td>## 2.@ExcelCollection</td> <td></td> <td></td> </tr> <tr> <td>一对多的集合注解，用以标记集合是否被数据以及集合的整体排序</td> <td></td> <td></td> </tr> <tr> <td>属性</td> <td>类型</td> <td>默认值</td> <td>功能</td> </tr> <tr> <td>--------</td> <td>-----</td> <td>-------</td> <td>-----</td> </tr> <tr> <td>id</td> <td>String</td> <td>null</td> <td>定义ID</td> </tr> <tr> <td>name</td> <td>String</td> <td>null</td> <td>定义集合列名,支持nanm_id</td> </tr> <tr> <td>orderNum</td> <td>int</td> <td>0</td> <td>排序,支持name_id</td> </tr> <tr> <td>type</td> <td>Class&lt;?&gt;</td> <td>ArrayList.class</td> <td>导入时创建对象使用</td> </tr> </tbody> </table> </h1> <h2>1.添加依赖</h2> <pre><code class="hljs">&lt;dependency&gt;    &lt;groupId&gt;cn.afterturn&lt;/groupId&gt;    &lt;artifactId&gt;easypoi-spring-boot-starter&lt;/artifactId&gt;    &lt;version&gt;4.2.0&lt;/version&gt; &lt;/dependency&gt;</code></pre> <h2>2.导入功能实现</h2> <p>首先定义需要导入的数据类型UserImportVO，并使用@Excel注解与excel列映射，导入的时候通常需要对导入的数据进行一些校验。</p> <p>EasyPoi的校验使用也很简单，对象上加上通用的校验规则，配置下需要校验就可以了，校验主要是JSR 303 规范，可结合Hibernate Validator使用：</p> <h3>2.1 UserImportVO导入类</h3> <p>导入类对象实现IExcelModel、IExcelDataModel 接口，可获取到错误校验信息。</p> <pre><code class="hljs">@Data public class UserImportVO implements Serializable,IExcelModel, IExcelDataModel {      @NotBlank     @Excel(name = "姓名")     private String realName;      @Excel(name = "性别", replace = { "男_1", "女_2" })     private Integer sex;      @Excel(name = "出生日期", format = "yyyy-MM-dd")     private Date birthday;      @Length(min=1, max=11, message = "请填写正确的手机号")     @Excel(name = "手机号码")     private String phone;      @Excel(name = "固定电话")     private String tel;      @Email(message = "请填写正确的邮箱地址")     @Excel(name = "邮箱")     private String email;      @Excel(name = "头像地址")     private String avatar;      @Excel(name = "信息")     private String errorMsg;      private Integer rowNum;      @Override     public Integer getRowNum() {         return this.rowNum;     }      @Override     public void setRowNum(Integer i) {         this.rowNum = i;     }      @Override     public String getErrorMsg() {         return this.errorMsg;     }      @Override     public void setErrorMsg(String s) {         this.errorMsg = s;     } }</code></pre> <h3>2.2 controller层</h3> <p>在编写controller层导入方法</p> <pre><code class="hljs">    @Autowired     private IUserService userService;      @PostMapping("/importExcel")     public String importExcel(@RequestParam("file") MultipartFile file) {         try {             String result = userService.importExcel(file);             return result;         } catch (Exception e) {             return "导入失败";         }     }</code></pre> <h3>2.3 service层</h3> <p>具体的实现是在service层</p> <pre><code class="hljs">   @Autowired     private UserVerifyHandler userVerifyHandler;      @Override     public String importExcel(MultipartFile file) throws Exception{         ImportParams importParams = new ImportParams();         //表格标题行数,默认0         importParams.setTitleRows(1);         //是否需要校验上传的Excel         importParams.setNeedVerify(true);         //告诉easypoi我们自定义的验证器         importParams.setVerifyHandler(userVerifyHandler);         ExcelImportResult&lt;UserImportVO&gt; result = ExcelImportUtil.importExcelMore(file.getInputStream(),UserImportVO.class,importParams);         if (!result.isVerifyFail() &amp;&amp; !CollectionUtils.isEmpty(result.getList())) {             for (UserImportVO vo : result.getList()) {                 log.info("从Excel导入数据到数据库的详细为 ：{}", vo);                 User user = new User();                 BeanUtil.copyProperties(vo,user);                 this.save(user);             }         } else {             for (UserImportVO vo : result.getFailList()) {                 log.info("校验失败的详细为 ：{}", vo);             }             return "文档校验失败";         }         return "导入成功";     }</code></pre> <h3>2.4 ImportParams 参数</h3> <p>ImportParams 参数各属性介绍</p> <table> <thead> <tr> <th>属性</th> <th>类型</th> <th>默认值</th> <th>功能</th> </tr> </thead> <tbody> <tr> <td>titleRows</td> <td>int</td> <td>0</td> <td>表格标题行数,默认0</td> </tr> <tr> <td>headRows</td> <td>int</td> <td>1</td> <td>表头行数,默认1</td> </tr> <tr> <td>startRows</td> <td>int</td> <td>0</td> <td>字段真正值和列标题之间的距离 默认0</td> </tr> <tr> <td>startSheetIndex</td> <td>int</td> <td>0</td> <td>开始读取的sheet位置,默认为0</td> </tr> <tr> <td>needVerfiy</td> <td>boolean</td> <td>false</td> <td>是否需要校验上传的Excel</td> </tr> <tr> <td>needSave</td> <td>boolean</td> <td>false</td> <td>是否需要保存上传的Excel</td> </tr> <tr> <td>saveUrl</td> <td>String</td> <td>"upload/excelUpload"</td> <td>保存上传的Excel目录,默认是 如 TestEntity这个类保存路径就是upload/excelUpload/Test/yyyyMMddHHmss* 保存名称上传时间五位随机数</td> </tr> <tr> <td>importFields</td> <td>String[]</td> <td>null</td> <td>导入时校验数据模板,是不是正确的Excel</td> </tr> <tr> <td>verifyHanlder</td> <td>IExcelVerifyHandler</td> <td>null</td> <td>校验处理接口,自定义校验</td> </tr> <tr> <td>dataHanlder</td> <td>IExcelDataHandler</td> <td>null</td> <td>数据处理接口,以此为主,replace,format都在这后面</td> </tr> </tbody> </table> <h3>2.5 自定义校验规则</h3> <p>通用的校验满足不了所有的校验，例如还需要通过查询数据库，校验数据的唯一性，此时需要自定义一个校验规则，实现IExcelVerifyHandler接口。</p> <pre><code class="hljs">@Component public class UserVerifyHandler implements IExcelVerifyHandler&lt;UserImportVO&gt; {      @Autowired     private IUserService userService;      @Override     public ExcelVerifyHandlerResult verifyHandler(UserImportVO vo) {         ExcelVerifyHandlerResult result = new ExcelVerifyHandlerResult();         //假设我们要添加用户，现在去数据库查询realName，如果存在则表示校验不通过。         User user = userService.getOne(new LambdaQueryWrapper&lt;User&gt;().eq(User::getRealName,vo.getRealName()));         if (user!=null) {             result.setMsg("唯一校验失败");             result.setSuccess(false);             return result;         }         result.setSuccess(true);         return result;     } }</code></pre> <h3>2.6 测试</h3> <p>1.使用postman工具进行导入测试，先填充一些不符合规则的数据，可以看到控制台输出的校验错误的信息。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221230/ed4a655936857e696df1249a8d070663.jpg"></p> <p>2.再填充一些符合规则的数据，可以看到导入成功，数据库成功插入数据。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221230/dbdd850910619b2ba940c913afd8c1f8.jpg"></p> <h2>3.导出功能实现</h2> <h3>3.1 UserExportVO导出类</h3> <p>导出类不需要配置校验规则，只需定义要导出的信息</p> <pre><code class="hljs">@Data public class UserExportVO implements Serializable {      @Excel(name = "姓名")     private String realName;      @Excel(name = "性别", replace = { "男_1", "女_2" }, suffix = "生")     private Integer sex;      @Excel(name = "出生日期", format = "yyyy-MM-dd")     private Date birthday;      @Excel(name = "手机号码")     private String phone;      @Excel(name = "固定电话")     private String tel;      @Excel(name = "邮箱")     private String email;      @Excel(name = "头像地址")     private String avatar;  }</code></pre> <h3>3.2 controller层</h3> <p>编写controller层导出方法</p> <pre><code class="hljs">    @GetMapping("/exportExcel")     public void export(HttpServletResponse response) {         //查询要导出的数据         List&lt;UserExportVO&gt; users = userService.getUserExportList();         ExcelUtil.exportExcelX(users, "测试导出表", "sheet1", UserExportVO.class, "测试导出表.xlsx", response);     }</code></pre> <h3>3.3 service层</h3> <p>编写service层查询需要导出的数据，把查询出来的集合转化成导出VO集合。</p> <pre><code class="hljs">	@Override     public List&lt;UserExportVO&gt; getUserExportList() {         List&lt;User&gt; users = this.list();         //users集合转成export集合         List&lt;UserExportVO&gt; exportVOList = users.stream().map(user -&gt; {             UserExportVO vo = new UserExportVO();             BeanUtils.copyProperties(user, vo);             return vo;         }).collect(Collectors.toList());         return exportVOList;     }</code></pre> <h3>3.4 测试</h3> <p>直接浏览器请求导出接口，成功导出。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221230/90d9cd21adada606c9722dd11957c0b8.jpg"></p> <hr/> </h1> <p>好了，以上就是今天要讲的内容，感谢大家的阅读。本文仅仅简单介绍了使用EasyPoi导入导出功能的使用，而EasyPoi还提供了模板的导出、图片的导出、word的导出等等功能，</p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50800.htm">redis专题：redis键值设计、性能优化以及redis连接池配置</a></p>
+                                        <p>下一个：<a href="/news/article-51337.htm">记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-node-share.htm" title="1月24日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月24日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21858.htm" title="宠物粮业务员好干吗工资多少一个月（宠物粮食业务员）">宠物粮业务员好干吗工资多少一个月（宠物粮食业务员）</a></li>
+                        <li class="py-2"><a href="/news/article-41843.htm" title="长沙宠物领养中心官网地址在哪里 长沙宠物领养中心官网地址在哪里啊">长沙宠物领养中心官网地址在哪里 长沙宠物领养中心官网地址在哪里啊</a></li>
+                        <li class="py-2"><a href="/news/article-25557.htm" title="动物疫苗的管理方法不包括什么方面（动物疫苗接种的说***确的是）">动物疫苗的管理方法不包括什么方面（动物疫苗接种的说***确的是）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-node-subscribe.htm" title="11月30日→20.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月30日→20.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-v2ray-subscribe.htm" title="12月17日→22.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月17日→22.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-node-subscribe-links.htm" title="11月17日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月17日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-node-share.htm" title="12月16日→22.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月16日→22.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-clash-v2ray-ss-ssr.htm" title="2月3日→18.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月3日→18.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30703.htm" title="天一宠物医院（天一附近的宠物店）">天一宠物医院（天一附近的宠物店）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

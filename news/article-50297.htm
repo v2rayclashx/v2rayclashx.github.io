@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-50297.htm" />
+    <meta charset="utf-8">
+    <title>iSCSI服务器CHAP双向认证配置</title>
+        <meta name="description" content="一 iSCSI和CHAP介绍 1.1 iSCSI 磁盘   iSCSI后端存储支持多种设备类型，主要有： 文件 单一分区（partition）     磁盘 数组 RAID LVM   本手册建议以裸" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-50297.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="iSCSI服务器CHAP双向认证配置" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/90d7ad08ba8766ce9c6a2ac2136aa0a1.webp" />
+        <meta property="og:release_date" content="2025-02-03T09:25:09" />
+    <meta property="og:updated_time" content="2025-02-03T09:25:09" />
+        <meta property="og:description" content="一 iSCSI和CHAP介绍 1.1 iSCSI 磁盘   iSCSI后端存储支持多种设备类型，主要有： 文件 单一分区（partition）     磁盘 数组 RAID LVM   本手册建议以裸" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="iSCSI服务器CHAP双向认证配置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">iSCSI服务器CHAP双向认证配置</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 align="left">一 iSCSI和CHAP介绍</h2> <h3 align="left">1.1 iSCSI 磁盘</h3> <div> <ul style="margin: 0; padding-left: 30pt"> <li style="text-align: left; line-height: 1.75; list-style-type: disc; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">iSCSI后端存储支持多种设备类型，主要有：</span></li> <li style="text-align: left; line-height: 1.75; list-style-type: disc; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">文件</span></li> <li style="text-align: left; line-height: 1.75; list-style-type: disc; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">单一分区（partition）</span></li> </ul> </div> <div> <ol style="margin: 0; padding-left: 30pt"> <li style="text-align: left; line-height: 1.75; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">磁盘</span></li> <li style="text-align: left; line-height: 1.75; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">数组</span></li> <li style="text-align: left; line-height: 1.75; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">RAID</span></li> <li style="text-align: left; line-height: 1.75; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">LVM</span></li> </ol> </div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">本手册建议以裸磁盘vdb作为示例，其他类型配置参考《002.iSCSI服务端多类型配置》。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">同时本手册基于生产环境安全考虑，结合CHAP进行配置认证。</span></div> <h2 align="left">1.2 CHAP介绍</h2> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">基于IP的认证比较粗糙，对于安全性要求高的环境来说，使用CHAP认证其安全性更有保障。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">CHAP(Challenge-Handshake Authentication Protocol)，称为挑战式握手认证协议，它是双向认证，当然也支持单向认证。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">对于iscsi而言，在CHAP认证的机制上有两种方式：initiator authentication和target authentication。</span></div> <h3 align="left">1.2.1 initiator authentication认证</h3> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">在initiator尝试连接到一个target的时候，initator需要提供一个用户名和密码给target被target进行认证。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">也就是说initiator需要被target认证，它向target端提供的账号和密码是target端指定的。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">这个账号和密码对于target来说是流入的账号和密码，用incoming表示。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">称呼这个账号和密码为：incoming账号和incoming密码。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">即，incoming账号是initiator端提供给target端，被target端认证的账号。</span></div> <h3 align="left">1.2.2 target authentication认证</h3> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">在initiator尝试连接到一个target的时候，target有时也需要被initiator认证，以确保该target是合法而非伪装的target，这就要求target提供一个用户名和密码给initiator被initiator进行认证。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">target向initiator提供的账号和密码对于target而言是流出的，所以称之为outgoing。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">称呼这个账号和密码为：outgoing账号和outgoing密码。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">而对于initiator而言是incoming的，所以在initiator配置文件中称为in。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">也就是说outgoing账号是target端提供给initiator端，被initiator认证的账号，但尽管如此，这个账号和密码还是在target端创建和绑定的。</span></div> <h3 align="left">1.2.3 单/双向认证</h3> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">两种认证方式是有层次顺序的。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">一般来说，有认证需求的时候都是服务器验证客户端是否有权限，iscsi也一样。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">initiator authentication可以单独存在，它可以在没有target authentication的情况下应用，这时候的CHAP认证就是单向认证(target认证initiator的合法性)。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="font-family: 微软雅黑; font-size: small">但target authentication只有在initiator authentication的基础上才能进行。也就是说target认证和initiator认证必须同时存在才可以。即initiator和target需要相互认证实现双向CHAP认证。</span></div> <div style="line-height: 1.75; white-space: pre-wrap" align="left"><span style="color: rgba(255, 0, 0, 1); font-family: 微软雅黑; font-size: small"><strong>注意：发现认证和登录认证都支持单/双向认证。</strong></span></div> <h2 align="left">二 iSCSI创建步骤</h2> <ol style="margin: 0; padding-left: 30pt"> <li style="text-align: left; line-height: 1.875; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">建立用于共享的磁盘</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">创建后备磁盘</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">创建相应的IQN</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">创建相应的规则</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">为后备磁盘创建LUN</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">创建双向认证账号和密码</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">指定侦听的IP和端口</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">检查并保存配置</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">防火墙规则开放</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: decimal; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">服务(开机)启动</span></li> </ol> <h2>三 前置准备</h2> <h3 align="left">3.1 环境准备</h3> <div style="line-height: 1.875; white-space: pre-wrap" align="left"></div> <div style="overflow: auto"> <table style="overflow: visible; display: table; white-space: nowrap; border-collapse: collapse; table-layout: fixed; max-width: none; border-spacing: 2px 2px"> <colgroup> <col width="206"> <col width="206"> <col width="206"></colgroup> <tbody> <tr style="height: 40px"> <td style="padding: 1px; border: 1px solid rgba(167, 167, 167, 1); border-image: none; overflow: hidden; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); overflow-wrap: break-word" align="center" data-cell-id="xjj8-1648739723547"> <div class="table-cell-line"><span style="font-size: 9pt"><strong>主机名</strong></span></div> </td> <td style="padding: 1px; border: 1px solid rgba(167, 167, 167, 1); border-image: none; overflow: hidden; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); overflow-wrap: break-word" align="center" data-cell-id="dafS-1648739723550"> <div class="table-cell-line"><span style="font-size: 9pt"><strong>IP</strong></span></div> </td> <td style="padding: 1px; border: 1px solid rgba(167, 167, 167, 1); border-image: none; overflow: hidden; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); overflow-wrap: break-word" align="center" data-cell-id="t9oV-1648739723553"> <div class="table-cell-line"><span><span style="font-size: 9pt"><strong>备注</strong></span></span></div> </td> </tr> <tr style="height: 40px"> <td style="padding: 1px; border: 1px solid rgba(167, 167, 167, 1); border-image: none; overflow: hidden; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); overflow-wrap: break-word" align="center" data-cell-id="5SeU-1648739723557"> <div class="table-cell-line"><span><span style="font-size: 9pt">iscsi</span></span></div> </td> <td style="padding: 1px; border: 1px solid rgba(167, 167, 167, 1); border-image: none; overflow: hidden; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); overflow-wrap: break-word" align="center" data-cell-id="gDe8-1648739723560"> <div class="table-cell-line"><span><span style="font-size: 9pt">172.24.8.72</span></span></div> </td> <td style="padding: 1px; border: 1px solid rgba(167, 167, 167, 1); border-image: none; overflow: hidden; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); overflow-wrap: break-word" align="center" data-cell-id="G0WJ-1648739723563"> <div class="table-cell-line"><span><span style="font-size: 9pt">iSCSI服务器</span></span></div> </td> </tr> <tr style="height: 40px"> <td style="padding: 1px; border: 1px solid rgba(167, 167, 167, 1); border-image: none; overflow: hidden; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); overflow-wrap: break-word" align="center" data-cell-id="Nmcg-1648739723568"> <div class="table-cell-line"><span><span style="font-size: 9pt">client</span></span></div> </td> <td style="padding: 1px; border: 1px solid rgba(167, 167, 167, 1); border-image: none; overflow: hidden; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); overflow-wrap: break-word" align="center" data-cell-id="rGjl-1648739723571"> <div class="table-cell-line"><span><span style="font-size: 9pt">172.24.8.71</span></span></div> </td> <td style="padding: 1px; border: 1px solid rgba(167, 167, 167, 1); border-image: none; overflow: hidden; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); overflow-wrap: break-word" align="center" data-cell-id="fZCJ-1648739723574"> <div class="table-cell-line"><span><span style="font-size: 9pt">iSCSI客户端</span></span></div> </td> </tr> </tbody> </table> </div> <h2 align="left">3.2 查看裸磁盘</h2> <div style="line-height: 1.875; white-space: pre-wrap" align="left"> <div class="cnblogs_code"> <pre>[root@iscsi ~]<span style="color: rgba(0, 128, 0, 1)"># fdisk -l</span>  Disk /dev/sdb: 1073 MB, 1073741824 bytes, 2097152 sectors</pre> </div> </div> <h2 align="left">四 创建后备存储</h2> <h3 align="left">4.1 安装相关软件</h3> <div class="cnblogs_code"> <pre>[root@iscsi ~]<span style="color: rgba(0, 128, 0, 1)"># yum -y install targetcli</span></pre> </div> <h3 align="left">4.2 交互设置</h3> <div class="cnblogs_code"> <pre>[root@system1 ~]<span style="color: rgba(0, 128, 0, 1)"># targetcli	                                                 #进入targetcli交互配置视图</span></pre> </div> <div></div> <ul style="margin: 0; padding-left: 30pt"> <li style="text-align: left; line-height: 1.875; list-style-type: disc; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">block：定义的块设备，磁盘驱动器、磁盘分区、LVM等</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: disc; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">fileio：创建的指定大小的文件，如dd if=/dev/zero of=……所创建</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: disc; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">pscsi：物理SCSI，通常不采用此类型</span></li> <li style="text-align: left; line-height: 1.875; list-style-type: disc; list-style-position: inside; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0)"><span style="font-family: 微软雅黑; font-size: small">ramdisk：在内存中创建的一个指定大小ramdisk设备</span></li> </ul> <div class="cnblogs_code">targetcli shell version 2.1.53</p> <div>Copyright 2011-2013 by Datera, Inc and others.</div> <div>For help on commands, type 'help'.</div> <div></div> <div>/&gt; /backstores/block create block1 /dev/sdb　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　#将裸磁盘创建为后备盘</div> <div>/&gt; /iscsi create wwn=iqn.2022-11.com.imxhy:disk01 #创建符合名称的IQN</div> <div>/&gt; /iscsi/iqn.2022-11.com.imxhy:disk01/tpg1/luns create /backstores/block/block1　　　　　　　　#将创建的后备磁盘block1创建一个LUN</div> <div>/&gt; /iscsi/iqn.2022-11.com.imxhy:disk01/tpg1/acls create iqn.2021-11.com.imxhy:client　　　　　 #只允许配置iqn.2021-11.com.imxhy:client的key才能使用此iSCSI提供的磁盘服务</div> <div>/&gt; /iscsi/iqn.2021-11.com.imxhy:disk01/tpg1/portals/ delete 0.0.0.0 3260&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;#删除默认的全部侦听</div> <div>/&gt; /iscsi/iqn.2022-11.com.imxhy:disk01/tpg1/portals/ create 172.24.8.72 3260&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;#指定本地用于侦听客户端连接的IP</div> <div></div> <div>/&gt; /iscsi/ set discovery_auth enable=1 userid=discover password=discoverps&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;#选配，本实验增加discovery的认证</div> <div>/&gt; /iscsi/ get discovery_auth</div> <div>DISCOVERY_AUTH CONFIG GROUP</div> <div>===========================</div> <div>enable=True</div> <div>-----------</div> <div>The enable discovery_auth parameter.</div> <div></div> <div>mutual_password=</div> <div>----------------</div> <div>The mutual_password discovery_auth parameter.</div> <div></div> <div>mutual_userid=</div> <div>--------------</div> <div>The mutual_userid discovery_auth parameter.</div> <div></div> <div>password=discoverps</div> <div>-------------------</div> <div>The password discovery_auth parameter.</div> <div></div> <div>userid=discover</div> <div>---------------</div> <div>The userid discovery_auth parameter.</div> <div></div> <div>/&gt; /iscsi/iqn.2022-11.com.imxhy:disk01/tpg1/acls/iqn.2021-11.com.imxhy:client/ set auth userid=user01 password=u1pass mutual_userid=muser01 mutual_password=m1pass</div> <div>/&gt; /iscsi/iqn.2022-11.com.imxhy:disk01/tpg1/acls/iqn.2021-11.com.imxhy:client/ get auth&nbsp; &nbsp; &nbsp; &nbsp;#查看配置</div> <div>AUTH CONFIG GROUP</div> <div>=================</div> <div>mutual_password=m1pass</div> <div>----------------------</div> <div>The mutual_password auth parameter.</div> <div></div> <div>mutual_userid=muser01</div> <div>---------------------</div> <div>The mutual_userid auth parameter.</div> <div></div> <div>password=u1pass</div> <div>---------------</div> <div>The password auth parameter.</div> <div></div> <div>userid=user01</div> <div>-------------</div> <div>The userid auth parameter.</div> <div></div> <div>/&gt; ls /</div> <div>o- / ......................................................................................................................... [...]</div> <div>o- backstores .............................................................................................................. [...]</div> <div>| o- block .................................................................................................. [Storage Objects: 1]</div> <div>| | o- block1 ........................................................................... [/dev/sdb (1.0GiB) write-thru activated]</div> <div>| | o- alua ................................................................................................... [ALUA Groups: 1]</div> <div>| | o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]</div> <div>| o- fileio ................................................................................................. [Storage Objects: 0]</div> <div>| o- pscsi .................................................................................................. [Storage Objects: 0]</div> <div>| o- ramdisk ................................................................................................ [Storage Objects: 0]</div> <div>o- iscsi ........................................................................................... [1-way disc auth, Targets: 1]</div> <div>| o- iqn.2022-11.com.imxhy:disk01 ...................................................................................... [TPGs: 1]</div> <div>| o- tpg1 ............................................................................................... [no-gen-acls, no-auth]</div> <div>| o- acls .......................................................................................................... [ACLs: 1]</div> <div>| | o- iqn.2021-11.com.imxhy:client ......................................................................... [Mapped LUNs: 1]</div> <div>| | o- mapped_lun0 ................................................................................ [lun0 block/block1 (rw)]</div> <div>| o- luns .......................................................................................................... [LUNs: 1]</div> <div>| | o- lun0 ..................................................................... [block/block1 (/dev/sdb) (default_tg_pt_gp)]</div> <div>| o- portals .................................................................................................... [Portals: 1]</div> <div>| o- 172.24.8.72:3260 ................................................................................................. [OK]</div> <div>o- loopback ......................................................................................................... [Targets: 0]</div> <div></div> <div>/&gt; exit</div> </div> <p><span style="color: rgba(255, 0, 0, 1); font-family: 微软雅黑; font-size: small"><strong>提示：如上操作：</strong></span></p> <p><span style="color: rgba(255, 0, 0, 1); font-family: 微软雅黑; font-size: small"><strong>1：创建的ACL将分配到每个LUN。</strong></span></p> <p><span style="color: rgba(255, 0, 0, 1); font-family: 微软雅黑; font-size: small"><strong>2：创建LUN必须在TPG下。</strong></span></p> <p><span style="color: rgba(255, 0, 0, 1); font-family: 微软雅黑; font-size: small"><strong>3：若不指定端口将采用默认端口3260</strong></span></p> <p><span style="color: rgba(255, 0, 0, 1); font-family: 微软雅黑; font-size: small"><strong>4：若不指定IP，将允许服务器上定义的所有网络接口上的连接</strong></span></p> <p><span style="color: rgba(255, 0, 0, 1); font-family: 微软雅黑; font-size: small"><strong>5：创建LUN必须在TPG下</strong></span></p> <h2>五 防火墙开放</h2> <div class="cnblogs_code"> <pre>[root@iscsi ~]# firewall-cmd --add-port=<span style="color: rgba(128, 0, 128, 1)">3260</span>/tcp --<span style="color: rgba(0, 0, 0, 1)">permanent　　　　　　　　　　　　　　　　　　#防火墙添加iSCSI的端口 [root@iscsi</span>~]# firewall-cmd --add-service=iscsi-target --<span style="color: rgba(0, 0, 0, 1)">permanent　　　　　　　　　　　　　　#防火墙放通iSCSI target服务 [root@iscsi</span>~]# firewall-cmd --reload</pre> </div> <h2>六 开启服务</h2> <div class="cnblogs_code"><span style="font-family: 微软雅黑"><span style="font-size: small">[root@iscsi ~]<span style="color: rgba(0, 128, 0, 1)"># systemctl enable target --now</span></span></span></div> <h2>七 客户端配置</h2> <div class="cnblogs_code"> <pre>[root@client ~]#<span style="color: rgba(0, 0, 255, 1)">yum</span> -y<span style="color: rgba(0, 0, 255, 1)">install</span> iscsi-initiator-<span style="color: rgba(0, 0, 0, 1)">utils                            　#安装客户端 [root@client</span>~]# vim /etc/iscsi/<span style="color: rgba(0, 0, 0, 1)">initiatorname.iscsi                            　　#配置CHAP认证 InitiatorName</span>=iqn.<span style="color: rgba(128, 0, 128, 1)">2021</span>-<span style="color: rgba(128, 0, 128, 1)">11</span><span style="color: rgba(0, 0, 0, 1)">.com.imxhy:client  [root@client</span>~]# vim /etc/iscsi/<span style="color: rgba(0, 0, 0, 1)">iscsid.conf …… node.session.auth.authmethod</span>=<span style="color: rgba(0, 0, 0, 1)"> CHAP node.session.auth.username</span>=<span style="color: rgba(0, 0, 0, 1)"> user01 node.session.auth.password</span>=<span style="color: rgba(0, 0, 0, 1)"> u1pass node.session.auth.username_in</span>=<span style="color: rgba(0, 0, 0, 1)"> muser01 node.session.auth.password_in</span>=<span style="color: rgba(0, 0, 0, 1)"> m1pass discovery.sendtargets.auth.authmethod</span>=<span style="color: rgba(0, 0, 0, 1)"> CHAP discovery.sendtargets.auth.username</span>=<span style="color: rgba(0, 0, 0, 1)"> discover discovery.sendtargets.auth.password</span>=<span style="color: rgba(0, 0, 0, 1)"> discoverps ……  [root@client</span>~]# systemctl restart iscsid</pre> </div> <h2>八 客户端登录</h2> <h3>8.1 发现目标</h3> <div class="cnblogs_code"> <pre>[root@client ~]# iscsiadm -m discovery -t sendtargets -p<span style="color: rgba(128, 0, 128, 1)">172.24</span>.<span style="color: rgba(128, 0, 128, 1)">8.72</span><span style="color: rgba(0, 0, 0, 1)">                    　　　　#发现目标</span><span style="color: rgba(128, 0, 128, 1)">172.24</span>.<span style="color: rgba(128, 0, 128, 1)">8.72</span>:<span style="color: rgba(128, 0, 128, 1)">3260</span>,<span style="color: rgba(128, 0, 128, 1)">1</span> iqn.<span style="color: rgba(128, 0, 128, 1)">2022</span>-<span style="color: rgba(128, 0, 128, 1)">11</span>.com.imxhy:disk01</pre> </div> <h3>8.2 登录目标</h3> <div class="cnblogs_code"> <pre>[root@client ~]# iscsiadm -m node -T iqn.<span style="color: rgba(128, 0, 128, 1)">2022</span>-<span style="color: rgba(128, 0, 128, 1)">11</span>.com.imxhy:disk01 -p<span style="color: rgba(128, 0, 128, 1)">172.24</span>.<span style="color: rgba(128, 0, 128, 1)">8.72</span> -l            #登录目标</pre> </div> <h3>8.3 查询信息</h3> <div class="cnblogs_code"> <pre>[root@client ~]# iscsiadm -m session -<span style="color: rgba(0, 0, 0, 1)">o show tcp: [</span><span style="color: rgba(128, 0, 128, 1)">23</span>]<span style="color: rgba(128, 0, 128, 1)">172.24</span>.<span style="color: rgba(128, 0, 128, 1)">8.72</span>:<span style="color: rgba(128, 0, 128, 1)">3260</span>,<span style="color: rgba(128, 0, 128, 1)">1</span> iqn.<span style="color: rgba(128, 0, 128, 1)">2022</span>-<span style="color: rgba(128, 0, 128, 1)">11</span>.com.imxhy:disk01 (non-<span style="color: rgba(0, 0, 0, 1)">flash) [root@client</span>~]# iscsiadm -m session -P<span style="color: rgba(128, 0, 128, 1)">3</span><span style="color: rgba(0, 0, 0, 1)">        #查询信息 iSCSI Transport Class version</span><span style="color: rgba(128, 0, 128, 1)">2.0</span>-<span style="color: rgba(128, 0, 128, 1)">870</span><span style="color: rgba(0, 0, 0, 1)"> version</span><span style="color: rgba(128, 0, 128, 1)">6.2</span>.<span style="color: rgba(128, 0, 128, 1)">0.874</span>-<span style="color: rgba(128, 0, 128, 1)">22</span><span style="color: rgba(0, 0, 0, 1)"> Target: iqn.</span><span style="color: rgba(128, 0, 128, 1)">2022</span>-<span style="color: rgba(128, 0, 128, 1)">11</span>.com.imxhy:disk01 (non-<span style="color: rgba(0, 0, 0, 1)">flash)         Current Portal:</span><span style="color: rgba(128, 0, 128, 1)">172.24</span>.<span style="color: rgba(128, 0, 128, 1)">8.72</span>:<span style="color: rgba(128, 0, 128, 1)">3260</span>,<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">         Persistent Portal:</span><span style="color: rgba(128, 0, 128, 1)">172.24</span>.<span style="color: rgba(128, 0, 128, 1)">8.72</span>:<span style="color: rgba(128, 0, 128, 1)">3260</span>,<span style="color: rgba(128, 0, 128, 1)">1</span>                 **********<span style="color: rgba(0, 0, 0, 1)">                 Interface:</span>**********<span style="color: rgba(0, 0, 0, 1)">                 Iface Name: default                 Iface Transport: tcp                 Iface Initiatorname: iqn.</span><span style="color: rgba(128, 0, 128, 1)">2021</span>-<span style="color: rgba(128, 0, 128, 1)">11</span><span style="color: rgba(0, 0, 0, 1)">.com.imxhy:client                 Iface IPaddress:</span><span style="color: rgba(128, 0, 128, 1)">172.24</span>.<span style="color: rgba(128, 0, 128, 1)">8.71</span><span style="color: rgba(0, 0, 0, 1)">                 Iface HWaddress:</span>&lt;empty&gt;<span style="color: rgba(0, 0, 0, 1)">                 Iface Netdev:</span>&lt;empty&gt;<span style="color: rgba(0, 0, 0, 1)">                 SID:</span><span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">                 iSCSI Connection State: LOGGED IN                 iSCSI Session State: LOGGED_IN                 Internal iscsid Session State: NO CHANGE</span>*********<span style="color: rgba(0, 0, 0, 1)">                 Timeouts:</span>*********<span style="color: rgba(0, 0, 0, 1)">                 Recovery Timeout:</span><span style="color: rgba(128, 0, 128, 1)">120</span><span style="color: rgba(0, 0, 0, 1)">                 Target Reset Timeout:</span><span style="color: rgba(128, 0, 128, 1)">30</span><span style="color: rgba(0, 0, 0, 1)">                 LUN Reset Timeout:</span><span style="color: rgba(128, 0, 128, 1)">30</span><span style="color: rgba(0, 0, 0, 1)">                 Abort Timeout:</span><span style="color: rgba(128, 0, 128, 1)">15</span>                 *****<span style="color: rgba(0, 0, 0, 1)">                 CHAP:</span>*****<span style="color: rgba(0, 0, 0, 1)">                 username: user01                 password:</span>********<span style="color: rgba(0, 0, 0, 1)">                 username_in: muser01                 password_in:</span>********                 ************************<span style="color: rgba(0, 0, 0, 1)">                 Negotiated iSCSI params:</span>************************<span style="color: rgba(0, 0, 0, 1)">                 HeaderDigest: None                 DataDigest: None                 MaxRecvDataSegmentLength:</span><span style="color: rgba(128, 0, 128, 1)">262144</span><span style="color: rgba(0, 0, 0, 1)">                 MaxXmitDataSegmentLength:</span><span style="color: rgba(128, 0, 128, 1)">262144</span><span style="color: rgba(0, 0, 0, 1)">                 FirstBurstLength:</span><span style="color: rgba(128, 0, 128, 1)">65536</span><span style="color: rgba(0, 0, 0, 1)">                 MaxBurstLength:</span><span style="color: rgba(128, 0, 128, 1)">262144</span><span style="color: rgba(0, 0, 0, 1)">                 ImmediateData: Yes                 InitialR2T: Yes                 MaxOutstandingR2T:</span><span style="color: rgba(128, 0, 128, 1)">1</span>                 ************************<span style="color: rgba(0, 0, 0, 1)">                 Attached SCSI devices:</span>************************<span style="color: rgba(0, 0, 0, 1)">                 Host Number:</span><span style="color: rgba(128, 0, 128, 1)">3</span><span style="color: rgba(0, 0, 0, 1)">  State: running                 scsi3 Channel</span><span style="color: rgba(128, 0, 128, 1)">00</span> Id<span style="color: rgba(128, 0, 128, 1)">0</span> Lun:<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">                         Attached scsi disk sdb          State: running  [root@client</span>~]# iscsiadm -m node -<span style="color: rgba(0, 0, 0, 1)">o show # BEGIN RECORD</span><span style="color: rgba(128, 0, 128, 1)">6.2</span>.<span style="color: rgba(128, 0, 128, 1)">0.874</span>-<span style="color: rgba(128, 0, 128, 1)">22</span><span style="color: rgba(0, 0, 0, 1)"> node.name</span>= iqn.<span style="color: rgba(128, 0, 128, 1)">2022</span>-<span style="color: rgba(128, 0, 128, 1)">11</span><span style="color: rgba(0, 0, 0, 1)">.com.imxhy:disk01 node.tpgt</span>=<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> node.startup</span>=<span style="color: rgba(0, 0, 0, 1)"> automatic …… iface.transport_name</span>=<span style="color: rgba(0, 0, 0, 1)"> tcp …… node.discovery_address</span>=<span style="color: rgba(128, 0, 128, 1)">172.24</span>.<span style="color: rgba(128, 0, 128, 1)">8.72</span><span style="color: rgba(0, 0, 0, 1)"> node.discovery_port</span>=<span style="color: rgba(128, 0, 128, 1)">3260</span><span style="color: rgba(0, 0, 0, 1)"> node.discovery_type</span>=<span style="color: rgba(0, 0, 0, 1)"> send_targets node.session.initial_cmdsn</span>=<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> node.session.initial_login_retry_max</span>=<span style="color: rgba(128, 0, 128, 1)">8</span><span style="color: rgba(0, 0, 0, 1)"> node.session.xmit_thread_priority</span>= -<span style="color: rgba(128, 0, 128, 1)">20</span><span style="color: rgba(0, 0, 0, 1)"> node.session.cmds_max</span>=<span style="color: rgba(128, 0, 128, 1)">128</span><span style="color: rgba(0, 0, 0, 1)"> node.session.queue_depth</span>=<span style="color: rgba(128, 0, 128, 1)">32</span><span style="color: rgba(0, 0, 0, 1)"> node.session.nr_sessions</span>=<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> node.session.auth.authmethod</span>=<span style="color: rgba(0, 0, 0, 1)"> CHAP node.session.auth.username</span>=<span style="color: rgba(0, 0, 0, 1)"> user01 node.session.auth.password</span>= ********<span style="color: rgba(0, 0, 0, 1)"> node.session.auth.username_in</span>=<span style="color: rgba(0, 0, 0, 1)"> muser01 node.session.auth.password_in</span>= ********<span style="color: rgba(0, 0, 0, 1)"> …… node.session.scan</span>=<span style="color: rgba(0, 0, 0, 1)"> auto node.conn[</span><span style="color: rgba(128, 0, 128, 1)">0</span>].address =<span style="color: rgba(128, 0, 128, 1)">172.24</span>.<span style="color: rgba(128, 0, 128, 1)">8.72</span><span style="color: rgba(0, 0, 0, 1)"> node.conn[</span><span style="color: rgba(128, 0, 128, 1)">0</span>].port =<span style="color: rgba(128, 0, 128, 1)">3260</span><span style="color: rgba(0, 0, 0, 1)"> ……  # END RECORD  [root@client</span>~]# fdisk -l                #发现的iSCSI服务器三个共享</pre> </div> <h2>九 格式化并挂载</h2> <h2>9.1 格式化并挂载</h2> <p><span style="color: rgba(255, 0, 0, 1); font-family: 微软雅黑; font-size: small"><strong>注意：</strong></span></p> <p><span style="color: rgba(255, 0, 0, 1); font-family: 微软雅黑; font-size: small"><strong>1：此时能当做本地磁盘使用，分区格式化等操作；</strong></span></p> <p><span style="color: rgba(255, 0, 0, 1); font-family: 微软雅黑; font-size: small"><strong>2：可使用RAID或LVM来进行操作，LVM的可在之后格式化LV。</strong></span></p> <div class="cnblogs_code"> <pre>[root@client ~]# mkfs.ext4 /dev/<span style="color: rgba(0, 0, 0, 1)">sdb            　　　　 #格式化相关iSCSI磁盘 [root@client</span>~]#<span style="color: rgba(0, 0, 255, 1)">mkdir</span> -p /iscsdisk/<span style="color: rgba(0, 0, 0, 1)">sdb01        　　  #创建用于挂载sdd磁盘的挂载点         [root@client</span>~]#<span style="color: rgba(0, 0, 255, 1)">mkdir</span> -p /iscsdisk/<span style="color: rgba(0, 0, 0, 1)">lv01        　　   #创建用于挂载LVM分区的挂载点 [root@client</span>~]#<span style="color: rgba(0, 0, 255, 1)">mount</span> /dev/sdb /iscsdisk/sdb01/<span style="color: rgba(0, 0, 0, 1)">      #可直接挂载 [root@client</span>~]#<span style="color: rgba(0, 0, 255, 1)">vi</span> /etc/<span style="color: rgba(0, 0, 0, 1)">fstab                　　　　  #自动挂载 ……</span>/dev/sdb /iscsdisk/lv01    ext4    defaults<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(128, 0, 128, 1)">0</span></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-49779.htm">动物疫苗注射注意事项有哪些要求 动物疫苗注射注意事项有哪些要求呢</a></p>
+                                        <p>下一个：<a href="/news/article-50298.htm">猫三联疫苗多少钱一支打（猫三联打几针多少钱）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-43828.htm" title="上海宠物医院收费价目表查询（上海良心的宠物医院）">上海宠物医院收费价目表查询（上海良心的宠物医院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-node-share.htm" title="1月24日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月24日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-node-share.htm" title="1月29日→20.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月29日→20.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36185.htm" title="近期电影上映（近期电影上映时间）">近期电影上映（近期电影上映时间）</a></li>
+                        <li class="py-2"><a href="/news/article-46296.htm" title="狗狗回收站在哪（小狗回收站）">狗狗回收站在哪（小狗回收站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-node-share-links.htm" title="12月8日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月8日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-clash-v2ray-ss-ssr.htm" title="12月7日→22.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月7日→22.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-clash-v2ray-ss-ssr.htm" title="11月29日→21.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月29日→21.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27881.htm" title="动物疫苗接种禁忌症和注意事项有哪些内容（动物疫苗使用注意事项）">动物疫苗接种禁忌症和注意事项有哪些内容（动物疫苗使用注意事项）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe-links.htm" title="11月15日→18.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月15日→18.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

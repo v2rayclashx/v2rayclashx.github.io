@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-52394.htm" />
+    <meta charset="utf-8">
+    <title>什么是线上优雅停机和调整线程池参数？</title>
+        <meta name="description" content="我是3y，一年CRUD经验用十年的markdown程序员常年被誉为职业八股文选手 好几天没更新austin的系列文章啦，主要是一直在写austin的代码。而这篇文章我想了很久标题，最后定为《优雅，不过" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-52394.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="什么是线上优雅停机和调整线程池参数？" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/2b946395dd804e6eef54dd26e96835ca.webp" />
+        <meta property="og:release_date" content="2025-02-07T07:18:09" />
+    <meta property="og:updated_time" content="2025-02-07T07:18:09" />
+        <meta property="og:description" content="我是3y，一年CRUD经验用十年的markdown程序员常年被誉为职业八股文选手 好几天没更新austin的系列文章啦，主要是一直在写austin的代码。而这篇文章我想了很久标题，最后定为《优雅，不过" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="什么是线上优雅停机和调整线程池参数？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">什么是线上优雅停机和调整线程池参数？</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>我是3y，一年<code>CRUD</code>经验用十年的<code>markdown</code>程序员常年被誉为职业八股文选手</p> <p>好几天没更新<code>austin</code>的系列文章啦，主要是一直在写<code>austin</code>的代码。而这篇文章我想了很久标题，最后定为《<strong>优雅，不过时</strong>》。文章的内容主要由以下部分组成：</p> <ul> <li>应用发布重启了怎么办？内存数据不是丢失了吗？</li> <li>什么是优雅停机？如何实现优雅停机？</li> <li>如何优雅地调整线程池的参数？</li> </ul> <p>如果你的项目遇到了类似的问题，也可以借鉴下我今天所讲解的内容，读完我相信你肯定会有些收获。</p> <h2 id="01应用发布重启了怎么办">01、应用发布重启了怎么办</h2> <p>众所周知，如果我们系统在运行的过程中，内存数据没存储起来那就会导致丢失。对于<code>austin</code>项目而言，就会使消息丢失，并且无法下发到用户上。</p> <p>这个在我讲述完我是如何设计「发送消息消费端」以及「读取文件」时，尤其问得比较多。为了部分没有追更的读者，我再简单讲述下我这边的设计：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/8a9c4954d92b926b8f3da7f52d30504a.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p>在<code>austin-handler</code>模块，每个渠道的每种消息类型我都用到了线程池进行隔离而消费：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/82df94a656921349aec404acc453c31b.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p>在<code>austin-cron</code>模块，我读取文件是把每一条记录放至了单线程池做<code>LazyPending</code>，目的为了延迟消费做<strong>批量</strong>下发。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/93a0bf1d6ad3e983c7b826742e5c2e1a.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p>敏感的技术人看到内存队列或线程池（线程池也需要指定对应的内存队列）就很正常地想：内存队列可能的<code>size</code>为<code>1024</code>，而服务器在重启的时候可能内存队列的数据还没消费完，此时你怎么办？数据就丢了吗？</p> <p>我们使用线程池/内存队列在很多场景下都是为了提高吞吐量，<strong>有得就必有失</strong>。至于重启服务器导致内存数据的丢失，就看你评估对自己的业务带来多少的影响了。</p> <p>针对这种问题，<code>austin</code>本身就开发好了相关的功能作为「<strong>补充</strong>」，通过实时计算引擎<code>flink</code>的能力可以<strong>实时</strong>在后台查看消息下发的情况：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c394b44f818e542a70a126c425814769.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p>可以在<code>离线</code>hive找到消息下发失败的<code>userId</code>（离线这块暂未实现)，输入具体的<code>receiverId</code> 可以查看实时下发时失败的原因</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c19171de0dca2a0a82167912c3c54f2d.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p>查明原因之后再通过<code>csv</code>文件上传的做补发。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9a8f07dcd869b16b948a374636e058c2.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p>不过，这是平台提供做<strong>补发</strong>的能力，从技术上的角度，还有别的思路尽量避免线程池或者内存队列的数据因重启而丢失的数据吗？有的，<strong>优雅关闭线程池</strong></p> <h2 id="02优雅停机">02、优雅停机</h2> <p>所谓「优雅停机」就是关闭的时候<strong>先将自己需要处理的内容处理完了</strong>，之后才关闭。如果你直接<code>kill -9</code>，是没有「优雅」这一说法的，神仙都救不了。</p> <p><strong>1</strong>、在<strong>网络层</strong>：TCP有四次挥手、<code>TCP KeepAlive</code>、<code>HTTP KeepAlive</code> 让连接 优雅地关闭，避免很多报错。</p> <p><strong>2</strong>、在<strong>Java</strong>里边通过<code>Runtime.getRuntime().addShutdownHook()</code>注册事件，当虚拟机关闭的前调用该方法的具体逻辑进行<strong>善后</strong>。</p> <p><strong>3</strong>、在<strong>Spring</strong>里边执行了<code>ApplicationContext</code> 的<code>close</code>之后，只要我们Bean配置了<code>destroy</code>策略，那Spring在关闭之前也会先执行我们的已实现好的<code>destroy</code>方法</p> <p><strong>4</strong>、在<strong>Tomcat</strong>容器提供了几种关闭的姿势，先暂停请求，选择等待N秒才完全关闭容器。</p> <p><strong>5</strong>、在<strong>Java线程池</strong>提供了<code>shutdown</code>和<code>shutdownNow</code>供我们关闭线程，显然<code>shutdown</code>是优雅关闭线程池的方法。</p> <p>我们的<code>austin</code>项目是基于<code>SpringBoot</code>环境构造的，所以我们可以<strong>重度依赖</strong>SpringBoot进行优雅停机。</p> <p><strong>1</strong>、我们设置应用服务器的停机模式为<code>graceful</code></p> <pre><code class="language-properties">server.shutdown=graceful</code></pre> <p><strong>2</strong>、在<code>austin</code>已经引入<strong>动态线程池</strong>而非使用Spring管理下的<code>ThreadPoolTaskExecutor</code>，所以我们可以把自己创建出来的线程池在Spring关闭的时候，进行优雅<code>shutdown</code>（想要关闭其他的资源时，也可以类似干这种操作）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e015f1018a140edce4004c6c3140d822.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p>注：如果是使用Spring封装过的线程池<code>ThreadPoolTaskExecutor</code>，默认就会优雅关闭，因为它是实现了<code>DisposableBean</code>接口的</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/fb57ffc19126d5cb987f2cf5df9bd4f1.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <h2 id="03如何优雅地调整线程池的参数">03、如何优雅地调整线程池的参数？</h2> <p><code>austin</code>在整个项目里边，还是有挺多地方是用到了线程池，特别重要的是从<code>MQ</code>里消费所创建的线程池。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/82df94a656921349aec404acc453c31b.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p>有小伙伴当时给过建议：有没有打算引入动态线程池，不用发布就调整线程池的参数从而<strong>临时</strong>提高消费能力。顺便在这给大家推荐美团的线程池文章：<strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html"  target="_blank" rel="nofollow">https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html</a></strong>，如果没读过这篇文章的，建议都去读下，挺不错的。</p> <p>美团这篇文章讲述了动态线程池的思路，但应该是未官方开源，所以有很多小伙伴基于文章的思路造了好用的轮子。比如<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/acmenlt/dynamic-threadpool"  target="_blank" rel="nofollow">Hippo4J</a> 和<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/lyh200/dynamic-tp"  target="_blank" rel="nofollow">dynamic-tp</a> 都是比较优秀的轮子了。</p> <p>这两个仓库我都看了下源码，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/acmenlt/dynamic-threadpool"  target="_blank" rel="nofollow">Hippo4J</a> 有<strong>无依赖中间件</strong>实现动态线程池，也有默认实现<code>Nacos</code>和<code>Apollo</code>的版本，并有着<strong>管理后台</strong>，而<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/lyh200/dynamic-tp"  target="_blank" rel="nofollow">dynamic-tp</a> 默认实现依赖<code>Nacos</code>或<code>Apollo</code>。大佬们的代码都写得很不错，我推荐大家都可以去学学。</p> <p>我在最初的时候接的是<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/lyh200/dynamic-tp"  target="_blank" rel="nofollow">dynamic-tp</a>的代码，因为我本身<code>austin</code>就接入了<code>Apollo</code>，也感觉暂时不太需要管理后台。后来<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/acmenlt/dynamic-threadpool"  target="_blank" rel="nofollow">Hippo4J</a> 作者找我聊了下，希望我能接入<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/acmenlt/dynamic-threadpool"  target="_blank" rel="nofollow">Hippo4J</a>。</p> <p>我按照我目前的使用场景对着代码看了一把，我是需要通过在<strong>创建线程池后再动态调参</strong>的场景。于是跟<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/acmenlt/dynamic-threadpool"  target="_blank" rel="nofollow">Hippo4J</a> 作者反馈了下，他果断说晚上或明天就给我实现（：<strong>恐怖如斯，太肝了</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1926ced1c51412bc328a97e1cf4141be.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/5fc53f0a9405ac354f56622d9f644bd9.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p>不过，周三我反馈完，周四晚上我差不多就将<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/lyh200/dynamic-tp"  target="_blank" rel="nofollow">dynamic-tp</a> 快接入完了。我目前现在打算先跑着（毕竟切换API其实也是需要时间成本的），后续看有没有遇到痛点或者空的时候再迁移到<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/acmenlt/dynamic-threadpool"  target="_blank" rel="nofollow">Hippo4J</a>再体验体验</p> <p>也不为别的，就看中龙台大佬比我还肝（自己提出的场景，开源作者能很快地反馈并实现，太强了，丝毫不担心有大坑要我自己搞）</p> <h2 id="04总结">04、总结</h2> <p>对于<code>austin</code>而言，正常的重启发布我们通过<strong>优雅停机</strong>来尽可能减少系统的处理数据时的丢失。如果消息是真的非常重要而且需要做补发，在<code>austin</code>中也可以通过<strong>上传文件</strong>的方式再做补发，且能看到实时推送的数据链路统计和某个用户下发消息失败的原因。</p> <p>我相信，这已经能覆盖线上绝大多数的场景了。</p> <p>或许后续也可以针对某些场景在消费端做<code>exactly once</code> + 幂等 来解决<code>kill -9</code>的窘境，但要知道的是：想要保证数据不丢失、不重复发送给用户，一定会带来性能的损耗，这是需要做平衡的。</p> <p>在项目很少使用线程池之前，一直可能认为线程池的相关面试题就是八股文。但当你项目系统真的遇到线程池优雅关闭的问题、线程池参数动态调整的问题，你就会发现之前看的内容其实是很有意义的。</p> <blockquote> <p>阿，原来可以设置参数让核心线程数也会回收的（之前一直都没有注意过呢）</p> <p>阿，原来都大多数框架都有提供对应的扩展接口给我们监听关闭，默认的实现都有优雅停机的机制咯，之前一直都不知道呢。</p> <p>....</p> </blockquote> <p><code>austin</code>还在持续优化和更新中，欢迎大佬们给点意见和想法一起讨论，对该项目感兴趣的同学也可以到我的GitHub上逛逛，或许有可能这个季度的<code>KPI</code>就有了咯。</p> <p>动态线程池的仓库地址：</p> <ul> <li>Hippo4J：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/acmenlt/dynamic-threadpool"  target="_blank" rel="nofollow">https://github.com/acmenlt/dynamic-threadpool</a></li> <li>DynamicTp：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/yanhom/dynamic-tp"  target="_blank" rel="nofollow">https://gitee.com/yanhom/dynamic-tp</a></li> </ul> <p>都看到这里了，点个赞一点都不过分吧？我是3y，下期见。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0204b7f8fc0ec259a88143c9b7d382ab.jpg" alt="什么是线上优雅停机和调整线程池参数？"></p> <p>关注我的微信公众号【<strong>Java3y</strong>】除了技术我还会聊点日常，有些话只能悄悄说~<strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://link.juejin.cn?target=https%3A%2F%2Fgitee.com%2Fzhongfucheng%2Fathena"  title="https://gitee.com/zhongfucheng/athena" target="_blank" rel="nofollow">【对线面试官+从零编写Java项目】</a> 持续高强度更新中！求star</strong>！！<strong>原创不易！！求三连！！</strong></p> <p>austin项目源码Gitee链接：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://link.juejin.cn?target=https%3A%2F%2Fgitee.com%2Fzhongfucheng%2Faustin"  title="https://gitee.com/zhongfucheng/austin" target="_blank" rel="nofollow">gitee.com/austin</a></p> <p>austin项目源码GitHub链接：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2FZhongFuCheng3y%2Faustin"  title="https://github.com/ZhongFuCheng3y/austin" target="_blank" rel="nofollow">github.com/austin</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51858.htm">人被猫咬了要打狂犬疫苗吗（人被猫咬了要打狂犬疫苗吗）</a></p>
+                                        <p>下一个：<a href="/news/article-52395.htm">狗粮制作机器设备（狗粮制作机器设备视频）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-21411.htm" title="动物疫苗排名前十名有哪些品种 动物疫苗排名前十名有哪些品种图片">动物疫苗排名前十名有哪些品种 动物疫苗排名前十名有哪些品种图片</a></li>
+                        <li class="py-2"><a href="/news/article-36422.htm" title="动物防疫站给猫打疫苗贵吗多少钱一次（动物防疫站可以给猫看病吗）">动物防疫站给猫打疫苗贵吗多少钱一次（动物防疫站可以给猫看病吗）</a></li>
+                        <li class="py-2"><a href="/news/article-32611.htm" title="妙三多三联是什么（妙三多三联多少钱）">妙三多三联是什么（妙三多三联多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-31654.htm" title="动物防疫疫苗中标公告公示时间（动物疫苗厂家电话）">动物防疫疫苗中标公告公示时间（动物疫苗厂家电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share.htm" title="12月13日→18.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月13日→18.1M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-free-subscribe-node.htm" title="12月25日→21.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月25日→21.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-free-subscribe-node.htm" title="2月4日→18.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月4日→18.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-node-share.htm" title="11月12日→20.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月12日→20.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-v2ray.htm" title="1月25日→18.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月25日→18.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-47761.htm" title="猫走丢了能自己回家吗高层（猫走丢了自己可以找回家吗?）">猫走丢了能自己回家吗高层（猫走丢了自己可以找回家吗?）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-54547.htm" />
+    <meta charset="utf-8">
+    <title>visual studio 使用cmake构建项目并远程连接虚拟机centos7</title>
+        <meta name="description" content="初学踩了点坑，记录下初步环境搭建  https://visualstudio.microsoft.com/zh-hans/ 只需勾选图中"使用c++进行lunix和嵌入式开发"，其他看个人需求勾选即可" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-54547.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="visual studio 使用cmake构建项目并远程连接虚拟机centos7" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/df13deedbb13f0653e8e05805e6024ec.webp" />
+        <meta property="og:release_date" content="2025-02-11T05:41:57" />
+    <meta property="og:updated_time" content="2025-02-11T05:41:57" />
+        <meta property="og:description" content="初学踩了点坑，记录下初步环境搭建  https://visualstudio.microsoft.com/zh-hans/ 只需勾选图中"使用c++进行lunix和嵌入式开发"，其他看个人需求勾选即可" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="visual studio 使用cmake构建项目并远程连接虚拟机centos7">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">visual studio 使用cmake构建项目并远程连接虚拟机centos7</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>初学踩了点坑，记录下初步环境搭建</p> </h1> <p>https://visualstudio.microsoft.com/zh-hans/</p> <p>只需勾选图中"使用c++进行lunix和嵌入式开发"，其他看个人需求勾选即可<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221105/d01ab2c8db571cd0f90b64fea91eaa5d.jpg" alt="visual studio 使用cmake构建项目并远程连接虚拟机centos7"></p> </h1> <p>根据https://learn.microsoft.com/zh-cn/cpp/linux/cmake-linux-project，需要在centos上安装gcc，gdb，rsync，zip，ninja-build以及cmake（3.14+）</p> <h2><a id="21centosgccg_18" rel="nofollow"></a>2.1、centos安装gcc，g++</h2> <pre><code class="prism language-shell">yum -y<span class="token function">install</span> gcc<span class="token function">rpm</span> -qa<span class="token operator">|</span><span class="token function">grep</span><span class="token string">"g++"</span><span class="token comment"># -q查询，-a全部</span> yum whatprovides<span class="token string">"*/g++"</span>  yum -y<span class="token function">install</span> gcc-c++-4.8.5-44.el7.x86_64</code></pre> <h2><a id="22_29" rel="nofollow"></a>2.2、其余安装</h2> <pre><code>yum -y install rsync zip unzip</code></pre> <h2><a id="23cmake_35" rel="nofollow"></a>2.3、cmake安装</h2> <p>我选择https://github.com/Microsoft/CMake/releases下载了cmake-3.19.4268486-MSVC_2-Linux-x64.sh</p> <pre><code class="prism language-shell">https://github.com/Microsoft/CMake/releases 下载cmake-3.19.4268486-MSVC_2-Linux-x64.sh放置到/usr/local/cmake/cmake-3.19.4268486-MSVC_2-Linux-x64.sh<span class="token builtin class-name">cd</span> /usr/local/cmake ./cmake-3.19.4268486-MSVC_2-Linux-x64.sh<span class="token function">ln</span> -sf /usr/local/cmake/cmake-3.19.4268486-MSVC_2-Linux-x64/bin/cmake /usr/bin/cmake<span class="token comment">#ln命令</span><span class="token comment">#-s, --symbolic : make symbolic links instead of hard links</span><span class="token comment">#-f, --force : remove existing destination files</span></code></pre> <h2><a id="24ninja_54" rel="nofollow"></a>2.4、安装ninja</h2> <pre><code class="prism language-shell">https://github.com/ninja-build/ninja 下载项目ninja-master.zip 项目拷贝到/usr/local/ninja/ninja-master.zip路径 或者 直接clone项目到目标位置也行<span class="token builtin class-name">cd</span> /usr/local/ninja/<span class="token function">unzip</span> ninja-master.zip<span class="token builtin class-name">cd</span> ninja-master cmake -Bbuild-cmake cmake --build build-cmake<span class="token comment"># The ninja binary will now be inside the build-cmake directory</span><span class="token function">cp</span> /usr/local/ninja/ninja-master/build-cmake/ninja /usr/local/ninja<span class="token comment">#只需要ninja一个文件，所以直接cp</span></code></pre> </h1> <h2><a id="31CMake_71" rel="nofollow"></a>3.1、创建CMake项目</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221105/241f0693d7743c3f2c7a2b14dee647d9.jpg" alt="visual studio 使用cmake构建项目并远程连接虚拟机centos7"></p> <h2><a id="32_75" rel="nofollow"></a>3.2、配置远程服务器</h2> <p>菜单栏的工具 工具-&gt;选项-&gt;跨平台-&gt;连接管理器（“跨平台”菜单下）-&gt;添加(右边)</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221105/d3cbcc68669454dc22826545d9445d3e.jpg" alt="visual studio 使用cmake构建项目并远程连接虚拟机centos7"></p> <h2><a id="33_84" rel="nofollow"></a>3.3、选择添加的服务器</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221105/3cfbb64c2505092a2517bd9398b65081.jpg" alt="visual studio 使用cmake构建项目并远程连接虚拟机centos7"></p> <p>这时visual studio会部署项目至服务器。注意下方“输出”窗口中的日志，返回值为 0即成功了。如果返回值是1，根据其中错误日志去修改配置即可。最后点击右边绿色箭头运行即可</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53998.htm">动物医院好评语100字通用（动物医院好评语100字通用版）</a></p>
+                                        <p>下一个：<a href="/news/article-54548.htm">动物防疫***收费吗多少钱 动物防疫***收费吗多少钱一次</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-clash-v2ray-ss-ssr.htm" title="1月4日→18.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月4日→18.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45799.htm" title="不宜养狗的属相有哪些（哪些属相不能养狗狗）">不宜养狗的属相有哪些（哪些属相不能养狗狗）</a></li>
+                        <li class="py-2"><a href="/news/article-21411.htm" title="动物疫苗排名前十名有哪些品种 动物疫苗排名前十名有哪些品种图片">动物疫苗排名前十名有哪些品种 动物疫苗排名前十名有哪些品种图片</a></li>
+                        <li class="py-2"><a href="/news/article-19114.htm" title="城阳专心动物医院（城阳爱心动物医院电话）">城阳专心动物医院（城阳爱心动物医院电话）</a></li>
+                        <li class="py-2"><a href="/news/article-36185.htm" title="近期电影上映（近期电影上映时间）">近期电影上映（近期电影上映时间）</a></li>
+                        <li class="py-2"><a href="/news/article-49262.htm" title="flex布局实现 内容区域高度自适应">flex布局实现 内容区域高度自适应</a></li>
+                        <li class="py-2"><a href="/news/article-53454.htm" title="猫为什么不打疫苗不能洗澡呢（猫不肯打疫苗）">猫为什么不打疫苗不能洗澡呢（猫不肯打疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-50799.htm" title="python代码模板">python代码模板</a></li>
+                        <li class="py-2"><a href="/news/article-43828.htm" title="上海宠物医院收费价目表查询（上海良心的宠物医院）">上海宠物医院收费价目表查询（上海良心的宠物医院）</a></li>
+                        <li class="py-2"><a href="/news/article-44806.htm" title="长春宠物医院24小时（长春良心的宠物医院）">长春宠物医院24小时（长春良心的宠物医院）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

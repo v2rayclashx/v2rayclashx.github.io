@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-53997.htm" />
+    <meta charset="utf-8">
+    <title>Vue3中vuex的基本使用方法实例_vue.js</title>
+        <meta name="description" content="目录  一、基本结构 二、基本使用 三、将store中的数据模块化后的使用  1.模块化 2.使用  补充：如何改变vuex中的属性  总结      一、基本结构 src/store/index.j" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-53997.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="Vue3中vuex的基本使用方法实例_vue.js" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/05004acc1b0fc013cfce158e66fabd70.webp" />
+        <meta property="og:release_date" content="2025-02-10T07:36:46" />
+    <meta property="og:updated_time" content="2025-02-10T07:36:46" />
+        <meta property="og:description" content="目录  一、基本结构 二、基本使用 三、将store中的数据模块化后的使用  1.模块化 2.使用  补充：如何改变vuex中的属性  总结      一、基本结构 src/store/index.j" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue3中vuex的基本使用方法实例_vue.js">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Vue3中vuex的基本使用方法实例_vue.js</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">一、基本结构</a></li> <li><a href="#_label1" rel="nofollow">二、基本使用</a></li> <li><a href="#_label2" rel="nofollow">三、将store中的数据模块化后的使用</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_0" rel="nofollow">1.模块化</a></li> <li><a href="#_lab2_2_1" rel="nofollow">2.使用</a></li> </ul> <li><a href="#_label3" rel="nofollow">补充：如何改变vuex中的属性</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label4" rel="nofollow">总结 </a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>一、基本结构</h2> <p>src/store/index.js中，代码如下</p> <div class="ay1code"> <pre class="brush:js;">// vue3中创建store实例对象的方法createStore()按需引入  import { createStore } from 'vuex'  export default createStore({    state: {    },    mutations: {    },    actions: {    },    getters: {    },    modules: {    }  })</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>二、基本使用</h2> <p>src/store/index.js</p> <div class="ay1code"> <pre class="brush:js;">import { createStore } from 'vuex'  export default createStore({    state: {      info: 'hello'    },    mutations: {      // 定义mutations，用于修改状态(同步)      updateInfo (state, payload) {        state.info = payload      }    },    actions: {      // 定义actions，用于修改状态(异步)      // 2秒后更新状态      updateInfo (context, payload) {        setTimeout(() =&gt; {          context.commit('updateInfo', payload)        }, 2000)      }    },    getters: {      // 定义一个getters      formatInfo (state) {        return state.info + ' Tom'      }    },    modules: {    }  })  </pre> </div> <p>src/views/Test.vue测试组件中对store中数据的操作与使用</p> <div class="ay1code"> <pre class="brush:js;">&lt;template&gt;    &lt;div&gt;测试组件&lt;/div&gt;    &lt;hr&gt;    &lt;!-- 页面中直接使用渲染时与vue2中的使用方法相同 --&gt;    &lt;div&gt;获取Store中的state、getters: {{$store.getters.formatInfo}}&lt;/div&gt;    &lt;button @click='handleClick'&gt;点击&lt;/button&gt;  &lt;/template&gt;    &lt;script&gt;  // 按需引入useStore()方法  import { useStore } from 'vuex'    export default {    name: 'Test',    setup () {      // this.$store.state.info      // Vue3中store类似于Vue2中this.$store      // useStore()方法创建store对象，相当于src/store/index.js中的store实例对象      const store = useStore()      console.log(store.state.info) // hello      // 修改info的值      const handleClick = () =&gt; {        // 触发mutations，用于同步修改state的信息        // store.commit('updateInfo', 'nihao')        // 触发actions，用于异步修改state的信息        store.dispatch('updateInfo', 'hi')      }      return { handleClick }    }  }  &lt;/script&gt;</pre> </div> <p>点击按钮前</p> <p style="text-align:center"><img decoding="async" alt="示例图" src="http://img.555519.xyz/uploads3/20220424/28cede801147f6f20742ea57eade120c.jpg"></p> <p>点击按钮后</p> <p style="text-align:center"><img decoding="async" alt="示例图" src="http://img.555519.xyz/uploads3/20220424/2da57fc16a9809e8a16bce40f974f63e.jpg"></p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>三、将store中的数据模块化后的使用</h2> <p class="maodian"><a name="_lab2_2_0" rel="nofollow"></a></p> <h3>1.模块化</h3> <p>基于原index.js代码进行改造拆分，假设有两个模块global和user，新建src/store/modules/global.js 、src/store/modules/user.js文件</p> <p>拆分后代码如下（src/store/modules/global.js）</p> <div class="ay1code"> <pre class="brush:js;">// 全局store,存放全局使用共享的数据  export default { // 注意：全局模块中不需要开启命名空间    state: {    },    mutations: {    },    actions: {    },    getters: {    }  }</pre> </div> <p>拆分后代码如下（src/store/modules/user.js）</p> <div class="ay1code"> <pre class="brush:js;">// 用户信息模块(局部模块)  export default {    namespaced: true, // 开启命名空间    state () {      return {        // 用户信息对象         profile: {          id: '',          avatar: '',          nickname: 'yee',          account: '',          mobile: '',          token: ''        }      }    },    mutations: {      // 定义mutations，用于同步修改状态      updateNickname (state, payload) {        state.profile.nickname = payload      }    },    actions: {      // 定义actions，用于异步修改状态      // 2秒后更新状态      updateNickname (context, payload) {        setTimeout(() =&gt; {          context.commit('updateNickname', payload)        }, 2000)      }    },    getters: {      // 定义一个getters      formatNickname (state) {        return 'Hi ' + state.profile.nickname      }    }  }</pre> </div> <p>拆分后代码如下（src/store/index.js）</p> <div class="ay1code"> <pre class="brush:js;">import { createStore } from 'vuex'  // 全局模块  import global from './modules/global'  // 局部模块  import user from './modules/user'    export default createStore({    // 全局模块    ...global,    // 局部模块    modules: {      user    }  })</pre> </div> <p class="maodian"><a name="_lab2_2_1" rel="nofollow"></a></p> <h3>2.使用</h3> <p>src/views/Test.vue测试组件中对模块化后的store中数据的操作与使用</p> <div class="ay1code"> <pre class="brush:js;">&lt;template&gt;    &lt;div&gt;测试组件&lt;/div&gt;    &lt;hr&gt;    &lt;div&gt;获取Store中user模块的getters: {{$store.getters['user/formatNickname']}}&lt;/div&gt;    &lt;button @click='handleClick'&gt;点击&lt;/button&gt;  &lt;/template&gt;    &lt;script&gt;  import { useStore } from 'vuex'  export default {    name: 'Test',    setup () {      // this.$store.state.info      // Vue3中store类似于Vue2中this.$store      const store = useStore()      console.log(store.state.user.profile.nickname)      // 修改nickname的值      const handleClick = () =&gt; {        // 触发mutations，用于同步修改user模块state的信息        // store.commit('updateNickname', 'Jackson')        store.dispatch('user/updateNickname', 'Yee')      }      return { handleClick }    }  }  &lt;/script&gt;</pre> </div> <p>点击按钮前</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/10193efc77793be2108401a06246ee00.jpg"></p> <p>点击按钮后</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/489e7c24c741eeaae27aab7d1fa3a8fb.jpg"></p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>补充：如何改变vuex中的属性</h2> <p>vue3和vue2一样，都是通过提交mutations中的方法，进行对vuex中数据的改变，那具体该如何使用呢？首先看一下mutations中的写法</p> <div class="ay1code"> <pre class="brush:js;">const mutations = {    addCount(state, payload) {      state.count += payload    },  }  export { mutations }  </pre> </div> <p>这里，定义了一个addCount方法，这个方法接受两个参数，第一个参数是要改变的state对象（当然你调用这个放法的传参中也可以写state.count，然后再mutations中直接state += payload就可以了），第二个参数是要改变的数据，比如进行 +1 操作</p> <div class="ay1code"> <pre class="brush:js;">&lt;template&gt;    &lt;h1&gt;vuex中的数据{{ store.state.count }}&lt;/h1&gt;    &lt;button @click="changeStoreCount"&gt;改变vuex数据&lt;/button&gt;  &lt;/template&gt;  &lt;script lang="ts"&gt;  import { defineComponent } from "vue"  import { useStore } from "vuex"  export default defineComponent({    name: "index",    setup() {      const store = useStore()      console.log(store)      const changeStoreCount = () =&gt; {        // 在这里提交了mutations中的addCount方法        store.commit("addCount", 1)      }      return { store, changeStoreCount }    },  })  &lt;/script&gt;  &lt;style scoped&gt;&lt;/style&gt;</pre> </div> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>总结 </h2> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53455.htm">青岛想念动物医院电话多少 青岛想念动物医院电话多少号</a></p>
+                                        <p>下一个：<a href="/news/article-53998.htm">动物医院好评语100字通用（动物医院好评语100字通用版）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-v2ray.htm" title="1月25日→18.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月25日→18.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-clash-v2ray-ss-ssr.htm" title="12月7日→22.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月7日→22.3M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-subscribe-node.htm" title="11月10日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月10日→21.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37396.htm" title="上海宠物医院在线咨询（上海宠物医院在线咨询医生）">上海宠物医院在线咨询（上海宠物医院在线咨询医生）</a></li>
+                        <li class="py-2"><a href="/news/article-44807.htm" title="有免费领养宠物的软件吗安全吗可靠吗（有免费领养宠物的软件吗安全吗可靠吗可信吗）">有免费领养宠物的软件吗安全吗可靠吗（有免费领养宠物的软件吗安全吗可靠吗可信吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-high-speed-nodes.htm" title="1月26日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月26日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-free-v2ray.htm" title="1月17日→22.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月17日→22.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43828.htm" title="上海宠物医院收费价目表查询（上海良心的宠物医院）">上海宠物医院收费价目表查询（上海良心的宠物医院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-v2ray-subscribe.htm" title="12月14日→19.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月14日→19.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37896.htm" title="猫咪疫苗要打几针?（猫咪疫苗要打几针才能洗澡）">猫咪疫苗要打几针?（猫咪疫苗要打几针才能洗澡）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

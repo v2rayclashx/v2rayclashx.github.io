@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-57898.htm" />
+    <meta charset="utf-8">
+    <title>JAVA 实现websocket作为客户端（自动断线重连）</title>
+        <meta name="description" content="因为很少有这样作为客户端的使用，但是遇上特殊需求还是要作为客户端使用，spring-boot-starter集成的无法实现客户端，直接上代码 pom引入，这里使用的spring boot 其他项目自行" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-57898.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="JAVA 实现websocket作为客户端（自动断线重连）" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/60949e972ab1f3a261dda4a5ca75059b.webp" />
+        <meta property="og:release_date" content="2025-02-17T09:55:51" />
+    <meta property="og:updated_time" content="2025-02-17T09:55:51" />
+        <meta property="og:description" content="因为很少有这样作为客户端的使用，但是遇上特殊需求还是要作为客户端使用，spring-boot-starter集成的无法实现客户端，直接上代码 pom引入，这里使用的spring boot 其他项目自行" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JAVA 实现websocket作为客户端（自动断线重连）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">JAVA 实现websocket作为客户端（自动断线重连）</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>因为很少有这样作为客户端的使用，但是遇上特殊需求还是要作为客户端使用，spring-boot-starter集成的无法实现客户端，直接上代码</p> <p>pom引入，这里使用的spring boot 其他项目自行下载jar包库</p> <pre class="has"><code class="language-java">&lt;!--WebSocket核心依赖包--&gt; 		&lt;dependency&gt; 			&lt;groupId&gt;org.java-websocket&lt;/groupId&gt; 			&lt;artifactId&gt;Java-WebSocket&lt;/artifactId&gt; 			&lt;version&gt;1.3.8&lt;/version&gt; 		&lt;/dependency&gt;</code></pre> <pre class="has"><code class="language-java">package com.jwuwb.library.service.websocket;  import com.alibaba.fastjson.JSON; import com.alibaba.fastjson.JSONObject; import com.jwuwb.library.entity.PositionStation; import com.jwuwb.library.service.PositionStationService; import org.java_websocket.WebSocket.READYSTATE; import org.java_websocket.client.WebSocketClient; import org.java_websocket.handshake.ServerHandshake; import org.slf4j.Logger; import org.slf4j.LoggerFactory; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.beans.factory.annotation.Value; import org.springframework.stereotype.Component;  import java.net.URI;  /**  * websocket 建立连接...  * @author apple  */ @Component public class Client {     private static final Logger logger = LoggerFactory.getLogger(Client.class);  	public static void createConnect() throws Exception{         WebSocketClient client = new WebSocketClient(new URI(这里是你连接的websocket的地址)) {              @Override             public void onOpen(ServerHandshake arg0) {                 logger.info("开始建立链接...");             }              @Override             public void onMessage(String arg0) {               logger.info("检测到服务器请求...arg0 : " + arg0);             }              @Override             public void onError(Exception arg0) {                 arg0.printStackTrace();                 logger.info("客户端发生错误,即将关闭!");             }              @Override             public void onClose(int arg0, String arg1, boolean arg2) {                 logger.info("客户端已关闭!");                 logger.info("开始尝试重新连接...");                 try {                     Client.createConnect();                 } catch (Exception e) {                     e.printStackTrace();                     logger.info("重新连接失败,请检查网络!");                 }             }         };  		client.connect(); 		//判断连接状态, 		while (client.getReadyState().equals(READYSTATE.OPEN)) { 			logger. info("成功建立链接!"); 		} 	} }</code></pre> <p>由于websocket是多例的无法直接注入可以使用：<strong>（这里只是个示例，使用静态变量的方式可以实现注入）</strong></p> <pre><code class="language-java">public static UserService userService; @Autowired public void setService(UserService userService) {     Client.userService = userService; }</code></pre> <p>很简单直接调用</p> <pre class="has"><code class="language-java">Client.createConnect(); 或者@PostConstruct直接项目启动一起启动</code></pre> <p>2021-01-08：</p> <p>修复会自动断线bug:&nbsp;<img fetchpriority="high" decoding="async" alt="" height="205" src="http://img.555519.xyz/uploads/20230108/de1dc127a7b28bf7ebe8d5b873583ac2.jpg"></p> <p>在连接之前设置client的属性</p> <pre><code class="language-html">client.setConnectionLostTimeout(0); </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57338.htm">在我的城市里有一家宠物医院用英语怎么说（在我的城市有一家宠物医院英文翻译）</a></p>
+                                        <p>下一个：<a href="/news/article-57899.htm">去宠物店驱虫一次多少钱（猫咪3针疫苗一共多少元）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-29755.htm" title="python之33个关键字详解_Python之33个关键字是哪些">python之33个关键字详解_Python之33个关键字是哪些</a></li>
+                        <li class="py-2"><a href="/news/article-48754.htm" title="python读取HDFS文件">python读取HDFS文件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-node-subscribe.htm" title="1月22日→21.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月22日→21.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23228.htm" title="Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型">Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-node-share-links.htm" title="2月9日→21.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月9日→21.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26958.htm" title="数据结构+带头结点双向循环链表+(C语言)">数据结构+带头结点双向循环链表+(C语言)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-high-speed-nodes.htm" title="11月24日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月24日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-54547.htm" title="visual studio 使用cmake构建项目并远程连接虚拟机centos7">visual studio 使用cmake构建项目并远程连接虚拟机centos7</a></li>
+                        <li class="py-2"><a href="/news/article-47761.htm" title="猫走丢了能自己回家吗高层（猫走丢了自己可以找回家吗?）">猫走丢了能自己回家吗高层（猫走丢了自己可以找回家吗?）</a></li>
+                        <li class="py-2"><a href="/news/article-23690.htm" title="同城领养宠物的平台叫什么的简单介绍">同城领养宠物的平台叫什么的简单介绍</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

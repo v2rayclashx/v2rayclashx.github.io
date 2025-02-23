@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-60198.htm" />
+    <meta charset="utf-8">
+    <title>Shiro介绍及解析</title>
+        <meta name="description" content="一、明白什么是认证和授权 从百度百科上理解的，感觉非常通俗易懂 你要登机，你需要出示你的 passport 和源 ticket，passport 是为了证明你张三确实是你百张三，这就是 认证；而机票是" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-60198.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="Shiro介绍及解析" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/b5861959fe3f4fab7a73994c0442df23.webp" />
+        <meta property="og:release_date" content="2025-02-21T09:18:23" />
+    <meta property="og:updated_time" content="2025-02-21T09:18:23" />
+        <meta property="og:description" content="一、明白什么是认证和授权 从百度百科上理解的，感觉非常通俗易懂 你要登机，你需要出示你的 passport 和源 ticket，passport 是为了证明你张三确实是你百张三，这就是 认证；而机票是" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Shiro介绍及解析">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Shiro介绍及解析</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>一、明白什么是认证和授权</p> <p>从百度百科上理解的，感觉非常通俗易懂</p> <p>你要登机，你需要出示你的 passport 和源 ticket，passport 是为了证明你张三确实是你百张三，这就是 认证；而机票是为了证明你张三确实买度了票可以上飞机，这就是 授权。</p> <p> 二、shiro的概念<br /> 1.什么是shiro</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/41a62c114e3431e9316f969c5cb09ad5.jpg"></p> <p>&nbsp;</p> <p>2.shiro的特性</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/161b4545448eec135d0a0a0f6976fe98.jpg"><br /> 3.shiro的核心组件</p> <p>&nbsp;<img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/c247749fe444502753bdd198d92ef671.jpg"></p> <p> 三、shiro实战debug解析（token是用户输入的，info是从缓存和数据库中查出来的，<br /> 认证主要做token和info中密码的判等；授权主要是将注解上的权限或者角色与从数据库中查出来的权限做判等）</p> <p>1.首先先配置一个Realm类</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/cab020566fa4d675e25b40c21dc33484.jpg">&nbsp;</p> <p>1.1 然后配置认证的方法，因为配置了拦截路径，所以当用户调用sub.login(token)的方法的时候</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/4e8d6f110b116422e8d60f92fd5d9c35.jpg"><br /> 会先去AuthenticatingRealm类中调用getAuthenticationInfo方法，如下图所示</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/1e7e077a78c01d070eb96cca82d923ff.jpg"></p> <p>之后开始回调实现类也就是咱自己实现的doGetAuthenticationInfo这个方法，方法的逻辑大致是获取用户输入框中输入的token中的principal，然后根据principal去数据库或者缓存中查相应的用户的信息。之后将token中的principal以及数据库中查询到的password还有自己实现的AuthRealm类的全路径传入到authenticationInfo对象中去，如下图所示</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/b486b41fc2945969e625aefebd2e2aed.jpg">&nbsp;构造完之后返回info对象，接着走下边的assertCredentialsMath方法（），如下图所示</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/ddcbd882872161215add0889a20582dd.jpg"><br /> assertCredentialsMath方法（）里边会针对token（用户输入的要验证的“用户”）以及info（从数据库里边查的实际的“用户”）里边的密码进行校验，如果对比成功则返回true</p> <p>&nbsp;<img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/1a656db28d56280deb220aefc551bddb.jpg"></p> <p>&nbsp;1.2 然后配置授权的方法，也就是说当调用到具体方法的时候会去回调这个方法</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/aa913ad269e1d74f802599b30a236f00.jpg"></p> <p>&nbsp;2.然后配置ShiroConfig类</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/7d62127b20fb30de7a07669ca1f02698.jpg"><br /> 2.1首先配置SecurityManager类，一般都是这几行代码，其中的入参就是第一步配的那个AuthRealm</p> <p>&nbsp;<img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/928cc6a53dfd28daf91a6cb39996d509.jpg"></p> <p>&nbsp;2.2然后配置shiro的过滤规则，其中入参就是上一步配置的SecurityManager。里边分别都是登录路径（如果不设置默认会自动寻找Web工程根目录下的"/login"页面），认证成功后的路径以及没有认证的路径</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/90dcba2bfc7ed833130bafa52ef250cd.jpg">2.3 配置Filter的权限控制规则</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/49fdb8eac2b3b05429701f3640c5fe9b.jpg"><br /> 3.之后配置/login的登陆的认证，划红线的都是重点，里边首先生成一个Subject对象，然后生成touken，并且利用这个token传入到sub.login方法中，这个方法会将token传到SecurityManager，SecurityManager然后传给AuthRealm的认证方法doGetAuthenticationInfo，之后这个方法里边开始校验账号和密码的逻辑，并且利用XXXMatcher方法校验。</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/2b280c151cb3403ff43b648738136eb1.jpg"></p> <p>&nbsp;4.校验通过后，可以成功登录到success页面，形成一个闭环</p> <p>5.用户开始进行相关操作，比如进行查询操作，上边的有注解@RequiresRoles和@RequiresPermissions，分别用来控制角色和权限，粒度不一样</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/d10205c9334af5e69e19448aa2d4c0e8.jpg"><br /> 6.之后会回调AuthRealm的doGetAuthorizationInfo方法，进行校验，形成一个闭环。</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/21dd8d51b851c12731bb0c65a934bc46.jpg"></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-59614.htm">解决Qt设置QTextEdit行高的问题_C 语言</a></p>
+                                        <p>下一个：<a href="/news/article-60199.htm">动物疫苗接种禁忌症和注意事项有哪些内容 动物疫苗接种禁忌症和注意事项有哪些内容呢</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32610.htm" title="猫咪领养协议模板简单易懂图片（猫咪领养协议模板简单易懂图片大全）">猫咪领养协议模板简单易懂图片（猫咪领养协议模板简单易懂图片大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-node-subscribe-links.htm" title="11月17日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月17日→18.4M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-29278.htm" title="动物注射疫苗注意事项及禁忌症是什么（动物疫苗使用注意事项）">动物注射疫苗注意事项及禁忌症是什么（动物疫苗使用注意事项）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-node-share-links.htm" title="1月28日→19.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月28日→19.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25091.htm" title="js实现商城放大镜效果">js实现商城放大镜效果</a></li>
+                        <li class="py-2"><a href="/news/article-43828.htm" title="上海宠物医院收费价目表查询（上海良心的宠物医院）">上海宠物医院收费价目表查询（上海良心的宠物医院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-high-speed-nodes.htm" title="11月19日→22.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月19日→22.7M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-node-share-links.htm" title="2月13日→22.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月13日→22.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-33082.htm" title="猫三联是三针还是一针好（猫三联一针是什么意思）">猫三联是三针还是一针好（猫三联一针是什么意思）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-subscribe-node.htm" title="1月5日→19.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月5日→19.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

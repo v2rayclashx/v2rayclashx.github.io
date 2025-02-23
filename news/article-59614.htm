@@ -130,6 +130,7 @@
                   				  				  				<h2>解决方法：</h2> <div class="ay1code"> <pre class="brush:cpp;">QTextDocument* doc = ui-&gt;edtCountryIntroduce-&gt;document();    for(QTextBlock it = doc-&gt;begin(); it != doc-&gt;end(); it = it.next())  {      QTextCursor textCursor(it);      QTextBlockFormat textBlockFormat = it.blockFormat();      //set line height      textBlockFormat.setLineHeight(24,QTextBlockFormat::FixedHeight);        textCursor.setBlockFormat(textBlockFormat);      ui-&gt;edtCountryIntroduce-&gt;setTextCursor(textCursor);  }</pre> </div> <blockquote> <p>需要在QTextEdit设置了文字之后，才会生效，放在构造函数里不会生效</p> </blockquote> <p>像这样是不行的</p> <div class="ay1code"> <pre>    QTextCursor textCursor = ui-&gt;textEdit-&gt;textCursor();      QTextBlockFormat textBlockFormat;      //set line height      textBlockFormat.setLineHeight(24,QTextBlockFormat::FixedHeight);        textCursor.setBlockFormat(textBlockFormat);      ui-&gt;textEdit-&gt;setTextCursor(textCursor);</pre> </div> <p>因为这里虽然是给整个textEdit设置，但是实际上，只是给第一段设置了。所以如果如果要对所有的段落进行设置就需要遍历当前textEdit的document中所有的段落，对一个一个的段落进行设置。</p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-59613.htm">liunx中搭建python3.7环境和安装pycharm并搭建Django</a></p>
+                                        <p>下一个：<a href="/news/article-60198.htm">Shiro介绍及解析</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -139,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-47265.htm" title="卖宠物粮食生意怎么样 卖宠物粮食生意怎么样啊">卖宠物粮食生意怎么样 卖宠物粮食生意怎么样啊</a></li>
-                        <li class="py-2"><a href="/news/article-49262.htm" title="flex布局实现 内容区域高度自适应">flex布局实现 内容区域高度自适应</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-node-subscribe.htm" title="1月11日→22.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月11日→22.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-44807.htm" title="有免费领养宠物的软件吗安全吗可靠吗（有免费领养宠物的软件吗安全吗可靠吗可信吗）">有免费领养宠物的软件吗安全吗可靠吗（有免费领养宠物的软件吗安全吗可靠吗可信吗）</a></li>
-                        <li class="py-2"><a href="/news/article-26037.htm" title="宠物领养合同怎么写 宠物领养合同怎么写范本">宠物领养合同怎么写 宠物领养合同怎么写范本</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-high-speed-nodes.htm" title="11月24日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月24日→18.9M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-subscribe-node.htm" title="11月20日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月20日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-high-speed-nodes.htm" title="11月13日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址">11月13日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-v2ray-subscribe.htm" title="12月14日→19.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月14日→19.2M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-v2ray-subscribe.htm" title="12月17日→22.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月17日→22.6M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-33082.htm" title="猫三联是三针还是一针好（猫三联一针是什么意思）">猫三联是三针还是一针好（猫三联一针是什么意思）</a></li>
+                        <li class="py-2"><a href="/news/article-57899.htm" title="去宠物店驱虫一次多少钱（猫咪3针疫苗一共多少元）">去宠物店驱虫一次多少钱（猫咪3针疫苗一共多少元）</a></li>
+                        <li class="py-2"><a href="/news/article-30230.htm" title="仓鼠脱毛露出红色的皮怎么治（仓鼠脱毛有红点）">仓鼠脱毛露出红色的皮怎么治（仓鼠脱毛有红点）</a></li>
+                        <li class="py-2"><a href="/news/article-57337.htm" title="哈尔滨农大宠物医院电话号码（哈尔滨农大兽医院）">哈尔滨农大宠物医院电话号码（哈尔滨农大兽医院）</a></li>
+                        <li class="py-2"><a href="/news/article-38869.htm" title="符合动物医院法定条件有哪些内容要求（动物医院资质级别有哪些）">符合动物医院法定条件有哪些内容要求（动物医院资质级别有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-59046.htm" title="python 在sql语句中使用%s,%d,%f">python 在sql语句中使用%s,%d,%f</a></li>
+                        <li class="py-2"><a href="/news/article-23228.htm" title="Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型">Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型</a></li>
+                        <li class="py-2"><a href="/news/article-52395.htm" title="狗粮制作机器设备（狗粮制作机器设备视频）">狗粮制作机器设备（狗粮制作机器设备视频）</a></li>
+                        <li class="py-2"><a href="/news/article-36422.htm" title="动物防疫站给猫打疫苗贵吗多少钱一次（动物防疫站可以给猫看病吗）">动物防疫站给猫打疫苗贵吗多少钱一次（动物防疫站可以给猫看病吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-node-share.htm" title="12月21日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址">12月21日→18M/S|2024年最新免费节点V2ray ClashX订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -160,7 +161,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>

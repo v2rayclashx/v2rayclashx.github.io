@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-67507.htm" />
+    <meta charset="utf-8">
+    <title>DeferredResult异步处理spring mvc Demo</title>
+        <meta name="description" content="spring mvc同步接口在请求处理过程中一直处于阻塞状态，而异步接口可以启用后台线程去处理耗时任务。简单来说适用场景： 1.高并发； 2.高IO耗时操作。  Spring MVC3.2之后支持异步" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-67507.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="DeferredResult异步处理spring mvc Demo" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/20da9dced4c2d7213a8a5da74683d1a7.webp" />
+        <meta property="og:release_date" content="2025-03-05T11:10:51" />
+    <meta property="og:updated_time" content="2025-03-05T11:10:51" />
+        <meta property="og:description" content="spring mvc同步接口在请求处理过程中一直处于阻塞状态，而异步接口可以启用后台线程去处理耗时任务。简单来说适用场景： 1.高并发； 2.高IO耗时操作。  Spring MVC3.2之后支持异步" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="DeferredResult异步处理spring mvc Demo">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">DeferredResult异步处理spring mvc Demo</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>spring mvc同步接口在请求处理过程中一直处于阻塞状态，而异步接口可以启用后台线程去处理耗时任务。简单来说适用场景：<br /> 1.高并发；<br /> 2.高IO耗时操作。</p> </h1> <p>Spring MVC3.2之后支持异步请求，能够在controller中返回一个Callable或者DeferredResult。<br /> 1.Callable实例</p> <pre><code>@Controller public class CallableController {     @RequestMapping(path = "/async1", method = RequestMethod.GET)     @ResponseBody     public Callable&lt;String&gt; asyncRequest() {         return () -&gt; {             final long currentThread = Thread.currentThread().getId();             final Date requestProcessingStarted = new Date();              Thread.sleep(6000L);              final Date requestProcessingFinished = new Date();              return String.format(                     "request: [threadId: %s, started: %s - finished: %s]"                     , currentThread, requestProcessingStarted, requestProcessingFinished);         };     } } </code></pre> <p>2.DeferredResult使用方式与Callable类似，但在返回结果上不一样，它返回的时候实际结果可能没有生成，实际的结果可能会在另外的线程里面设置到DeferredResult中去，能实现更加复杂的业务场景。</p> <pre><code>@Controller public class DeferredResultController {     private Map&lt;Integer, DeferredResult&lt;String&gt;&gt; deferredResultMap = new HashMap&lt;&gt;();      @ResponseBody     @GetMapping("/get")     public DeferredResult&lt;String&gt; getId(@RequestParam Integer id) throws Exception {         System.out.println("start hello");         DeferredResult&lt;String&gt; deferredResult = new DeferredResult&lt;&gt;();          //先存起来，等待触发         deferredResultMap.put(id, deferredResult);         System.out.println("end hello");         return deferredResult;     }      @ResponseBody     @GetMapping("/set")     public void setId(@RequestParam Integer id) throws Exception {         // 让所有hold住的请求给与响应         if (deferredResultMap.containsKey(id)) {             deferredResultMap.get(id).setResult("hello " + id);         }     } } </code></pre> <p>当从浏览器请求http://localhost:8080/get/1时，页面处于等待状态；当访问http://localhost:8080/set/1，前面的页面会返回"hello 1"。</p> <p>处理过程：</p> <ul> <li>controller 返回一个DeferredResult，我们把它保存到内存里或者List里面（供后续访问）</li> <li>Spring MVC调用request.startAsync()，开启异步处理</li> <li>与此同时将DispatcherServlet里的拦截器、Filter等等都马上退出主线程，但是response仍然保持打开的状态</li> <li>应用通过另外一个线程（可能是MQ消息、定时任务等）给DeferredResult set值。然后Spring MVC会把这个请求再次派发给servlet容器</li> <li>DispatcherServlet再次被调用，然后处理后续的标准流程</li> </ul> <p>3.模拟场景：接口接收请求，推送到队列receiveQueue，后台线程处理完成后推送到resultQueue，监听器监听resultQueue将结果赋值给DeferredResult，接口响应结果。<br /> 首先定义类Task:</p> <pre><code>public class Task&lt;T&gt; {     private DeferredResult&lt;String&gt; result;     private T message;     private Boolean isTimeout; </code></pre> <p>定义MockQueue,用于管理队列及处理数据：</p> <pre><code>@Component public class MockQueue {     /**      * 接收队列      */     private BlockingQueue&lt;Task&lt;String&gt;&gt; receiveQueue = new LinkedBlockingDeque&lt;&gt;(5000);     /**      * 结果队列      */     private BlockingQueue&lt;Task&lt;String&gt;&gt; resultQueue = new LinkedBlockingDeque&lt;&gt;(5000);      public MockQueue() {         this.run();     }      /**      * 接收task      *      * @param task task实体      * @throws InterruptedException      */     public void put(Task&lt;String&gt; task) throws InterruptedException {         receiveQueue.put(task);     }      /**      * 获取结果      *      * @return      * @throws InterruptedException      */     public Task&lt;String&gt; get() throws InterruptedException {         return resultQueue.take();     }      private void run() {         new Thread(() -&gt; {             while (true) {                 try {                     Task&lt;String&gt; task = receiveQueue.take();                     System.out.println("receive data,start process!");                     Thread.sleep(1000);                     task.setMessage("success");                      //任务超时，跳过                     if (task.getIsTimeout()) {                         continue;                     }                      resultQueue.put(task);                     System.out.println("process done!");                 } catch (InterruptedException e) {                     e.printStackTrace();                 }             }         }).start();     } } </code></pre> <p>然后实现Controller异步接口：</p> <pre><code>@Controller public class DeferredResultQueueController {     @Autowired     MockQueue queue;      @ResponseBody     @GetMapping("/test")     public DeferredResult&lt;String&gt; test(@RequestParam Integer id) throws InterruptedException {         System.out.println("start test");         DeferredResult&lt;String&gt; deferredResult = new DeferredResult&lt;&gt;();         Task&lt;String&gt; task = new Task&lt;&gt;(deferredResult, "任务", false);         deferredResult.onTimeout(() -&gt; {             System.out.println("任务超时 id=" + id);             task.setMessage("任务超时");             task.setIsTimeout(true);         });         queue.put(task);         return deferredResult;     } } </code></pre> <p>最后定义监听器，将resultQueue的结果写入DeferredResult。</p> <pre><code>@Component public class QueueResultListener implements ApplicationListener&lt;ContextRefreshedEvent&gt; {     @Autowired     MockQueue mockQueue;      @Override     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {         new Thread(() -&gt; {             try {                 Task&lt;String&gt; task = mockQueue.get();                 task.getResult().setResult(task.getMessage());                 System.out.println("监听器获取到结果：task=" + task);             } catch (InterruptedException e) {                 e.printStackTrace();             }         }).start();     } } </code></pre> </h1> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.baeldung.com/spring-deferred-result"  rel="nofollow">https://www.baeldung.com/spring-deferred-result</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://cloud.tencent.com/developer/article/1497796"  rel="nofollow">https://cloud.tencent.com/developer/article/1497796</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/31223106"  rel="nofollow">https://zhuanlan.zhihu.com/p/31223106</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-66859.htm">宠物领养条件和要求（宠物领养的法律法规）</a></p>
+                                        <p>下一个：<a href="/news/article-67508.htm">上海动物疫苗控制中心电话号码（上海动物疫苗控制中心电话号码查询）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-61369.htm" title="int类型数据转为 torch.cuda.FloatTensor类型数据">int类型数据转为 torch.cuda.FloatTensor类型数据</a></li>
+                        <li class="py-2"><a href="/news/article-42832.htm" title="动物医院工作怎么样（动物医院工资怎么样）">动物医院工作怎么样（动物医院工资怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-46297.htm" title="被宠物猫抓出血了有事吗（被宠物猫抓出血了有事吗）">被宠物猫抓出血了有事吗（被宠物猫抓出血了有事吗）</a></li>
+                        <li class="py-2"><a href="/news/article-58612.htm" title="动物医疗机构的主管部门（动物医疗机构的主管部门是哪里）">动物医疗机构的主管部门（动物医疗机构的主管部门是哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-42334.htm" title="动物疫苗使用注意事项有哪些呢（动物疫苗使用时的注意事项有哪些）">动物疫苗使用注意事项有哪些呢（动物疫苗使用时的注意事项有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-26-free-high-speed-nodes.htm" title="2月26日→19.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月26日→19.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-clash-v2ray-ss-ssr.htm" title="2月7日→20.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月7日→20.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40357.htm" title="动物疫苗上市公司有哪些品牌的（动物疫苗上市公司有哪些品牌的）">动物疫苗上市公司有哪些品牌的（动物疫苗上市公司有哪些品牌的）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-subscribe-node.htm" title="2月11日→22.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月11日→22.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-47264.htm" title="java学习 枚举和注解">java学习 枚举和注解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

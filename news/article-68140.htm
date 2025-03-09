@@ -130,6 +130,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3><a id="hash_0" rel="nofollow"></a>hash</h3> <p> 基本操作</p> <p> （1）存入数据 hmset key field1 value1 field2 value2…</p> <p> （2）读取数据 hmget key field1 fisld2…</p> <p> （3）获取哈希表中的字段 hlen key</p> <p> （4）判断是否含有某个字段 hexist key field</p> <p> （2）获取所有的字段名或字段值 hkeys key</p> <p> hvals key</p> <p> （3）设置指定字段的数值数据增加指定范围的值</p> <p> hincrby key field increment</p> <p> hincrbyfloat key field increment</p> <p>注意事项：</p> <p>hash类型下的value只能存储字符串，不允许再存储其他的数据结构，不能再嵌套</p> <p>每个hash也是有存储上限的，为2的32次方-1个键值对</p> <p>hash虽然与存储类对象类似，但是切不可将hash等于类对象的存储，更不可将hash作为对象列表来使用</p> <p>hgetall可以查询某个键的全部值，但是如果内部的field过多的话，还是建议一个一个的取出来，因为遍历整体数据效率十分低下</p> <p>应用场景实例：</p> <p>1.电商购物车</p> <p>很容易想到的就是将用户的id作为我们存储数据时的key并将商品的数量以hash的数据形式存储进来，大致是如下的结构<strong>hmset user:id001 good1:num 100 good2:num 200…</strong></p> <p>这样我们就能将购物车的信息存储但是如果我们再仔细检查思考之后就能发现其实仍然不完整，这其中我们<strong>只存储了商品的数量，但是商品信息并没有存储进来</strong>，所以我们还需要改进可以通过<strong>json</strong>的数据形式而非数据结构来存储商品的信息大致结构如下</p> <p><strong>hmset user:id001 good1:num 100 good1:info {name:water,size:600ml} good2:num 200 good2:info {name:shirt,size:XL}…</strong></p> <p>这样的形式来进行存储，但是这样真的使得查询变得高效了吗，假设每个用户都购买了good1，只是商品数量不一样而已，但是<strong>每次都会将商品的信息都查询一次</strong>，显然这样也是不行的，所以我们可以选择<strong>将商品信息单独列成一个库来进行存储</strong>，这样每次查询的时候，如果内存中已经有了相应商品的信息，就不会在重复查询了</p> <p>2.商家的抢购活动</p> <p>这里比方说有很多商家分别推出多种商品来供顾客进行抢购。</p> <p>我们可以考虑将<strong>商家作为key，将商品作为其中的field，将商品的数量作为value</strong>来进行实现大致结构如下：</p> <p><strong>hmset shangjia1 good1 100 good2 200</strong>…之后我们通过hincrby指令来实现商品的抢购，比如;</p> <p><strong>hincrby shangjia1 good1 -1</strong>这样即实现商品的抢购操作。其实还应该考虑货已经卖完了，不能再卖的情况，但是这种业务逻辑一般在编程的时候实现，不应在数据层进行编写。</p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-68139.htm">Android 中的广播机制你了解多少?</a></p>
+                                        <p>下一个：<a href="/news/article-68781.htm">宠物粮业务员好干吗工资多少一个月（宠物粮食业务员）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -139,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-2-18-node-share.htm" title="2月18日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月18日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-36907.htm" title="动物疫苗采购信息简报内容有哪些（动物疫苗管理制度）">动物疫苗采购信息简报内容有哪些（动物疫苗管理制度）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-10-node-share.htm" title="2月10日→22.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月10日→22.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-59613.htm" title="liunx中搭建python3.7环境和安装pycharm并搭建Django">liunx中搭建python3.7环境和安装pycharm并搭建Django</a></li>
-                        <li class="py-2"><a href="/news/article-48231.htm" title="@RequestBody 接收复杂实体类集合">@RequestBody 接收复杂实体类集合</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-10-node-share-links.htm" title="1月10日→20.6M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月10日→20.6M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-39858.htm" title="Jenkins自动化部署Vue项目的方法实现_vue.js">Jenkins自动化部署Vue项目的方法实现_vue.js</a></li>
+                        <li class="py-2"><a href="/news/article-65620.htm" title="springcloud-的使用alibaba版&#8212;&#8212;Nacos Discovery&#8211;服务治理">springcloud-的使用alibaba版&#8212;&#8212;Nacos Discovery&#8211;服务治理</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-node-share.htm" title="2月25日→21.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月25日→21.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-67507.htm" title="DeferredResult异步处理spring mvc Demo">DeferredResult异步处理spring mvc Demo</a></li>
+                        <li class="py-2"><a href="/news/article-53455.htm" title="青岛想念动物医院电话多少 青岛想念动物医院电话多少号">青岛想念动物医院电话多少 青岛想念动物医院电话多少号</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-26-free-high-speed-nodes.htm" title="2月26日→19.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月26日→19.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
                         <li class="py-2"><a href="/news/article-49778.htm" title="宠物店领养协议书 宠物店领养协议书范本">宠物店领养协议书 宠物店领养协议书范本</a></li>
-                        <li class="py-2"><a href="/news/article-61369.htm" title="int类型数据转为 torch.cuda.FloatTensor类型数据">int类型数据转为 torch.cuda.FloatTensor类型数据</a></li>
-                        <li class="py-2"><a href="/news/article-48755.htm" title="机器学习笔记：Python底层实现KNN">机器学习笔记：Python底层实现KNN</a></li>
-                        <li class="py-2"><a href="/news/article-42334.htm" title="动物疫苗使用注意事项有哪些呢（动物疫苗使用时的注意事项有哪些）">动物疫苗使用注意事项有哪些呢（动物疫苗使用时的注意事项有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-41345.htm" title="宠物粮食专卖店地址（宠物粮生产基地）">宠物粮食专卖店地址（宠物粮生产基地）</a></li>
+                        <li class="py-2"><a href="/news/article-59046.htm" title="python 在sql语句中使用%s,%d,%f">python 在sql语句中使用%s,%d,%f</a></li>
+                        <li class="py-2"><a href="/news/article-59047.htm" title="被猫咬出血了一定要***吗3天了（被猫咬出血了要马上***吗）">被猫咬出血了一定要***吗3天了（被猫咬出血了要马上***吗）</a></li>
                     </ul>
     </div>
 </div>
@@ -160,7 +161,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>

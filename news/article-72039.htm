@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-72039.htm" />
+    <meta charset="utf-8">
+    <title>springboot整合微信二维码支付</title>
+        <meta name="description" content="微信支付官方文档：https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/pages/api.shtml 下图是微信支付的一个流程图：  我们需要做的是：  1、" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-72039.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="springboot整合微信二维码支付" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/48a9ac85dd8a324d66f739062f4b357d.webp" />
+        <meta property="og:release_date" content="2025-03-12T06:07:04" />
+    <meta property="og:updated_time" content="2025-03-12T06:07:04" />
+        <meta property="og:description" content="微信支付官方文档：https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/pages/api.shtml 下图是微信支付的一个流程图：  我们需要做的是：  1、" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot整合微信二维码支付">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">springboot整合微信二维码支付</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>微信支付官方文档：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/pages/api.shtml"  rel="nofollow">https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/pages/api.shtml</a></p> <p>下图是微信支付的一个流程图：</p> <p><img fetchpriority="high" decoding="async" alt="" height="651" src="http://img.555519.xyz/uploads3/20220904/9106d327d90fe7a0a0e5d272f7b6de20.jpg"></p> <p>我们需要做的是：</p> <ul> <li>1、调用微信下单接口，生成支付链接。</li> <li>2、根据链接生成二维码图片（可以使用qrious）</li> <li>3、扫码支付支付</li> <li>4、支付成功会有一个回调函数，根据实际情况来进行支付完成后的业务操作</li> </ul> <p id="toc-heading-40"><span style="color:#f33b45;">微信没有提供maven仓库坐标，因此我们必须下载使用。下载链接</span><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=11_1"  rel="nofollow">https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=11_1</a></p> <p><img decoding="async" alt="" height="350" src="http://img.555519.xyz/uploads3/20220904/835a9dcde7b6cbd5afb4131c304c17ae.jpg"></p> <p><strong>微信SDK提供了一个统一的微信支付工具类：WXPay：</strong></p> <p><img decoding="async" alt="" height="578" src="http://img.555519.xyz/uploads3/20220904/8ec5c4919110680067207f9848efa2fd.jpg"></p> <p><strong>我们主要关注其中的unifiedOrder方法，统一下单：</strong></p> <pre><code class="language-java">/**      * 作用：统一下单&lt;br&gt;      * 场景：公共号支付、扫码支付、APP支付      * @param reqData 向wxpay post的请求数据      * @return API返回数据      * @throws Exception      */ public Map&lt;String, String&gt; unifiedOrder(Map&lt;String, String&gt; reqData) throws Exception {     return this.unifiedOrder(reqData, config.getHttpConnectTimeoutMs(), this.config.getHttpReadTimeoutMs()); }</code></pre> <p>这里的请求参数是：Map&lt;String, String&gt; reqData，就是官方API说明中的请求参数了，不过并不需要我们填写所有参数，而只需要下面的：</p> <ul> <li>body：商品描述</li> <li>out_trade_no：订单编号</li> <li>total_fee：订单应支付金额</li> <li>spbill_create_ip：设备IP</li> <li>notify_url：回调地址</li> <li>trade_type：交易类型</li> </ul> <p>剩下的：<code>appid</code>、<code>mch_id</code>、<code>nonce_str</code>、<code>sign_type</code>和<code>sign</code>参数都有WXPay对象帮我们设置，那么问题来了：这些参数数据WXPay是怎么拿到的呢？</p> <p>其中，</p> <ul> <li>nonce_str：是随机字符串，因此由WXPay随机生成，</li> <li>sign_type：是签名算法，由WXPay指定，默认是HMACSHA256；</li> <li>sign：是签名，有签名算法结合密钥加密而来，因此这里的关键是密钥：key</li> <li>appid、mch_id是商家信息，需要配置</li> </ul> <p>也就是说，这例需要配置的包括：appid、mch_id、密钥key。这些从哪里来呢？</p> <p>看下WXPay的构造函数：</p> <pre><code class="language-java">public WXPay(final WXPayConfig config) throws Exception {     this(config, null, true, false); }</code></pre> <p>这里需要一个WXPayConfig对象，显然是配置对象。</p> <h3 id="toc-heading-44">WXPayConfig配置</h3> <p>WXPay依赖于WXPayConfig进行配置，那么WXPayConfig是什么呢？</p> <p>看下源码中的关键部分：</p> <pre><code class="language-java">public abstract class WXPayConfig {     /**      * 获取 App ID      *      * @return App ID      */     abstract String getAppID();     /**      * 获取 Mch ID      *      * @return Mch ID      */     abstract String getMchID();     /**      * 获取 API 密钥      *      * @return API密钥      */     abstract String getKey();          // 。。。省略 }</code></pre> <p><strong>这不就是WXPay中需要配置的3个属性嘛，当我们实现这个类，并且给出其中的值，把WXPayConfig传递给WXPay时，WXPay就会获取到这些数据:</strong></p> <p><img decoding="async" alt="1580547534423" src="http://img.555519.xyz/uploads3/20220904/8e8d8b62fcb6237eb585d954206fd68b.jpg"></p> <p><strong>当我们利用WXPay发送请求时，WXPay就会帮我们封装到请求参数中：</strong></p> <p><img decoding="async" alt="1580547680115" src="http://img.555519.xyz/uploads3/20220904/455ad44e59d01ef8eaadf8074d102fe1.jpg"></p> <p><strong>而在我提供给大家的SDK中，就编写了一个WXPayConfig的实现：</strong></p> <pre><code class="language-java">package com.github.wxpay.sdk;  import lombok.Data;  import java.io.InputStream;  /**  * @author 黑马程序员  */ @Data public class WXPayConfigImpl extends WXPayConfig {     /**      * 公众账号ID      */     private String appID;     /**      * 商户号      */     private String mchID;     /**      * 生成签名的密钥      */     private String key;     /**      * 支付回调地址      */     private String notifyUrl;     /**      * 支付方式      */     private String payType;      public InputStream getCertStream(){         return null;     }      public IWXPayDomain getWXPayDomain(){         return WXPayDomainSimpleImpl.instance();     } }</code></pre> <p>将来我们只需要new出这个实现类对象，并且给这3个参数赋值即可。</p> <h2 id="toc-heading-45"></h2> </h1> <p>首先，把下载的SDK打包并安装到本地的maven仓库，方便在项目中使用。</p> <p>直接对SDK进行打包，在项目maven中执行如下命令：</p> <pre><code>mvn source:jar install -Dmaven.test.skip=true</code></pre> <p>如图所示：</p> <p><img decoding="async" alt="image-20200403112617377" src="http://img.555519.xyz/uploads3/20220904/d7e204751d747d98ce17f0a5e51b9253.jpg"></p> <p>打包完成后</p> <p><strong>引入依赖（除了wxpay的依赖，还需要一个转换xml的依赖）</strong></p> <pre><code class="language-XML">&lt;dependency&gt;     &lt;groupId&gt;com.github.wxpay&lt;/groupId&gt;     &lt;artifactId&gt;wxpay-sdk&lt;/artifactId&gt;     &lt;version&gt;3.0.9&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt;     &lt;groupId&gt;com.fasterxml.jackson.dataformat&lt;/groupId&gt;     &lt;artifactId&gt;jackson-dataformat-xml&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p><strong>&nbsp;在yml中配置 （如果服务运行在本地，那么回调接口就无法回调成功，需要使用内网穿透工具）</strong></p> <pre><code class="language-XML">#微信APP支付参数 pay:   wx:     #商户应用appId     appId:      #设备号     mchId:      #商户key：api秘钥（32位）     key:      #回调接口     notifyUrl: http://服务ip:port/wx/notify     #支付类型（扫码）     payType: NATIVEVE</code></pre> <p><strong>&nbsp;将这些属性注入到PayProperties中：</strong></p> <pre><code class="language-java">import lombok.Data; import org.springframework.boot.context.properties.ConfigurationProperties; import org.springframework.stereotype.Component;  @Data @Component @ConfigurationProperties(prefix = "pay.wx") public class PayProperties {     private String appId;     private String mchId;     private String key;     private String notifyUrl;     private String payType; }</code></pre> <p><strong>配置微信支付所需要的对象注入到spring容器中：</strong></p> <pre><code class="language-java">import com.github.wxpay.sdk.PayConfig; import com.github.wxpay.sdk.WXPay; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration;  /**  * 初始化微信支付需要的对象  */ @Configuration public class PayConfiguration {     @Autowired     private PayProperties payProps;      @Bean     public WXPay wxPay() throws Exception {         PayConfig payConfig = new PayConfig();         payConfig.setAppID(payProps.getAppId());         payConfig.setMchID(payProps.getMchId());         payConfig.setKey(payProps.getKey());         return new WXPay(payConfig);     }  }</code></pre> <p><strong>封装支付工具类</strong></p> <pre><code class="language-java"> import com.github.wxpay.sdk.WXPay; import com.zhiwan.exception.ZwException; import lombok.extern.slf4j.Slf4j; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.stereotype.Component;  import java.util.HashMap; import java.util.Map;  @Component @Slf4j public class PayHelper {      @Autowired     private WXPay wxPay;     @Autowired     private PayProperties payProps;      /**      * 生成支付链接      */     public String getPayUrl(String orderId,Long totalFee){         // 请求参数：         Map&lt;String, String&gt; data = new HashMap&lt;String, String&gt;();         data.put("body", "乐优商城-商品订单支付");         data.put("out_trade_no", orderId.toString());         data.put("total_fee", totalFee.toString());         data.put("spbill_create_ip", "123.12.12.123");         data.put("notify_url", payProps.getNotifyUrl());         data.put("trade_type", payProps.getPayType());  // 此处指定为扫码支付          try {             Map&lt;String, String&gt; resp = wxPay.unifiedOrder(data);              if(resp.get("return_code").equals("SUCCESS")&amp;&amp;                     resp.get("result_code").equals("SUCCESS")){                 log.info("【微信支付】生成支付链接成功");                 return resp.get("code_url");             }else{                 log.error("【微信支付】生成支付链接失败，原因："+resp.get("return_code"));                 throw new ZwException(500,"【微信支付】生成支付链接失败");             }         } catch (Exception e) {             e.printStackTrace();             throw new ZwException(500,"【微信支付】生成支付链接失败，"+e.getMessage());         }     }  }</code></pre> <h2><span style="color:#f33b45;">到这生成微信支付的代码就已经完成了，调用即可</span></h2> <h2><strong><span style="color:#f33b45;">以下以供参考</span></strong></h2> <h2><strong>controller调用生成支付链接：</strong></h2> <pre><code class="language-java"> @RestController public class OrderController {      @Autowired     private OrderService orderService; /**      * 生成支付链接      *      */     @GetMapping("/order/url/{id}")     public ResponseEntity&lt;String&gt; buildPayUrl(@PathVariable("id") Long id){         String payUrl = orderService.buildPayUrl(id);         return ResponseEntity.ok(payUrl);     } }</code></pre> <p><strong>service代码：</strong></p> <p><strong>可以设置支付链接的有效时间，可以使用redis缓存：</strong></p> <pre><code class="language-java">@Service @Slf4j @Transactional public class OrderService {   /**      * 生成微信支付链接      *      * @param id      * @return      */     public String buildPayUrl(String id) {         //1.先到redis取出当前订单的支付链接         String payUrl = redisTemplate.opsForValue().get("PAY_URL_" + id);         //2.如果redis有，则直接取出订单的支付链接         if (StringUtils.isNotEmpty(payUrl)) {             return payUrl;         }          //3.如果redis没有，则调用微信支付系统生成该订单的支付链接，把该链接存入redis，并设置有效期（2小时）         //根据订单id查询订单（获取支付金额）         //Order order = orderMapper.selectById(id);         //生成支付链接，这里我们直接先设置1分钱         payUrl = payHelper.getPayUrl(id,1L);         //把该链接存入redis，并设置有效期（2小时）         redisTemplate.opsForValue().set("PAY_URL_" + id, payUrl, 2, TimeUnit.HOURS);         return payUrl;     }  }</code></pre> <p><strong>页面响应结果：</strong></p> <p><strong>使用qrious.js将该链接转成二维码</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220904/aecc22bd85365e3d9494680ead863ba5.jpg" alt="springboot整合微信二维码支付" style="max-width:100%;"/></p> <p><strong>支付成功后微信会回调一个请求（回调的接口notifyUrl指定）</strong></p> <p><strong>controller：</strong></p> <pre><code class="language-java">/**      * 微信支付回调方法      * 接受的参数是xml类型      */     @PostMapping(value = "/wx/notify", produces = "application/xml")     public Map&lt;String, String&gt; wxNotify(@RequestBody Map&lt;String, Object&gt; paramMap) {         orderService.wxNotify(paramMap);          log.warn("【回调的信息：】"+paramMap.toString());          //返回成功信息给微信支付         Map&lt;String, String&gt; resultMap = new HashMap&lt;&gt;();         resultMap.put("return_code", "SUCCESS");         resultMap.put("return_msg", "OK");         return resultMap;     }</code></pre> <p>service</p> <pre><code class="language-java">/**      * 微信支付回调      *      * @param paramMap      */     public void wxNotify(Map&lt;String, Object&gt; paramMap) {         //1.订单ID         String orderId = (String) paramMap.get("out_trade_no");         //2.支付金额         Long totalFee = Long.valueOf((String) paramMap.get("total_fee"));          //3.查询订单         Order order = orderMapper.selectById(orderId);         log.warn("订单是：" + order.toString());          if (order == null) {             throw new ZwException(500, "订单不存在");         }          if (order.getActualFee() != totalFee) {             throw new ZwException(500, "订单金额不正确");         }          //修改订单状态         try {             order.setStatus(OrderStatusEnum.PAY_UP.value());             /**              * 微信支付1              */             order.setPaymentType(1);             order.setPayTime(new Date());             QueryWrapper&lt;Order&gt; query = Wrappers.query();             query.eq("order_id", orderId);             orderMapper.update(order, query);             log.info("【微信通知】更新订单状态成功");         } catch (Exception e) {             e.printStackTrace();             log.error("【微信通知】更新订单状态失败");             throw new ZwException(500, "更新订单状态失败");         }     }</code></pre> </h1> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71385.htm">豆沙发面烙饼的做法大全(豆沙发面烙饼的做法窍门)</a></p>
+                                        <p>下一个：<a href="/news/article-72040.htm">畜牧兽医成人自考本科（畜牧兽医成人自考本科考什么）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-node-share.htm" title="1月21日→18.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月21日→18.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66858.htm" title="vue【退出登录功能】">vue【退出登录功能】</a></li>
+                        <li class="py-2"><a href="/news/article-50298.htm" title="猫三联疫苗多少钱一支打（猫三联打几针多少钱）">猫三联疫苗多少钱一支打（猫三联打几针多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-49263.htm" title="使用Jenkins实现前端自动化打包部署（Linux版本）">使用Jenkins实现前端自动化打包部署（Linux版本）</a></li>
+                        <li class="py-2"><a href="/news/article-47761.htm" title="猫走丢了能自己回家吗高层（猫走丢了自己可以找回家吗?）">猫走丢了能自己回家吗高层（猫走丢了自己可以找回家吗?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-high-speed-nodes.htm" title="1月16日→20.7M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月16日→20.7M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-v2ray.htm" title="2月23日→21.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月23日→21.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40846.htm" title="动物疫苗种类及类型分类图片大全（动物疫苗接种技术）">动物疫苗种类及类型分类图片大全（动物疫苗接种技术）</a></li>
+                        <li class="py-2"><a href="/news/article-70066.htm" title="宠物粮在哪里批发便宜又好呢知乎（宠物粮批发进货渠道）">宠物粮在哪里批发便宜又好呢知乎（宠物粮批发进货渠道）</a></li>
+                        <li class="py-2"><a href="/news/article-71383.htm" title="领养宠物狗要钱吗（宠物狗领养去哪个平台）">领养宠物狗要钱吗（宠物狗领养去哪个平台）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

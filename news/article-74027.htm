@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-74027.htm" />
+    <meta charset="utf-8">
+    <title>Ribbon、Hystrix超时问题</title>
+        <meta name="description" content="ribbon:http:client:enabled:trueOkToRetryOnAllOperations:true#对所有操作请求都进行重试，默认falseReadTimeout:2000#负载" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-74027.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="Ribbon、Hystrix超时问题" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/1dc2a6f79e43489166368940e5e1d47f.webp" />
+        <meta property="og:release_date" content="2025-03-15T07:18:36" />
+    <meta property="og:updated_time" content="2025-03-15T07:18:36" />
+        <meta property="og:description" content="ribbon:http:client:enabled:trueOkToRetryOnAllOperations:true#对所有操作请求都进行重试，默认falseReadTimeout:2000#负载" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Ribbon、Hystrix超时问题">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Ribbon、Hystrix超时问题</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <pre><code class="prism language-yaml"><span class="token key atrule">ribbon</span><span class="token punctuation">:</span><span class="token key atrule">http</span><span class="token punctuation">:</span><span class="token key atrule">client</span><span class="token punctuation">:</span><span class="token key atrule">enabled</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token key atrule">OkToRetryOnAllOperations</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token comment">#对所有操作请求都进行重试，默认false</span><span class="token key atrule">ReadTimeout</span><span class="token punctuation">:</span><span class="token number">2000</span><span class="token comment">#负载均衡超时时间，默认值 1000(ms)</span><span class="token key atrule">ConnectTimeout</span><span class="token punctuation">:</span><span class="token number">3000</span><span class="token comment">#请求连接的超时时间，默认值 1000</span><span class="token key atrule">MaxAutoRetries</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token comment"># 对当前实例的重试次数</span><span class="token key atrule">MaxAutoRetriesNextServer</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token comment"># 重试切换实例的次数，默认1</span></code></pre> <p><strong>服务请求时间：</strong></p> <blockquote> <p>一般情况下，连接时间很短可以忽略不记<br /> 请求时间 = (MaxAutoRetries + 1) * (MaxAutoRetriesNextServer + 1) * ReadTimeout<br /> 但是如果想要拉满请求时间，连接时间拉满的话：则要加上连接时间。</p> </blockquote> <pre><code class="prism language-yaml"><span class="token key atrule">hystrix</span><span class="token punctuation">:</span><span class="token key atrule">command</span><span class="token punctuation">:</span><span class="token key atrule">default</span><span class="token punctuation">:</span><span class="token comment">#default全局有效，service id指定应用有效</span><span class="token key atrule">execution</span><span class="token punctuation">:</span><span class="token key atrule">timeout</span><span class="token punctuation">:</span><span class="token comment">#如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为熔断根据</span><span class="token key atrule">enabled</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token key atrule">isolation</span><span class="token punctuation">:</span><span class="token key atrule">thread</span><span class="token punctuation">:</span><span class="token key atrule">timeoutInMilliseconds</span><span class="token punctuation">:</span><span class="token number">10000</span><span class="token comment">#断路器超时时间，默认1000ms</span></code></pre> <p>一般设置 Hystrix 熔断时间大于Ribbon请求时间（包括重试），这样的话，只有当不再重试请求的时候才会进行熔断操作。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-74026.htm">Java日期相关_LocalDate&amp;LocalTime&amp;LocalDateTime</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-55097.htm" title="动物疫苗打一次管多长时间有效呢（动物疫苗打一次管多长时间有效呢图片）">动物疫苗打一次管多长时间有效呢（动物疫苗打一次管多长时间有效呢图片）</a></li>
+                        <li class="py-2"><a href="/news/article-44318.htm" title="动物疫苗有没有毒素成份（动物疫苗打到人身上有事吗）">动物疫苗有没有毒素成份（动物疫苗打到人身上有事吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-subscribe-node.htm" title="2月11日→22.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月11日→22.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-67508.htm" title="上海动物疫苗控制中心电话号码（上海动物疫苗控制中心电话号码查询）">上海动物疫苗控制中心电话号码（上海动物疫苗控制中心电话号码查询）</a></li>
+                        <li class="py-2"><a href="/news/article-47762.htm" title="动物防疫站可以给人打疫苗吗现在还能打吗（动物防疫站***免费吗）">动物防疫站可以给人打疫苗吗现在还能打吗（动物防疫站***免费吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-free-node-subscribe.htm" title="2月19日→20.4M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月19日→20.4M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43327.htm" title="dao层和serivce层的作用和区别">dao层和serivce层的作用和区别</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-free-v2ray.htm" title="1月27日→20.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月27日→20.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-free-subscribe-node.htm" title="3月7日→22.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月7日→22.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-53997.htm" title="Vue3中vuex的基本使用方法实例_vue.js">Vue3中vuex的基本使用方法实例_vue.js</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

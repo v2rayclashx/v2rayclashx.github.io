@@ -130,6 +130,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <pre><code class="prism language-yaml"><span class="token key atrule">ribbon</span><span class="token punctuation">:</span><span class="token key atrule">http</span><span class="token punctuation">:</span><span class="token key atrule">client</span><span class="token punctuation">:</span><span class="token key atrule">enabled</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token key atrule">OkToRetryOnAllOperations</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token comment">#对所有操作请求都进行重试，默认false</span><span class="token key atrule">ReadTimeout</span><span class="token punctuation">:</span><span class="token number">2000</span><span class="token comment">#负载均衡超时时间，默认值 1000(ms)</span><span class="token key atrule">ConnectTimeout</span><span class="token punctuation">:</span><span class="token number">3000</span><span class="token comment">#请求连接的超时时间，默认值 1000</span><span class="token key atrule">MaxAutoRetries</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token comment"># 对当前实例的重试次数</span><span class="token key atrule">MaxAutoRetriesNextServer</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token comment"># 重试切换实例的次数，默认1</span></code></pre> <p><strong>服务请求时间：</strong></p> <blockquote> <p>一般情况下，连接时间很短可以忽略不记<br /> 请求时间 = (MaxAutoRetries + 1) * (MaxAutoRetriesNextServer + 1) * ReadTimeout<br /> 但是如果想要拉满请求时间，连接时间拉满的话：则要加上连接时间。</p> </blockquote> <pre><code class="prism language-yaml"><span class="token key atrule">hystrix</span><span class="token punctuation">:</span><span class="token key atrule">command</span><span class="token punctuation">:</span><span class="token key atrule">default</span><span class="token punctuation">:</span><span class="token comment">#default全局有效，service id指定应用有效</span><span class="token key atrule">execution</span><span class="token punctuation">:</span><span class="token key atrule">timeout</span><span class="token punctuation">:</span><span class="token comment">#如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为熔断根据</span><span class="token key atrule">enabled</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token key atrule">isolation</span><span class="token punctuation">:</span><span class="token key atrule">thread</span><span class="token punctuation">:</span><span class="token key atrule">timeoutInMilliseconds</span><span class="token punctuation">:</span><span class="token number">10000</span><span class="token comment">#断路器超时时间，默认1000ms</span></code></pre> <p>一般设置 Hystrix 熔断时间大于Ribbon请求时间（包括重试），这样的话，只有当不再重试请求的时候才会进行熔断操作。</p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-74026.htm">Java日期相关_LocalDate&amp;LocalTime&amp;LocalDateTime</a></p>
+                                        <p>下一个：<a href="/news/article-74701.htm">【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -139,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-55097.htm" title="动物疫苗打一次管多长时间有效呢（动物疫苗打一次管多长时间有效呢图片）">动物疫苗打一次管多长时间有效呢（动物疫苗打一次管多长时间有效呢图片）</a></li>
-                        <li class="py-2"><a href="/news/article-44318.htm" title="动物疫苗有没有毒素成份（动物疫苗打到人身上有事吗）">动物疫苗有没有毒素成份（动物疫苗打到人身上有事吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-subscribe-node.htm" title="2月11日→22.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月11日→22.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-67508.htm" title="上海动物疫苗控制中心电话号码（上海动物疫苗控制中心电话号码查询）">上海动物疫苗控制中心电话号码（上海动物疫苗控制中心电话号码查询）</a></li>
-                        <li class="py-2"><a href="/news/article-47762.htm" title="动物防疫站可以给人打疫苗吗现在还能打吗（动物防疫站***免费吗）">动物防疫站可以给人打疫苗吗现在还能打吗（动物防疫站***免费吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-19-free-node-subscribe.htm" title="2月19日→20.4M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月19日→20.4M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-43327.htm" title="dao层和serivce层的作用和区别">dao层和serivce层的作用和区别</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-27-free-v2ray.htm" title="1月27日→20.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月27日→20.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-3-7-free-subscribe-node.htm" title="3月7日→22.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月7日→22.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-53997.htm" title="Vue3中vuex的基本使用方法实例_vue.js">Vue3中vuex的基本使用方法实例_vue.js</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-node-share.htm" title="2月18日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月18日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-v2ray.htm" title="2月23日→21.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">2月23日→21.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-free-v2ray.htm" title="3月5日→22.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月5日→22.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-node-subscribe-links.htm" title="3月2日→20.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月2日→20.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-node-share-links.htm" title="3月11日→19.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月11日→19.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-59614.htm" title="解决Qt设置QTextEdit行高的问题_C 语言">解决Qt设置QTextEdit行高的问题_C 语言</a></li>
+                        <li class="py-2"><a href="/news/article-37395.htm" title="字符数组和字符串的区别，C语言字符数组和字符串区别详解">字符数组和字符串的区别，C语言字符数组和字符串区别详解</a></li>
+                        <li class="py-2"><a href="/news/article-36185.htm" title="近期电影上映（近期电影上映时间）">近期电影上映（近期电影上映时间）</a></li>
+                        <li class="py-2"><a href="/news/article-39857.htm" title="8 高并发解决方案">8 高并发解决方案</a></li>
+                        <li class="py-2"><a href="/news/article-52915.htm" title="宠物粮行业协会官网首页网址（宠物粮行业协会官网首页网址查询）">宠物粮行业协会官网首页网址（宠物粮行业协会官网首页网址查询）</a></li>
                     </ul>
     </div>
 </div>
@@ -160,7 +161,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-85103.htm" />
+    <meta charset="utf-8">
+    <title>【EF框架】DbContext的使用</title>
+        <meta name="description" content="&nbsp; DbContext类是EntityFramework （简称 EF）中的一个类，可以理解为一个数据库对象的实例。在 EF中，无需手动的拼接 SQL 语句对数据库进行增删改查，而是通过 D" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-85103.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="【EF框架】DbContext的使用" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/05004acc1b0fc013cfce158e66fabd70.webp" />
+        <meta property="og:release_date" content="2025-03-31T08:39:21" />
+    <meta property="og:updated_time" content="2025-03-31T08:39:21" />
+        <meta property="og:description" content="&nbsp; DbContext类是EntityFramework （简称 EF）中的一个类，可以理解为一个数据库对象的实例。在 EF中，无需手动的拼接 SQL 语句对数据库进行增删改查，而是通过 D" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【EF框架】DbContext的使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">【EF框架】DbContext的使用</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>&nbsp; DbContext类是EntityFramework （简称 EF）中的一个类，可以理解为一个数据库对象的实例。在 EF中，无需手动的拼接 SQL 语句对数据库进行增删改查，而是通过 DbContext 来进行相应操作。</p> </h1> <h2><span style="color:#009900;">DbContext类</span></h2> <p>&nbsp; DbContext类是实体框架的重要组成部分。它是您的域或实体类与数据库之间的桥梁。</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221230/d75aca4eef76e92d15e30017ddd61841.jpg"></p> <p>DbContext是负责与数据交互作为对象的主要类。DbContext负责以下活动：<br /> （1）EntitySet： DbContext包含映射到数据库表的所有实体的实体集（DbSet &lt;TEntity&gt;）。<br /> （2）查询（<span style="color:#333333;">Querying</span>）： DbContext将LINQ-to-Entities查询转换为SQL查询并将其发送到数据库。<br /> （3）更改跟踪（Change Tracking）：跟踪实体在从数据库查询后发生的更改。<br /> （4）持久数据（Persisting Data）：它还根据实体的状态对数据库执行插入，更新和删除操作。<br /> （5）缓存（Caching）： DbContext默认进行一级缓存。它存储在上下文类生命周期中已经被检索的实体。<br /> （6）管理关系（Manage Relationship）： DbContext还使用DB-First或Model-First方法使用CSDL，MSL和SSDL或者使用Code-First方法使用流利的API来管理关系。<br /> （7）对象实现（Object Materialization）： DbContext将原始表数据转换为实体对象。</p> <p>以下是小编生成的excellentmcoinEntities类（派生DbContext的上下文类）的示例。</p> <pre class="has"><code class="language-csharp">//------------------------------------------------------------------------------ // &lt;auto-generated&gt; //    此代码是根据模板生成的。 // //    手动更改此文件可能会导致应用程序中发生异常行为。 //    如果重新生成代码，则将覆盖对此文件的手动更改。 // &lt;/auto-generated&gt; //------------------------------------------------------------------------------  namespace Model {     using System;     using System.Data.Entity;     using System.Data.Entity.Infrastructure;          public partial class excellentmcoinEntities : DbContext     {         public excellentmcoinEntities()             : base("name=excellentmcoinEntities")         {         }              protected override void OnModelCreating(DbModelBuilder modelBuilder)         {             throw new UnintentionalCodeFirstException();         }              public DbSet&lt;t_accumulate&gt; t_accumulate { get; set; }         public DbSet&lt;t_addmcoinrecord&gt; t_addmcoinrecord { get; set; }         public DbSet&lt;t_announce&gt; t_announce { get; set; }         public DbSet&lt;t_attribute&gt; t_attribute { get; set; }         public DbSet&lt;t_attriuser&gt; t_attriuser { get; set; }         public DbSet&lt;t_character&gt; t_character { get; set; }         public DbSet&lt;t_controller&gt; t_controller { get; set; }         public DbSet&lt;t_dayget&gt; t_dayget { get; set; }         public DbSet&lt;t_department&gt; t_department { get; set; }         public DbSet&lt;t_departmentgrade&gt; t_departmentgrade { get; set; }         public DbSet&lt;t_departquestype&gt; t_departquestype { get; set; }         public DbSet&lt;t_grade&gt; t_grade { get; set; }         public DbSet&lt;t_healthytips&gt; t_healthytips { get; set; }         public DbSet&lt;t_mcoin&gt; t_mcoin { get; set; }         public DbSet&lt;t_mcoindb&gt; t_mcoindb { get; set; }         public DbSet&lt;t_mcoindetail&gt; t_mcoindetail { get; set; }         public DbSet&lt;t_pageset&gt; t_pageset { get; set; }         public DbSet&lt;t_quesfamily&gt; t_quesfamily { get; set; }         public DbSet&lt;t_quesfamilymemeber&gt; t_quesfamilymemeber { get; set; }         public DbSet&lt;t_question&gt; t_question { get; set; }         public DbSet&lt;t_questype&gt; t_questype { get; set; }         public DbSet&lt;t_stageconfluence&gt; t_stageconfluence { get; set; }         public DbSet&lt;t_states&gt; t_states { get; set; }         public DbSet&lt;t_suggesstion&gt; t_suggesstion { get; set; }         public DbSet&lt;t_type&gt; t_type { get; set; }         public DbSet&lt;t_user&gt; t_user { get; set; }         public DbSet&lt;t_attributerecord&gt; t_attributerecord { get; set; }         public DbSet&lt;t_notice&gt; t_notice { get; set; }     } } </code>excellentmcoinEntities : DbContext     {         public excellentmcoinEntities()             : base("name=excellentmcoinEntities")         {         }              protected override void OnModelCreating(DbModelBuilder modelBuilder)         {             throw new UnintentionalCodeFirstException();         }              public DbSet&lt;t_accumulate&gt; t_accumulate { get; set; }         public DbSet&lt;t_addmcoinrecord&gt; t_addmcoinrecord { get; set; }         public DbSet&lt;t_announce&gt; t_announce { get; set; }         public DbSet&lt;t_attribute&gt; t_attribute { get; set; }         public DbSet&lt;t_attriuser&gt; t_attriuser { get; set; }         public DbSet&lt;t_character&gt; t_character { get; set; }         public DbSet&lt;t_controller&gt; t_controller { get; set; }         public DbSet&lt;t_dayget&gt; t_dayget { get; set; }         public DbSet&lt;t_department&gt; t_department { get; set; }         public DbSet&lt;t_departmentgrade&gt; t_departmentgrade { get; set; }         public DbSet&lt;t_departquestype&gt; t_departquestype { get; set; }         public DbSet&lt;t_grade&gt; t_grade { get; set; }         public DbSet&lt;t_healthytips&gt; t_healthytips { get; set; }         public DbSet&lt;t_mcoin&gt; t_mcoin { get; set; }         public DbSet&lt;t_mcoindb&gt; t_mcoindb { get; set; }         public DbSet&lt;t_mcoindetail&gt; t_mcoindetail { get; set; }         public DbSet&lt;t_pageset&gt; t_pageset { get; set; }         public DbSet&lt;t_quesfamily&gt; t_quesfamily { get; set; }         public DbSet&lt;t_quesfamilymemeber&gt; t_quesfamilymemeber { get; set; }         public DbSet&lt;t_question&gt; t_question { get; set; }         public DbSet&lt;t_questype&gt; t_questype { get; set; }         public DbSet&lt;t_stageconfluence&gt; t_stageconfluence { get; set; }         public DbSet&lt;t_states&gt; t_states { get; set; }         public DbSet&lt;t_suggesstion&gt; t_suggesstion { get; set; }         public DbSet&lt;t_type&gt; t_type { get; set; }         public DbSet&lt;t_user&gt; t_user { get; set; }         public DbSet&lt;t_attributerecord&gt; t_attributerecord { get; set; }         public DbSet&lt;t_notice&gt; t_notice { get; set; }     } } </pre> <p>上下文类（excellentmcoinEntities）包含所有实体的DbSet &lt;TEntity&gt;类型的实体集。</p> <h2><span style="color:#009900;">DbContext具体使用</span></h2> <h3><span style="color:#990000;">增</span></h3> <pre class="has"><code class="language-csharp">excellentmcoinEntities db = new excellentmcoinEntities(); //创建对象实体，注意，这里需要对所有属性进行赋值（除了自动增长主键外），如果不赋值，则会数据库中会被设置为NULL（注意是否可空） var user = new User             {                 Name = "bomo",                 Age = 21,                 Gender = "male"             }; db.User.Add(user); db.SaveChanges();</code></pre> <h3><span style="color:#990000;">删</span></h3> <pre class="has"><code class="language-csharp"> public bool deleteUser(string UserID)         {          excellentmcoinEntities dbcontext = new excellentmcoinEntities();             try             {                 string[] testUserID = UserID.Split(',');                                  for (int i = 0; i &lt; testUserID.Length; i++)                 {                     t_user usermodel = dbcontext.t_user.Find(testUserID[i]);                     dbcontext.t_user.Remove(usermodel);                     int flag = dbcontext.SaveChanges();                     if (flag &gt; 0)                     {                         continue;                     }                     else                     {                         return false;                     }                 }                 return true;             }             catch (Exception)             {                  throw new Exception("删除失败");             }         }</code></pre> <h3><span style="color:#990000;">改</span></h3> <pre class="has"><code class="language-csharp">public bool EditUser(t_user usermodel)         {             excellentmcoinEntities dbcontext = new excellentmcoinEntities();             try             {                 t_user user = dbcontext.t_user.Find(usermodel.userID);                 if (user == null)                 {                     return false;                 }                 user.userName = usermodel.userName;                 user.levelID = usermodel.levelID;                 user.state = usermodel.state;                 user.passWord = usermodel.passWord;                  //修改多个字段值                 dbcontext.Entry&lt;t_user&gt;(user).State = System.Data.EntityState.Modified;                 dbcontext.SaveChanges();                 return true;             }             catch (Exception)             {                  throw new Exception("用户修改失败");             }          }</code></pre> <h3><span style="color:#990000;">查</span></h3> <pre class="has"><code class="language-csharp">   public List&lt;userModel&gt; QueryAUser()         {             //定义了上下文实体             excellentmcoinEntities dbcontext = new excellentmcoinEntities();             var allUser = (from u in dbcontext.t_user                            join g in dbcontext.t_grade on u.gradeID equals g.gradeID                            orderby u.totalMcoin descending                            select new userModel()                            {                                userID = u.userID,                                userName = u.userName,                                userGrade = g.userGrade,                                totalMcoin = u.totalMcoin,                                gradeID = g.gradeID,                            }).ToList();             return allUser;         }</code></pre> </h1> <p>&nbsp; &nbsp; DbContext通常与包含模型的根实体的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://msdn.microsoft.com/en-us/library/gg696460%28v=vs.113%29.aspx"  title="DbSet&nbsp;<TEntity>" rel="nofollow">DbSet&nbsp;&lt;TEntity&gt;</a>属性的派生类型一起使用。当派生类的实例被创建时，这些集合会自动初始化。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-84391.htm">被猫抓的伤痕图片（被猫抓的伤痕图片）</a></p>
+                                        <p>下一个：<a href="/news/article-85104.htm">SQL Server中函数、存储过程与触发器的用法_MsSql</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-40846.htm" title="动物疫苗种类及类型分类图片大全（动物疫苗接种技术）">动物疫苗种类及类型分类图片大全（动物疫苗接种技术）</a></li>
+                        <li class="py-2"><a href="/news/article-57338.htm" title="在我的城市里有一家宠物医院用英语怎么说（在我的城市有一家宠物医院英文翻译）">在我的城市里有一家宠物医院用英语怎么说（在我的城市有一家宠物医院英文翻译）</a></li>
+                        <li class="py-2"><a href="/news/article-38369.htm" title="上海2020年宠物领养活动（上海2020年宠物领养活动规定）">上海2020年宠物领养活动（上海2020年宠物领养活动规定）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-node-subscribe.htm" title="1月22日→21.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址">1月22日→21.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-78789.htm" title="哪些品牌的蚕豆比较好吃一点(哪些品牌的蚕豆比较好吃又健康)">哪些品牌的蚕豆比较好吃一点(哪些品牌的蚕豆比较好吃又健康)</a></li>
+                        <li class="py-2"><a href="/news/article-81539.htm" title="取消动物防疫收费 取消动物防疫收费通知">取消动物防疫收费 取消动物防疫收费通知</a></li>
+                        <li class="py-2"><a href="/news/article-61369.htm" title="int类型数据转为 torch.cuda.FloatTensor类型数据">int类型数据转为 torch.cuda.FloatTensor类型数据</a></li>
+                        <li class="py-2"><a href="/news/article-68781.htm" title="宠物粮业务员好干吗工资多少一个月（宠物粮食业务员）">宠物粮业务员好干吗工资多少一个月（宠物粮食业务员）</a></li>
+                        <li class="py-2"><a href="/news/article-72695.htm" title="祛除猫身上的跳蚤的方法（如何彻底去除猫身上的跳蚤）">祛除猫身上的跳蚤的方法（如何彻底去除猫身上的跳蚤）</a></li>
+                        <li class="py-2"><a href="/news/article-84391.htm" title="被猫抓的伤痕图片（被猫抓的伤痕图片）">被猫抓的伤痕图片（被猫抓的伤痕图片）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

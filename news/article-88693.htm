@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-88693.htm" />
+    <meta charset="utf-8">
+    <title>rancher安装redis集群</title>
+        <meta name="description" content="基于上一篇：docker安装rancher_RT_0114的博客-CSDN博客 之前也安装过redis集群只不过是用docker单机装的。docker搭建redis集群_RT_0114的博客-CSDN" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-88693.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="rancher安装redis集群" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/20da9dced4c2d7213a8a5da74683d1a7.webp" />
+        <meta property="og:release_date" content="2025-04-05T08:16:21" />
+    <meta property="og:updated_time" content="2025-04-05T08:16:21" />
+        <meta property="og:description" content="基于上一篇：docker安装rancher_RT_0114的博客-CSDN博客 之前也安装过redis集群只不过是用docker单机装的。docker搭建redis集群_RT_0114的博客-CSDN" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="rancher安装redis集群">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">rancher安装redis集群</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>基于上一篇：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/Smy_0114/article/details/117410695"  rel="nofollow">docker安装rancher_RT_0114的博客-CSDN博客</a></p> <p>之前也安装过redis集群只不过是用docker单机装的。<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/Smy_0114/article/details/116800727"  rel="nofollow">docker搭建redis集群_RT_0114的博客-CSDN博客</a></p> <p>来，记录一下rancher安装redis集群。机器防火墙全部是关闭的。</p> <p>对还是三台机器，master、mode1、node2，master不部署redis只是用来共享redis的配置文件，node1和node2分别部署3台redis共计6台redis。</p> <blockquote> <p>进入master主机创建文件夹：</p> </blockquote> <pre><code class="language-bash">mkdir -p /water/runfile/docker_volume/redis_cluster/7001/data mkdir -p /water/runfile/docker_volume/redis_cluster/7002/data mkdir -p /water/runfile/docker_volume/redis_cluster/7003/data mkdir -p /water/runfile/docker_volume/redis_cluster/7004/data mkdir -p /water/runfile/docker_volume/redis_cluster/7005/data mkdir -p /water/runfile/docker_volume/redis_cluster/7006/data</code></pre> <blockquote> <p>在master上安装nfs：</p> </blockquote> <pre><code>cd /water/runfile/docker_volume/redis_cluster rpc.nfsd 8 rpc.mountd  exportfs -r #使配置生效  exportfs #可以查看到已经ok</code></pre> <blockquote> <p>执行过程：</p> </blockquote> <pre><code class="language-bash">[root@CSS-app-SG1 7006]# cd /water/runfile/docker_volume/redis_cluster [root@CSS-app-SG1 redis_cluster]# exportfs /water/runfile/docker_volume                 172.21.168.195/24 [root@CSS-app-SG1 redis_cluster]#</code></pre> <blockquote> <p>创建配置文件：</p> </blockquote> <pre><code>vi /water/runfile/docker_volume/redis_cluster/7001/redis.conf vi /water/runfile/docker_volume/redis_cluster/7002/redis.conf vi /water/runfile/docker_volume/redis_cluster/7003/redis.conf vi /water/runfile/docker_volume/redis_cluster/7004/redis.conf vi /water/runfile/docker_volume/redis_cluster/7005/redis.conf vi /water/runfile/docker_volume/redis_cluster/7006/redis.conf</code></pre> <blockquote> <p>修改：6个文件只是端口不一样其他都一样</p> </blockquote> <pre><code>#bind 127.0.0.1 port 7001  #端口 cluster-enabled yes #启用集群模式 cluster-config-file /data/nodes.conf cluster-node-timeout 5000 #超时时间 logfile "/data/redis.log" #输出日志 appendonly yes daemonize no #是否后台运行，这里不能改成yes，不然docker运行就关闭了 protected-mode no #非保护模式 pidfile  /var/run/redis.pid</code></pre> <blockquote> <p>在default空间下创建pv</p> </blockquote> <blockquote> <p>nfs-redisclutser-pv<br /> NFS-Share 10<br /> /water/runfile/docker_volume 172.21.168.195<br /> 是否只读：否<br /> 多主机读写</p> </blockquote> <p><img fetchpriority="high" decoding="async" alt="" height="340" src="http://img.555519.xyz/uploads3/20220609/ffa5048c4c4abe2c377d1703330a5385.jpg"></p> <blockquote> <p>过程：</p> </blockquote> <p><img decoding="async" alt="" height="557" src="http://img.555519.xyz/uploads3/20220609/3405d7074d19e948e81cb2645c4550c3.jpg"></p> <blockquote> <p>在default空间下创建pvc</p> </blockquote> <blockquote> <p>工作负载-负载均衡-服务发现-PVC(勾)-流水线<br /> 选择添加pvc<br /> nfs-redisclutser-pvc 命名空间:选择刚创建的redis-cluster<br /> 持久卷(PV) 选择：nfs-redisclutser-pv<br /> 自定义： 多主机读写</p> </blockquote> <p><img decoding="async" alt="" height="336" src="http://img.555519.xyz/uploads3/20220609/6fd99f3f46518f4274ae204af01d4e75.jpg"></p> <blockquote> <p>过程：</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="576" src="http://img.555519.xyz/uploads3/20220609/ce85bee579cf22185400ffa66594da76.jpg"></p> <blockquote> <p>部署redis：先手动拉取redis镜像。</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="503" src="http://img.555519.xyz/uploads3/20220609/84c205976699ec3363a55d0b44be1f0b.jpg"></p> <blockquote> <p>主机调度：指定</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="218" src="http://img.555519.xyz/uploads3/20220609/50fd76573411abbc019fa85760a8977d.jpg"></p> <blockquote> <p>数据卷：pvc里面配置到了/water/runfile/docker_volume因此下面配置的时候只需要配置下级目录即可</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="471" src="http://img.555519.xyz/uploads3/20220609/42e5027e20a423a647683b23793e16b7.jpg"></p> <blockquote> <p>入口/命令：</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="480" src="http://img.555519.xyz/uploads3/20220609/e8c4b817a9af05321d0c3fb69898a34c.jpg"></p> <blockquote> <p>网络：</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="339" src="http://img.555519.xyz/uploads3/20220609/48e3a0db7ed532e94504c88e912b1c28.jpg"></p> <blockquote> <p>点记确定即可。</p> </blockquote> <blockquote> <p>再复制5份，分别把端口和数据卷的端口文件夹改一下，调度的主机也改一下一台机器3台redis。</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="449" src="http://img.555519.xyz/uploads3/20220609/da0e827e780f364d20be2b776900c6ca.jpg"></p> <blockquote> <p>进入任意一台redis：</p> </blockquote> <blockquote> <p>执行：点击yes，完成，3主3从。</p> </blockquote> <pre><code>redis-cli --cluster create 172.21.168.197:7001 172.21.168.197:7002 172.21.168.197:7005 172.21.168.199:7003 172.21.168.199:7004 172.21.168.199:7006 --cluster-replicas 1</code></pre> <blockquote> <p>cluster nodes &nbsp;查看集群节点</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="174" src="http://img.555519.xyz/uploads3/20220609/eea88e8925e9b809b822a6b15604118e.jpg"></p> <blockquote> <p>cluster info:查看集群信息</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="305" src="http://img.555519.xyz/uploads3/20220609/d707e89b832264fb34812152fb5ff0ab.jpg"></p> <blockquote> <p>尝试用一下：就这简单不，搞一遍就会了，没什么难度。</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="337" src="http://img.555519.xyz/uploads3/20220609/a8179f2ea3b1be976b668ed1b487bec0.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87988.htm">猫咪3针疫苗一共多少元（猫咪3针疫苗一共多少元冬）</a></p>
+                                        <p>下一个：<a href="/news/article-88694.htm">宠物粮食排行榜前十 宠物粮食排行榜前十名</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-high-speed-nodes.htm" title="3月9日→22.7M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月9日→22.7M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-node-share-links.htm" title="4月3日→18.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">4月3日→18.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66248.htm" title="宠物猫疫苗接种时间（宠物猫疫苗有效期多久）">宠物猫疫苗接种时间（宠物猫疫苗有效期多久）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-node-share.htm" title="4月4日→22.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址">4月4日→22.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-71383.htm" title="领养宠物狗要钱吗（宠物狗领养去哪个平台）">领养宠物狗要钱吗（宠物狗领养去哪个平台）</a></li>
+                        <li class="py-2"><a href="/news/article-74026.htm" title="Java日期相关_LocalDate&amp;LocalTime&amp;LocalDateTime">Java日期相关_LocalDate&amp;LocalTime&amp;LocalDateTime</a></li>
+                        <li class="py-2"><a href="/news/article-75382.htm" title="宠物疫苗可以带上火车吗（宠物用疫苗可以带上高铁吗）">宠物疫苗可以带上火车吗（宠物用疫苗可以带上高铁吗）</a></li>
+                        <li class="py-2"><a href="/news/article-78102.htm" title="mysql中的date、datetime、timestamp你还不知道怎么使用吗_在线工具">mysql中的date、datetime、timestamp你还不知道怎么使用吗_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-clash-v2ray-ss-ssr.htm" title="3月24日→20.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月24日→20.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-81538.htm" title="中国动物疫苗十强上市公司名单 中国动物疫苗十强上市公司名单公布">中国动物疫苗十强上市公司名单 中国动物疫苗十强上市公司名单公布</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

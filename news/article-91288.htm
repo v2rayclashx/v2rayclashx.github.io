@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-91288.htm" />
+    <meta charset="utf-8">
+    <title>这几个关于Spring 依赖注入的问题你清楚吗？</title>
+        <meta name="description" content="前言 本章的内容主要是想探讨我们在进行Spring 开发过程当中，关于依赖注入的几个知识点。感兴趣的读者可以先看下以下问题：  @Autowired, @Resource, @Inject 三个注解的" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-91288.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="这几个关于Spring 依赖注入的问题你清楚吗？" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/1b9ea2638733b44af442bd3129f84a45.webp" />
+        <meta property="og:release_date" content="2025-04-08T09:55:37" />
+    <meta property="og:updated_time" content="2025-04-08T09:55:37" />
+        <meta property="og:description" content="前言 本章的内容主要是想探讨我们在进行Spring 开发过程当中，关于依赖注入的几个知识点。感兴趣的读者可以先看下以下问题：  @Autowired, @Resource, @Inject 三个注解的" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="这几个关于Spring 依赖注入的问题你清楚吗？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">这几个关于Spring 依赖注入的问题你清楚吗？</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div> <div id="post-content"> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/daee765ccd8d978fd9aa4f143ca73c9d.jpg" alt="这几个关于Spring 依赖注入的问题你清楚吗？"></p> <h2>前言</h2> <p>本章的内容主要是想探讨我们在进行Spring 开发过程当中，关于依赖注入的几个知识点。感兴趣的读者可以先看下以下问题：</p> <ul> <li><strong><code>@Autowired</code>, <code>@Resource</code>, <code>@Inject</code> 三个注解的区别</strong></li> <li><strong>当你在使用<code>@Autowired</code>时，是否有出现过<code>Field injection is not recommended</code>的警告？你知道这是为什么吗？</strong></li> <li><strong>Spring 依赖注入有哪几种方式？官方是怎么建议使用的呢？</strong></li> </ul> <p>如果你对上述问题都了解，那我个人觉得你的开发经验应该是不错的????。</p> <p>下面我们就依次对上述问题进行解答，并且总结知识点。</p> <h2 id="autowired-resource--inject-三个注解的区别"> <code>@Autowired</code>, <code>@Resource</code>, <code>@Inject</code> 三个注解的区别</h2> <p>Spring 支持使用<code>@Autowired</code>, <code>@Resource</code>, <code>@Inject</code> 三个注解进行依赖注入。下面来介绍一下这三个注解有什么区别。</p> <h3 id="autowired">@Autowired</h3> <p><code>@Autowired</code>为Spring 框架提供的注解，需要导入包<code>org.springframework.beans.factory.annotation.Autowired</code>。</p> <p>这里先给出一个示例代码，方便讲解说明：</p> <pre class="has"><code class="language-go">public interface Svc {      void sayHello(); }  @Service public class SvcA implements Svc {      @Override     public void sayHello() {         System.out.println("hello, this is service A");     }  }  @Service public class SvcB implements Svc {      @Override     public void sayHello() {         System.out.println("hello, this is service B");     }  }  @Service public class SvcC implements Svc {      @Override     public void sayHello() {         System.out.println("hello, this is service C");     } } </code></pre> <p>测试类：</p> <pre class="has"><code class="language-go">@SpringBootTest public class SimpleTest {      @Autowired     // @Qualifier("svcA")     Svc svc;      @Test     void rc() {         Assertions.assertNotNull(svc);         svc.sayHello();     }  } </code></pre> <p><strong>装配顺序：</strong></p> <ol> <li> <p>按照<code>type</code>在上下文中查找匹配的bean</p> <pre class="has"><code class="language-go">查找type为Svc的bean </code></pre> </li> <li> <p>如果有多个bean，则按照<code>name</code>进行匹配</p> <ol> <li> <p>如果有<code>@Qualifier</code>注解，则按照<code>@Qualifier</code>指定的<code>name</code>进行匹配</p> <pre class="has"><code class="language-go">查找name为svcA的bean </code></pre> </li> <li> <p>如果没有，则按照变量名进行匹配</p> <pre class="has"><code class="language-go">查找name为svc的bean </code></pre> </li> </ol> </li> <li> <p>匹配不到，则报错。（<code>@Autowired(required=false)</code>，如果设置<code>required</code>为<code>false</code>(默认为<code>true</code>)，则注入失败时不会抛出异常）</p> </li> </ol> <h3 id="inject">@Inject</h3> <p>在Spring 的环境下，<strong><code>@Inject</code>和<code>@Autowired</code> 是相同的</strong>，因为它们的依赖注入都是使用<code>AutowiredAnnotationBeanPostProcessor</code>来处理的。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/9adf48303235639adcd3a09c9ae6c670.jpg" alt="这几个关于Spring 依赖注入的问题你清楚吗？"></p> <p><strong><code>@Inject</code>是 JSR-330 定义的规范</strong>，如果使用这种方式，切换到<code>Guice</code>也是可以的。</p> <blockquote> <p>Guice 是 google 开源的轻量级 DI 框架</p> </blockquote> <p>如果硬要说两个的区别，首先<code>@Inject</code>是Java EE包里的，在SE环境需要单独引入。另一个区别在于<code>@Autowired</code>可以设置<code>required=false</code>而<code>@Inject</code>并没有这个属性。</p> <h3 id="resource">@Resource</h3> <p><code>@Resource</code>是JSR-250定义的注解。Spring 在 <code>CommonAnnotationBeanPostProcessor</code>实现了对<code>JSR-250</code>的注解的处理，其中就包括<code>@Resource</code>。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/acb2fc8fa8b5de73e8fa4d4ffe7951aa.jpg" alt="这几个关于Spring 依赖注入的问题你清楚吗？"></p> <p><code>@Resource</code>有两个重要的属性：<code>name</code>和<code>type</code>，而Spring 将<code>@Resource</code>注解的<code>name</code>属性解析为bean的名字，而<code>type</code>属性则解析为bean的类型。</p> <p><strong>装配顺序：</strong></p> <ol> <li>如果同时指定了<code>name</code>和<code>type</code>，则从Spring上下文中找到唯一匹配的bean进行装配，找不到则抛出异常。</li> <li>如果指定了<code>name</code>，则从上下文中查找名称（id）匹配的bean进行装配，找不到则抛出异常。</li> <li>如果指定了<code>type</code>，则从上下文中找到类型匹配的唯一bean进行装配，找不到或是找到多个，都会抛出异常。</li> <li>如果既没有指定<code>name</code>，又没有指定<code>type</code>，则默认按照<code>byName</code>方式进行装配；如果没有匹配，按照<code>byType</code>进行装配。</li> </ol> <h2 id="idea-提示-field-injection-is-not-recommended">IDEA 提示 <code>Field injection is not recommended</code><br /> </h2> <p>在使用IDEA 进行Spring 开发的时候，当你在字段上面使用<code>@Autowired</code>注解的时候，你会发现IDEA 会有警告提示：</p> <blockquote> <p>Field injection is not recommended</p> <p>Inspection info: Spring Team Recommends: "Always use constructor based dependency injection in your beans. Always use assertions for mandatory dependencies".</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/ca8f6d60f4ffb556afb9631e61a4accb.jpg" alt="这几个关于Spring 依赖注入的问题你清楚吗？"></p> <p>翻译过来就是这个意思：</p> <blockquote> <p>不建议使用基于 field 的注入方式。</p> <p>Spring 开发团队建议：在你的Spring Bean 永远使用基于constructor 的方式进行依赖注入。对于必须的依赖，永远使用断言来确认。</p> </blockquote> <p>比如如下代码：</p> <pre class="has"><code class="language-go">@Service public class HelpService {     @Autowired     @Qualifier("svcB")     private Svc svc;      public void sayHello() {         svc.sayHello();     } }  public interface Svc {     void sayHello(); }  @Service public class SvcB implements Svc {     @Override     public void sayHello() {         System.out.println("hello, this is service B");     } } </code></pre> <p>将光标放到<code>@Autowired</code>处，使用<code>Alt + Enter</code> 快捷进行修改之后，代码就会变成基于Constructor的注入方式，<strong>修改之后</strong>：</p> <pre class="has"><code class="language-go">@Service public class HelpService {     private final Svc svc;          @Autowired     public HelpService(@Qualifier("svcB") Svc svc) {         // Assert.notNull(svc, "svc must not be null");         this.svc = svc;     }          public void sayHello() {         svc.sayHello();     } } </code></pre> <p>如果按照Spring 团队的建议，如果<code>svc</code>是必须的依赖，应该使用<code>Assert.notNull(svc, "svc must not be null")</code>来确认。</p> <p>修正这个警告提示固然简单，但是我觉得更重要是去理解为什么Spring 团队会提出这样的建议？直接使用这种基于 field 的注入方式有什么问题？</p> <hr/> <p><strong>首先我们需要知道，Spring 中有这么3种依赖注入的方式</strong>：</p> <ul> <li>基于 field 注入（属性注入）</li> <li>基于 setter 注入</li> <li>基于 constructor 注入（构造器注入）</li> </ul> <h3 id="1-基于-field-注入">1. 基于 field 注入</h3> <p>所谓基于 field 注入，就是在bean的变量上使用注解进行依赖注入。本质上是通过反射的方式直接注入到field。这是我平常开发中看的最多也是最熟悉的一种方式，同时，也正是 Spring 团队所不推荐的方式。比如：</p> <pre class="has"><code class="language-go">@Autowired private Svc svc; </code></pre> <h3 id="2-基于-setter-方法注入">2. 基于 setter 方法注入</h3> <p>通过对应变量的<code>setXXX()</code>方法以及在方法上面使用注解，来完成依赖注入。比如：</p> <pre class="has"><code class="language-go">private Helper helper;  @Autowired public void setHelper(Helper helper) {     this.helper = helper; } </code></pre> <blockquote> <p>注：在 <code>Spring 4.3</code> 及以后的版本中，setter 上面的 <code>@Autowired</code> 注解是可以不写的。</p> </blockquote> <h3 id="3-基于-constructor-注入">3. 基于 constructor 注入</h3> <p>将各个必需的依赖全部放在带有注解构造方法的参数中，并在构造方法中完成对应变量的初始化，这种方式，就是基于构造方法的注入。比如：</p> <pre class="has"><code class="language-go">private final Svc svc;      @Autowired public HelpService(@Qualifier("svcB") Svc svc) {     this.svc = svc; } </code></pre> <blockquote> <p>在 <code>Spring 4.3</code> 及以后的版本中，如果这个类只有一个构造方法，那么这个构造方法上面也可以不写 <code>@Autowired</code> 注解。</p> </blockquote> <h4 id="基于-field-注入的好处">基于 field 注入的好处</h4> <p>正如你所见，这种方式非常的简洁，代码看起来很简单，通俗易懂。你的类可以专注于业务而不被依赖注入所污染。你只需要把<code>@Autowired</code>扔到变量之上就好了，不需要特殊的构造器或者set方法，依赖注入容器会提供你所需的依赖。</p> <h4 id="基于-field-注入的坏处">基于 field 注入的坏处</h4> <blockquote> <p>成也萧何败也萧何</p> </blockquote> <p>基于 field 注入虽然简单，但是却会引发很多的问题。这些问题在我平常开发阅读项目代码的时候就经常遇见。</p> <ul> <li> <p><strong>容易违背了单一职责原则</strong> 使用这种基于 field 注入的方式，添加依赖是很简单的，就算你的类中有十几个依赖你可能都觉得没有什么问题，普通的开发者很可能会无意识地给一个类添加很多的依赖。但是当使用构造器方式注入，到了某个特定的点，构造器中的参数变得太多以至于很明显地发现something is wrong。拥有太多的依赖通常意味着你的类要承担更多的责任，明显违背了单一职责原则（SRP：Single responsibility principle）。</p> <blockquote> <p>这个问题在我司的项目代码真的很常见。</p> </blockquote> </li> <li> <p><strong>依赖注入与容器本身耦合</strong></p> <p>依赖注入框架的核心思想之一就是受容器管理的类不应该去依赖容器所使用的依赖。换句话说，这个类应该是一个简单的POJO(Plain Ordinary Java Object)能够被单独实例化并且你也能为它提供它所需的依赖。</p> <p>这个问题具体可以表现在：</p> <ul> <li>你的类和依赖容器强耦合，不能在容器外使用</li> <li>你的类不能绕过反射（例如单元测试的时候）进行实例化，必须通过依赖容器才能实例化，这更像是集成测试</li> </ul> </li> <li> <p><strong>不能使用属性注入的方式构建不可变对象(<code>final</code> 修饰的变量)</strong></p> </li> </ul> <h4 id="spring-开发团队的建议">Spring 开发团队的建议</h4> <blockquote> <p>Since you can mix constructor-based and setter-based DI, it is a good rule of thumb to use constructors for mandatory dependencies and setter methods or configuration methods for optional dependencies.</p> </blockquote> <p>简单来说，就是</p> <ul> <li> <p>强制依赖就用构造器方式</p> </li> <li> <p>可选、可变的依赖就用setter 注入</p> <p>当然你可以在同一个类中使用这两种方法。构造器注入更适合强制性的注入旨在不变性，Setter注入更适合可变性的注入。</p> </li> </ul> <p>让我们看看Spring 这样推荐的理由，首先是基于构造方法注入，</p> <blockquote> <p>The Spring team generally advocates constructor injection as it enables one to implement application components as immutable objects and to ensure that required dependencies are not null. Furthermore constructor-injected components are always returned to client (calling) code in a fully initialized state. As a side note, a large number of constructor arguments is a bad code smell, implying that the class likely has too many responsibilities and should be refactored to better address proper separation of concerns.</p> </blockquote> <p>Spring 团队提倡使用基于构造方法的注入，因为这样一方面可以<strong>将依赖注入到一个不可变的变量中 (注：<code>final</code> 修饰的变量)</strong>，另一方面也可以<strong>保证这些变量的值不会是 null</strong>。此外，经过构造方法完成依赖注入的组件 (注：比如各个 <code>service</code>)，在被调用时可以<strong>保证它们都完全准备好了</strong>。与此同时，从代码质量的角度来看，<strong>一个巨大的构造方法通常代表着出现了代码异味，这个类可能承担了过多的责任</strong>。</p> <p>而对于基于 setter 的注入，他们是这么说的：</p> <blockquote> <p>Setter injection should primarily only be used for optional dependencies that can be assigned reasonable default values within the class. Otherwise, not-null checks must be performed everywhere the code uses the dependency. One benefit of setter injection is that setter methods make objects of that class amenable to reconfiguration or re-injection later.</p> </blockquote> <p>基于 setter 的注入，则只应该被用于注入非必需的依赖，同时在类中应该对这个依赖提供一个合理的默认值。如果使用 setter 注入必需的依赖，那么将会有过多的 null 检查充斥在代码中。<strong>使用 setter 注入的一个优点是，这个依赖可以很方便的被改变或者重新注入</strong>。</p> <h2>小结</h2> <p>以上就是本文的所有内容，希望阅读本文之后能让你对Spring 的依赖注入有更深的理解。</p> <blockquote> <p>如果本文有帮助到你，希望能点个赞，这是对我的最大动力????????????????。</p> </blockquote> <h2>参考</h2> <ul> <li> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.spring.io/spring/docs/4.2.x/spring-framework-reference/html/beans.html#beans-setter-injection"  rel="nofollow">Setter-based dependency injection</a></p> </li> <li> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.vojtechruzicka.com/field-dependency-injection-considered-harmful/"  rel="nofollow">Field Dependency Injection Considered Harmful</a></p> </li> <li> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://boris1993.github.io/projects/java/coding-tips/idea-warninig-field-injection-is-not-recommended.html"  rel="nofollow">IDEA 警告 Field injection is not recommended</a> ????</p> </li> </ul> </div> <div id="tocFlag"></div> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90182.htm">动物打疫苗肉还能吃吗 动物打疫苗肉还能吃吗有毒吗</a></p>
+                                        <p>下一个：<a href="/news/article-91289.htm">动物医院大众点评怎么写文案吸引人（动物医院上班）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-5-free-node-subscribe-links.htm" title="4月5日→20.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">4月5日→20.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-79463.htm" title="专门领养宠物的软件 专门领养宠物的软件有哪些">专门领养宠物的软件 专门领养宠物的软件有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-83671.htm" title="动物医院看病多少钱一天费用（动物医院看病多少钱一天费用）">动物医院看病多少钱一天费用（动物医院看病多少钱一天费用）</a></li>
+                        <li class="py-2"><a href="/news/article-78103.htm" title="梦见自己抱别的女人睡觉好不好（梦到自己抱别的女人）">梦见自己抱别的女人睡觉好不好（梦到自己抱别的女人）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-free-node-subscribe-links.htm" title="3月21日→20.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月21日→20.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-node-share-links.htm" title="3月11日→19.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月11日→19.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-88693.htm" title="rancher安装redis集群">rancher安装redis集群</a></li>
+                        <li class="py-2"><a href="/news/article-85103.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                        <li class="py-2"><a href="/news/article-67508.htm" title="上海动物疫苗控制中心电话号码（上海动物疫苗控制中心电话号码查询）">上海动物疫苗控制中心电话号码（上海动物疫苗控制中心电话号码查询）</a></li>
+                        <li class="py-2"><a href="/news/article-75381.htm" title="动物疫苗和人体疫苗生产有什么区别呢 动物疫苗和人体疫苗生产有什么区别呢视频">动物疫苗和人体疫苗生产有什么区别呢 动物疫苗和人体疫苗生产有什么区别呢视频</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

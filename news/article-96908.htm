@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-96908.htm" />
+    <meta charset="utf-8">
+    <title>Python调用C语言方法</title>
+        <meta name="description" content="1、为什么要使用Python调用C语言 可以将一些耗时的操作的函数使用C语言编写，然后主题代码是python，这样使用python去调用C语言，就可以做既能有python语言的简单性，有可以利用C语言" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-96908.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="Python调用C语言方法" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/1697e97cb3a18237551cf269d6c2b983.webp" />
+        <meta property="og:release_date" content="2025-04-16T08:37:26" />
+    <meta property="og:updated_time" content="2025-04-16T08:37:26" />
+        <meta property="og:description" content="1、为什么要使用Python调用C语言 可以将一些耗时的操作的函数使用C语言编写，然后主题代码是python，这样使用python去调用C语言，就可以做既能有python语言的简单性，有可以利用C语言" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python调用C语言方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Python调用C语言方法</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <h2><span style="font-size: 18.72px;">1、为什么要使用Python调用C语言</span><br /></h2> <p>可以将一些耗时的操作的函数使用C语言编写，然后主题代码是python，这样使用python去调用C语言，就可以做既能有python语言的简单性，有可以利用C语言的高性能，从而达到整体既简单又高效的目的</p> <h3> <a id="2CPython_4" rel="nofollow"></a>2、C语言与Python语言的区别</h3> <p>（1）Python不擅长大量运算任务<br /> （2）Python程序的优势在于，适合IO密集型作业，比如打开文件，下载图片，运行脚本等，python作为知名的胶水语言，快速实现“计算密集型作业”的方法就是“把C的代码拿过来直接使用”</p> <h3> <a id="3PythonC_8" rel="nofollow"></a>3、Python调用C语言的步骤</h3> <p>（1）将.c文件编译为动态库文件，即.so文件</p> <pre><code class="prism language-bash"><span class="token comment"># 将C源码文件demo.c编译为动态库文件 demo.so</span> gcc demo.c -shared -o demo.so </code></pre> <p>（2）在python文件中导入cdll</p> <pre><code class="prism language-bash">from ctypes <span class="token function">import</span> cdll </code></pre> <p>（3）然后通过cdll的LoadLibrary加载动态库文件</p> <pre><code class="prism language-bash"><span class="token assign-left variable">result</span><span class="token operator">=</span>cdll.LoadLibrary<span class="token punctuation">(</span><span class="token string">"./demo.so"</span><span class="token punctuation">)</span> </code></pre> <p>（4）然后即可通过上述result调用C文件中的函数了</p> <h3> <a id="4PythonC_31" rel="nofollow"></a>4、Python调用C语言实例演示</h3> <p>（1）编写 demo.c文件，实现一个求1-100的和的函数，代码如下：</p> <pre><code class="prism language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>  <span class="token keyword">int</span>  <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">int</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>     <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>     <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">100</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>     <span class="token punctuation">{<!-- --></span>         sum<span class="token operator">+=</span>i<span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token keyword">return</span> sum<span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p>（2）将demo.c源码文件编译为动态库文件demo.so</p> <pre><code class="prism language-bash">gcc demo.c -shared -o demo.so </code></pre> <p>（3）编写Python文件</p> <pre><code class="prism language-python"><span class="token keyword">from</span> ctypes <span class="token keyword">import</span> cdll  <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>     result<span class="token operator">=</span>cdll<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span><span class="token string">"./demo.so"</span><span class="token punctuation">)</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">"__main__"</span><span class="token punctuation">:</span>     main<span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> <p>（4）执行 python3 demo.py 这里在python文件中也同样可以拿到C源码函数的返回值<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/eeb02ed4d660db8e5b637e19e4a7a0a3.jpg" alt="Python调用C语言方法"></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-96190.htm">宠物领养网页设计图片（宠物领养网下载）</a></p>
+                                        <p>下一个：<a href="/news/article-96909.htm">HCNP Routing&amp;Switching之端口隔离</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-node-share-links.htm" title="4月3日→18.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">4月3日→18.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-free-subscribe-node.htm" title="3月30日→18.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月30日→18.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66248.htm" title="宠物猫疫苗接种时间（宠物猫疫苗有效期多久）">宠物猫疫苗接种时间（宠物猫疫苗有效期多久）</a></li>
+                        <li class="py-2"><a href="/news/article-81538.htm" title="中国动物疫苗十强上市公司名单 中国动物疫苗十强上市公司名单公布">中国动物疫苗十强上市公司名单 中国动物疫苗十强上市公司名单公布</a></li>
+                        <li class="py-2"><a href="/news/article-78103.htm" title="梦见自己抱别的女人睡觉好不好（梦到自己抱别的女人）">梦见自己抱别的女人睡觉好不好（梦到自己抱别的女人）</a></li>
+                        <li class="py-2"><a href="/news/article-72040.htm" title="畜牧兽医成人自考本科（畜牧兽医成人自考本科考什么）">畜牧兽医成人自考本科（畜牧兽医成人自考本科考什么）</a></li>
+                        <li class="py-2"><a href="/news/article-68782.htm" title="国内动物疫苗排名第一 国内动物疫苗排名第一名">国内动物疫苗排名第一 国内动物疫苗排名第一名</a></li>
+                        <li class="py-2"><a href="/news/article-93175.htm" title="动物疫苗行业介绍（动物疫苗板块前景分析）">动物疫苗行业介绍（动物疫苗板块前景分析）</a></li>
+                        <li class="py-2"><a href="/news/article-66859.htm" title="宠物领养条件和要求（宠物领养的法律法规）">宠物领养条件和要求（宠物领养的法律法规）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-node-share-links.htm" title="3月16日→18.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月16日→18.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">47</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

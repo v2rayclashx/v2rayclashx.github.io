@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-98382.htm" />
+    <meta charset="utf-8">
+    <title>ASP.NET Core使用EF创建关系模型_实用技巧</title>
+        <meta name="description" content="12.1.1数据注释  12.1.2Fluent API 目录  			  目录  1.关系 2.术语定义 3.约定 4.完全定义的关系 5.无外键属性 6.单个导航属性 7.数据注释  7.1For" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-98382.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="ASP.NET Core使用EF创建关系模型_实用技巧" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/df13deedbb13f0653e8e05805e6024ec.webp" />
+        <meta property="og:release_date" content="2025-04-18T09:36:34" />
+    <meta property="og:updated_time" content="2025-04-18T09:36:34" />
+        <meta property="og:description" content="12.1.1数据注释  12.1.2Fluent API 目录  			  目录  1.关系 2.术语定义 3.约定 4.完全定义的关系 5.无外键属性 6.单个导航属性 7.数据注释  7.1For" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ASP.NET Core使用EF创建关系模型_实用技巧">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">ASP.NET Core使用EF创建关系模型_实用技巧</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> <a href="#title-0" title="12.1.1数据注释">12.1.1数据注释</a></li> <li><i class="be be-arrowright"></i> <a href="#title-1" title="12.1.2Fluent API">12.1.2Fluent API</a></li> </ul><span class="log-zd"><span class="log-close"><a title="隐藏目录"><i class="be be-cross"></i><strong>目录</strong></a></span></span></div>  			</div> <div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.关系</a></li> <li><a href="#_label1" rel="nofollow">2.术语定义</a></li> <li><a href="#_label2" rel="nofollow">3.约定</a></li> <li><a href="#_label3" rel="nofollow">4.完全定义的关系</a></li> <li><a href="#_label4" rel="nofollow">5.无外键属性</a></li> <li><a href="#_label5" rel="nofollow">6.单个导航属性</a></li> <li><a href="#_label6" rel="nofollow">7.数据注释</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_6_0" rel="nofollow">7.1ForeignKey</a></li> <li><a href="#_lab2_6_1" rel="nofollow">7.2InverseProperty</a></li> </ul> <li><a href="#_label7" rel="nofollow">8.Fluent API</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_7_2" rel="nofollow">8.1单个导航属性</a></li> <li><a href="#_lab2_7_3" rel="nofollow">8.2ForeignKey</a></li> <li><a href="#_lab2_7_4" rel="nofollow">8.3无导航属性</a></li> </ul> <li><a href="#_label8" rel="nofollow">9.主体密钥</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label9" rel="nofollow">10.必需和可选的关系</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label10" rel="nofollow">11.级联删除</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label11" rel="nofollow">12.其他关系模式</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_11_5" rel="nofollow">12.1一对一</a></li> <ul class="third_class_ul"> <li><a href="#_label3_11_5_0" rel="nofollow">12.1.1数据注释</a></li> <li><a href="#_label3_11_5_1" rel="nofollow">12.1.2Fluent API</a></li> </ul> <li><a href="#_lab2_11_6" rel="nofollow">12.2多对多</a></li> <ul class="third_class_ul"></ul> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.关系</h2> <p>关系定义两个实体之间的关系。在关系型数据库中，这由外键约束表示。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.术语定义</h2> <p>有许多术语用于描述关系：</p> <ul> <li>相关实体：这是包含外键属性的实体。有时称为关系的"子级"。</li> <li>主体实体：这是包含主/备用键属性的实体。有时称为关系的 "父项"。</li> <li>外键：依赖实体中的属性，用于存储与实体相关的主体键属性的值。</li> <li>主体密钥：唯一标识主体实体的属性。这可能是主键或备用密钥。</li> <li>导航属性：在主体和/或从属实体上定义的属性，该属性包含对相关实体的引用。</li> <li>集合导航属性：一个导航属性，其中包含对多个相关实体的引用。</li> <li>引用导航属性：保存对单个相关实体的引用的导航属性。</li> <li>反向导航属性：讨论特定导航属性时，此术语是指关系另一端的导航属性。</li> </ul> <p>下面的代码列表显示了与之间Blog的一对多关系Post</p> <ul> <li>Post是依赖实体</li> <li>Blog是主体实体</li> <li>Post.BlogId为外键</li> <li>Blog.BlogId是主体键（在这种情况下是主键，而不是备用键）</li> <li>Post.Blog是一个引用导航属性</li> <li>Blog.Posts是集合导航属性</li> <li>Post.Blog是的Blog.Posts反向导航属性（反之亦然）</li> </ul> <div class="ay1code"> <pre class="brush:csharp;">public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }      public List&lt;Post&gt; Posts { get; set; }  }  public class Post  {      public int PostId { get; set; }      public string Title { get; set; }      public string Content { get; set; }      public int BlogId { get; set; }      public Blog Blog { get; set; }  }</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.约定</h2> <p>按照约定，当发现类型上有导航属性时，将创建关系。如果属性指向的类型不能由当前的数据库提供程序映射为标量类型，则该属性视为一个导航属性。</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>4.完全定义的关系</h2> <p>关系最常见的模式是在关系两端定义导航属性，在依赖实体类中定义外键属性。<br />如果在两个类型之间找到一对导航属性，则这些属性将配置为同一关系的反向导航属性。<br />如果依赖实体包含名为&lt;primary key property name&gt;、&lt;navigation property name&gt;&lt;primary key property name&gt;或&lt;principal entity name&gt;&lt;primary key property name&gt;的属性，则该属性将被配置为外键。</p> <div class="ay1code"> <pre class="brush:csharp;">public class Blog  {      public int BlogId { get; set; }  　public string Url { get; set; }      //导航属性      public List&lt;Post&gt; Posts { get; set; }  }  public class Post  {      public int PostId { get; set; }      public string Title { get; set; }      public string Content { get; set; }      //外键属性      public int BlogId { get; set; }      //反向导航属性      public Blog Blog { get; set; }  }</pre> </div> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>5.无外键属性</h2> <p>尽管建议在依赖实体类中定义外键属性，但这并不是必需的。如果未找到外键属性，则会以该名称&lt;navigation property name&gt;&lt;principal key property name&gt;引入阴影外键属性。</p> <div class="ay1code"> <pre class="brush:csharp;">public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }      //阴影导航属性      public List&lt;Post&gt; Posts { get; set; }  }  public class Post  {      public int PostId { get; set; }      public string Title { get; set; }      public string Content { get; set; }       //阴影反向导航属性      public Blog Blog { get; set; }  }</pre> </div> <p class="maodian"><a name="_label5" rel="nofollow"></a></p> <h2>6.单个导航属性</h2> <p>只包含一个导航属性（无反向导航，没有外键属性）就足以具有约定定义的关系。 还可以有一个导航属性和一个外键属性。</p> <div class="ay1code"> <pre class="brush:csharp;">public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }      //阴影导航属性      public List&lt;Post&gt; Posts { get; set; }  }  public class Post  {      public int PostId { get; set; }      public string Title { get; set; }      public string Content { get; set; }  }</pre> </div> <p class="maodian"><a name="_label6" rel="nofollow"></a></p> <h2>7.数据注释</h2> <p>可以使用两个数据批注来配置关系[ForeignKey]和[InverseProperty]。System.ComponentModel.DataAnnotations.Schema命名空间中提供了这些项。</p> <p class="maodian"><a name="_lab2_6_0" rel="nofollow"></a></p> <h3>7.1ForeignKey</h3> <p>你可以使用数据批注来配置应用程序作给定关系的外键属性的属性。通常，当不按约定发现外键属性时，会执行此操作。</p> <div class="ay1code"> <pre class="brush:csharp;">namespace EFModeling.DataAnnotations.Relationships.ForeignKey  {      class MyContext : DbContext      {          public DbSet&lt;Blog&gt; Blogs { get; set; }          public DbSet&lt;Post&gt; Posts { get; set; }      }      #region Entities      public class Blog      {          public int BlogId { get; set; }          public string Url { get; set; }          //导航属性          public List&lt;Post&gt; Posts { get; set; }      }      public class Post      {          public int PostId { get; set; }          public string Title { get; set; }          public string Content { get; set; }          //外键          public int BlogForeignKey { get; set; }          //设置反向导航外键          [ForeignKey("BlogForeignKey")]          public Blog Blog { get; set; }      }      #endregion  }</pre> </div> <p class="maodian"><a name="_lab2_6_1" rel="nofollow"></a></p> <h3>7.2InverseProperty</h3> <p>您可以使用数据批注来配置依赖项和主体实体上的导航属性如何配对。这通常在两个实体类型之间存在多个导航属性对时执行。</p> <div class="ay1code"> <pre class="brush:csharp;">namespace EFModeling.DataAnnotations.Relationships.InverseProperty  {      class MyContext : DbContext      {          public DbSet&lt;Post&gt; Posts { get; set; }          public DbSet&lt;User&gt; Users { get; set; }      }      #region Entities      public class Post      {          public int PostId { get; set; }          public string Title { get; set; }          public string Content { get; set; }            public int AuthorUserId { get; set; }          public User Author { get; set; }            public int ContributorUserId { get; set; }          public User Contributor { get; set; }      }      public class User      {          public string UserId { get; set; }          public string FirstName { get; set; }          public string LastName { get; set; }                    [InverseProperty("Author")]          public List&lt;Post&gt; AuthoredPosts { get; set; }                   [InverseProperty("Contributor")]          public List&lt;Post&gt; ContributedToPosts { get; set; }      }      #endregion  }</pre> </div> <p class="maodian"><a name="_label7" rel="nofollow"></a></p> <h2>8.Fluent API</h2> <p>若要在熟知的API中配置关系，请首先标识构成关系的导航属性。HasOne或HasMany标识要开始配置的实体类型上的导航属性。然后，将调用链接到WithOne或WithMany以标识反向导航。HasOne/WithOne用于引用导航属性，HasMany / WithMany用于集合导航属性。</p> <div class="ay1code"> <pre class="brush:csharp;">namespace EFModeling.FluentAPI.Relationships.NoForeignKey  {      #region Model      class MyContext : DbContext      {          public DbSet&lt;Blog&gt; Blogs { get; set; }          public DbSet&lt;Post&gt; Posts { get; set; }          protected override void OnModelCreating(ModelBuilder modelBuilder)          {              modelBuilder.Entity&lt;Post&gt;()                  //配置一对多关系                  .HasOne(p =&gt; p.Blog)                  .WithMany(b =&gt; b.Posts);          }      }      public class Blog      {          public int BlogId { get; set; }          public string Url { get; set; }          public List&lt;Post&gt; Posts { get; set; }      }      public class Post      {          public int PostId { get; set; }          public string Title { get; set; }          public string Content { get; set; }          public Blog Blog { get; set; }      }      #endregion  }</pre> </div> <p class="maodian"><a name="_lab2_7_2" rel="nofollow"></a></p> <h3>8.1单个导航属性</h3> <p>如果只有一个导航属性，则用WithOne、WithMany的无参数重载。这表示在概念上，关系的另一端有一个引用或集合，但实体类中不包含导航属性。</p> <div class="ay1code"> <pre class="brush:csharp;">namespace EFModeling.FluentAPI.Relationships.OneNavigation  {      #region Model      class MyContext : DbContext      {          public DbSet&lt;Blog&gt; Blogs { get; set; }          public DbSet&lt;Post&gt; Posts { get; set; }          protected override void OnModelCreating(ModelBuilder modelBuilder)          {              modelBuilder.Entity&lt;Blog&gt;()                  //配置多对一关系                  .HasMany(b =&gt; b.Posts)                  .WithOne();          }      }      public class Blog      {          public int BlogId { get; set; }          public string Url { get; set; }          //导航属性          public List&lt;Post&gt; Posts { get; set; }      }      public class Post      {          public int PostId { get; set; }          public string Title { get; set; }          public string Content { get; set; }      }      #endregion  }</pre> </div> <p class="maodian"><a name="_lab2_7_3" rel="nofollow"></a></p> <h3>8.2ForeignKey</h3> <p>你可以使用API来配置应用程序的外键属性。</p> <div class="ay1code"> <pre class="brush:csharp;">namespace EFModeling.Configuring.DataAnnotations.Samples.Relationships.ForeignKey  {      #region Model      class MyContext : DbContext      {          public DbSet&lt;Blog&gt; Blogs { get; set; }          public DbSet&lt;Post&gt; Posts { get; set; }          protected override void OnModelCreating(ModelBuilder modelBuilder)          {              modelBuilder.Entity&lt;Post&gt;()                  //配置一对多关系                  .HasOne(p =&gt; p.Blog)                  .WithMany(b =&gt; b.Posts)                  //配置外键                  .HasForeignKey(p =&gt; p.BlogForeignKey);          }      }      public class Blog      {          public int BlogId { get; set; }          public string Url { get; set; }          //导航属性          public List&lt;Post&gt; Posts { get; set; }      }      public class Post      {          public int PostId { get; set; }          public string Title { get; set; }          public string Content { get; set; }          //外键          public int BlogForeignKey { get; set; }          public Blog Blog { get; set; }      }      #endregion  }</pre> </div> <p>下面的代码列表演示如何配置复合外键：</p> <div class="ay1code"> <pre class="brush:csharp;">namespace EFModeling.Configuring.DataAnnotations.Samples.Relationships.CompositeForeignKey  {      #region Model      class MyContext : DbContext      {          public DbSet&lt;Car&gt; Cars { get; set; }          protected override void OnModelCreating(ModelBuilder modelBuilder)          {              modelBuilder.Entity&lt;Car&gt;()                  //配置复合主键                  .HasKey(c =&gt; new { c.State, c.LicensePlate });                  modelBuilder.Entity&lt;RecordOfSale&gt;()                  //配置一对多关系                  .HasOne(s =&gt; s.Car)                  .WithMany(c =&gt; c.SaleHistory)                  //配置外键                  .HasForeignKey(s =&gt; new { s.CarState, s.CarLicensePlate });          }      }      public class Car      {          public string State { get; set; }          public string LicensePlate { get; set; }          public string Make { get; set; }          public string Model { get; set; }          //导航属性          public List&lt;RecordOfSale&gt; SaleHistory { get; set; }      }      public class RecordOfSale      {          public int RecordOfSaleId { get; set; }          public DateTime DateSold { get; set; }          public decimal Price { get; set; }          //State对应CarState          public string CarState { get; set; }          //LicensePlate 对应CarLicensePlate          public string CarLicensePlate { get; set; }          public Car Car { get; set; }      }      #endregion  }</pre> </div> <p>您可以使用的HasForeignKey(...)字符串重载将影子属性配置为外键。建议先将影子属性显式添加到模型，然后再将其用作外键：</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      public DbSet&lt;Post&gt; Posts { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          // Add the shadow property to the model          modelBuilder.Entity&lt;Post&gt;()               //配置外键              .Property&lt;int&gt;("BlogForeignKey");          // Use the shadow property as a foreign key          modelBuilder.Entity&lt;Post&gt;()              //配置一对多关系              .HasOne(p =&gt; p.Blog)              .WithMany(b =&gt; b.Posts)              //配置外键              .HasForeignKey("BlogForeignKey");      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }      public List&lt;Post&gt; Posts { get; set; }  }  public class Post  {      public int PostId { get; set; }      public string Title { get; set; }      public string Content { get; set; }      public Blog Blog { get; set; }  }</pre> </div> <p class="maodian"><a name="_lab2_7_4" rel="nofollow"></a></p> <h3>8.3无导航属性</h3> <p>不一定需要提供导航属性。你可以直接在关系的一端提供外键。</p> <div class="ay1code"> <pre class="brush:csharp;">namespace EFModeling.FluentAPI.Relationships.NoNavigation  {      #region Model      class MyContext : DbContext      {          public DbSet&lt;Blog&gt; Blogs { get; set; }          public DbSet&lt;Post&gt; Posts { get; set; }          protected override void OnModelCreating(ModelBuilder modelBuilder)          {              modelBuilder.Entity&lt;Post&gt;()                  //配置一对多关系                  .HasOne&lt;Blog&gt;()                  .WithMany()                  //配置外键                  .HasForeignKey(p =&gt; p.BlogId);          }      }      public class Blog      {          public int BlogId { get; set; }          public string Url { get; set; }      }      public class Post      {          public int PostId { get; set; }          public string Title { get; set; }          public string Content { get; set; }          public int BlogId { get; set; }      }      #endregion  }</pre> </div> <p class="maodian"><a name="_label8" rel="nofollow"></a></p> <h2>9.主体密钥</h2> <p>如果你希望外键引用主键之外的属性，则可以使用熟知的API来配置关系的主体键属性。 配置为主体密钥的属性将自动设置为备用密钥。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Car&gt; Cars { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;RecordOfSale&gt;()              .HasOne(s =&gt; s.Car)              .WithMany(c =&gt; c.SaleHistory)              .HasForeignKey(s =&gt; s.CarLicensePlate)              .HasPrincipalKey(c =&gt; c.LicensePlate);      }  }  public class Car  {      public int CarId { get; set; }      public string LicensePlate { get; set; }      public string Make { get; set; }      public string Model { get; set; }        public List&lt;RecordOfSale&gt; SaleHistory { get; set; }  }  public class RecordOfSale  {      public int RecordOfSaleId { get; set; }      public DateTime DateSold { get; set; }      public decimal Price { get; set; }        public string CarLicensePlate { get; set; }      public Car Car { get; set; }  }</pre> </div> <p>下面的代码列表演示如何配置复合主体键：</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Car&gt; Cars { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;RecordOfSale&gt;()              .HasOne(s =&gt; s.Car)              .WithMany(c =&gt; c.SaleHistory)              .HasForeignKey(s =&gt; new { s.CarState, s.CarLicensePlate })              .HasPrincipalKey(c =&gt; new { c.State, c.LicensePlate });      }  }  public class Car  {      public int CarId { get; set; }      public string State { get; set; }      public string LicensePlate { get; set; }      public string Make { get; set; }      public string Model { get; set; }        public List&lt;RecordOfSale&gt; SaleHistory { get; set; }  }  public class RecordOfSale  {      public int RecordOfSaleId { get; set; }      public DateTime DateSold { get; set; }      public decimal Price { get; set; }        public string CarState { get; set; }      public string CarLicensePlate { get; set; }      public Car Car { get; set; }  }</pre> </div> <p class="maodian"><a name="_label9" rel="nofollow"></a></p> <h2>10.必需和可选的关系</h2> <p>您可以使用熟知的API来配置是必需的还是可选的关系。最终，这会控制外键属性是必需的还是可选的。当使用阴影状态外键时，这非常有用。如果实体类中具有外键属性，则关系的requiredness取决于外键属性是必需还是可选。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      public DbSet&lt;Post&gt; Posts { get; set; }        protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Post&gt;()              .HasOne(p =&gt; p.Blog)              .WithMany(b =&gt; b.Posts)              .IsRequired();      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }        public List&lt;Post&gt; Posts { get; set; }  }  public class Post  {      public int PostId { get; set; }      public string Title { get; set; }      public string Content { get; set; }        public Blog Blog { get; set; }  }</pre> </div> <p class="maodian"><a name="_label10" rel="nofollow"></a></p> <h2>11.级联删除</h2> <p>您可以使用熟知的API显式配置给定关系的级联删除行为。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      public DbSet&lt;Post&gt; Posts { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Post&gt;()              .HasOne(p =&gt; p.Blog)              .WithMany(b =&gt; b.Posts)              .OnDelete(DeleteBehavior.Cascade);      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }        public List&lt;Post&gt; Posts { get; set; }  }  public class Post  {      public int PostId { get; set; }      public string Title { get; set; }      public string Content { get; set; }        public int? BlogId { get; set; }      public Blog Blog { get; set; }  }</pre> </div> <p class="maodian"><a name="_label11" rel="nofollow"></a></p> <h2>12.其他关系模式</h2> <p class="maodian"><a name="_lab2_11_5" rel="nofollow"></a></p> <h3>12.1一对一</h3> <p>一对多关系在两侧都有一个引用导航属性。它们遵循与一对多关系相同的约定，但在外键属性上引入了唯一索引，以确保只有一个依赖项与每个主体相关。</p> <p class="maodian"><a name="_label3_11_5_0" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-0">12.1.1数据注释</h4> <div class="ay1code"> <pre class="brush:csharp;">public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }        public BlogImage BlogImage { get; set; }  }  public class BlogImage  {      public int BlogImageId { get; set; }      public byte[] Image { get; set; }      public string Caption { get; set; }        public int BlogId { get; set; }      public Blog Blog { get; set; }  }</pre> </div> <p class="maodian"><a name="_label3_11_5_1" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-1">12.1.2Fluent API</h4> <p>使用API 配置关系时，请使用HasOne和WithOne方法。配置外键时，需要指定依赖实体类型，请注意以下列表HasForeignKey中提供的泛型参数。在一对多关系中，可以清楚地表明具有引用导航的实体是依赖项，并且具有集合的实体是主体。但这并不是一对一的关系，因此需要显式定义它。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Blog&gt; Blogs { get; set; }      public DbSet&lt;BlogImage&gt; BlogImages { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;Blog&gt;()              .HasOne(p =&gt; p.BlogImage)              .WithOne(i =&gt; i.Blog)              .HasForeignKey&lt;BlogImage&gt;(b =&gt; b.BlogForeignKey);      }  }  public class Blog  {      public int BlogId { get; set; }      public string Url { get; set; }        public BlogImage BlogImage { get; set; }  }  public class BlogImage  {      public int BlogImageId { get; set; }      public byte[] Image { get; set; }      public string Caption { get; set; }        public int BlogForeignKey { get; set; }      public Blog Blog { get; set; }  }</pre> </div> <p class="maodian"><a name="_lab2_11_6" rel="nofollow"></a></p> <h3>12.2多对多</h3> <p>目前尚不支持多对多关系，没有实体类来表示联接表。但是，您可以通过包含联接表的实体类并映射两个不同的一对多关系，来表示多对多关系。</p> <div class="ay1code"> <pre class="brush:csharp;">class MyContext : DbContext  {      public DbSet&lt;Post&gt; Posts { get; set; }      public DbSet&lt;Tag&gt; Tags { get; set; }      protected override void OnModelCreating(ModelBuilder modelBuilder)      {          modelBuilder.Entity&lt;PostTag&gt;()              .HasKey(pt =&gt; new { pt.PostId, pt.TagId });          modelBuilder.Entity&lt;PostTag&gt;()              .HasOne(pt =&gt; pt.Post)              .WithMany(p =&gt; p.PostTags)              .HasForeignKey(pt =&gt; pt.PostId);          modelBuilder.Entity&lt;PostTag&gt;()              .HasOne(pt =&gt; pt.Tag)              .WithMany(t =&gt; t.PostTags)              .HasForeignKey(pt =&gt; pt.TagId);      }  }  public class Post  {      public int PostId { get; set; }      public string Title { get; set; }      public string Content { get; set; }        public List&lt;PostTag&gt; PostTags { get; set; }  }  public class Tag  {      public string TagId { get; set; }        public List&lt;PostTag&gt; PostTags { get; set; }  }  public class PostTag  {      public int PostId { get; set; }      public Post Post { get; set; }        public string TagId { get; set; }      public Tag Tag { get; set; }  }</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-97658.htm">延吉市动物卫生检疫站电话是多少（延吉市动物防疫站咨询电话）</a></p>
+                                        <p>下一个：<a href="/news/article-98383.htm">开宠物店需要掌握的知识（开宠物店需要会什么）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-93176.htm" title="动物怎么接种疫苗（动物疫苗接种方法及注意事项）">动物怎么接种疫苗（动物疫苗接种方法及注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-87257.htm" title="动物打完疫苗需要注意什么吗视频（动物打完疫苗需要注意什么吗视频教程）">动物打完疫苗需要注意什么吗视频（动物打完疫苗需要注意什么吗视频教程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-free-v2ray-subscribe.htm" title="3月29日→20.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月29日→20.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-77414.htm" title="美联众合动物医院投诉电话 美联众合动物医院投诉电话多少">美联众合动物医院投诉电话 美联众合动物医院投诉电话多少</a></li>
+                        <li class="py-2"><a href="/news/article-94695.htm" title="小猫要跟主人睡一个房间吗（小猫咪一定要和主人在一个房间）">小猫要跟主人睡一个房间吗（小猫咪一定要和主人在一个房间）</a></li>
+                        <li class="py-2"><a href="/news/article-83671.htm" title="动物医院看病多少钱一天费用（动物医院看病多少钱一天费用）">动物医院看病多少钱一天费用（动物医院看病多少钱一天费用）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-subscribe-node.htm" title="3月10日→21.4M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月10日→21.4M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-69420.htm" title="宠物粮食在哪里进货好呢知乎（宠物粮在哪里批发）">宠物粮食在哪里进货好呢知乎（宠物粮在哪里批发）</a></li>
+                        <li class="py-2"><a href="/news/article-67508.htm" title="上海动物疫苗控制中心电话号码（上海动物疫苗控制中心电话号码查询）">上海动物疫苗控制中心电话号码（上海动物疫苗控制中心电话号码查询）</a></li>
+                        <li class="py-2"><a href="/news/article-85103.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

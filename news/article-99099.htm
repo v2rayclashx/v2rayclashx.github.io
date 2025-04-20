@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-99099.htm" />
+    <meta charset="utf-8">
+    <title>C语言 模拟实现strlen函数详解_C 语言</title>
+        <meta name="description" content="目录  前言 一.strlen函数的介绍  1.strlen函数的声明 2.strlen函数的简单运用 3.注意事项  二.三种实现strlen函数的方法  1.计数器的方法 2.递归方法 3.指针-" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-99099.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="C语言 模拟实现strlen函数详解_C 语言" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/20da9dced4c2d7213a8a5da74683d1a7.webp" />
+        <meta property="og:release_date" content="2025-04-19T08:56:49" />
+    <meta property="og:updated_time" content="2025-04-19T08:56:49" />
+        <meta property="og:description" content="目录  前言 一.strlen函数的介绍  1.strlen函数的声明 2.strlen函数的简单运用 3.注意事项  二.三种实现strlen函数的方法  1.计数器的方法 2.递归方法 3.指针-" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C语言 模拟实现strlen函数详解_C 语言">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">C语言 模拟实现strlen函数详解_C 语言</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">前言</a></li> <li><a href="#_label1" rel="nofollow">一.strlen函数的介绍</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">1.strlen函数的声明</a></li> <li><a href="#_lab2_1_1" rel="nofollow">2.strlen函数的简单运用</a></li> <li><a href="#_lab2_1_2" rel="nofollow">3.注意事项</a></li> </ul> <li><a href="#_label2" rel="nofollow">二.三种实现strlen函数的方法</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_3" rel="nofollow">1.计数器的方法</a></li> <li><a href="#_lab2_2_4" rel="nofollow">2.递归方法</a></li> <li><a href="#_lab2_2_5" rel="nofollow">3.指针-指针的方法</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>前言</h2> <p>用C语言模拟实现strlen函数，我这里有三种方法，快来看看跟你用的方法是否是一样。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>一.strlen函数的介绍</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>1.strlen函数的声明</h3> <blockquote> <p>size_t strlen ( const char * str )；</p> </blockquote> <p>这里函数的返回值为无符号整形（size_t），传入的是一个常量char*类型的指针。</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>2.strlen函数的简单运用</h3> <p>用strlen函数可以求出字符串的长度</p> <div class="ay1code"> <pre class="brush:cpp;">#include&lt;stdio.h&gt;  #include&lt;string.h&gt;  int main()  {  	char str[] = "qwerty";  	int ret = strlen(str);  	printf("字符串的长度 = %d\n", ret);  	return 0;  }</pre> </div> <p>代码运行结果</p> <p style="text-align:center"><img fetchpriority="high" decoding="async" alt="" height="195" src="http://img.555519.xyz/uploads3/20220420/25fa862329644273eed9f73778c5611a.jpg"></p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>3.注意事项</h3> <p>1.字符串是以 '\0' 作为结束标志，strlen函数返回的是在字符串中 '\0' 前面出现的字符个数（不包含 '\0' )。</p> <p>2.参数指向的字符串必须要以 '\0' 结束。</p> <p>如果不是以'\0'结束，输出结果将是一个随机值，例如：</p> <div class="ay1code"> <pre class="brush:cpp;">#include&lt;stdio.h&gt;  #include&lt;string.h&gt;     int main()  {  	char str[] = { 'a', 'b', 'c' };//这里没有以'\0'结束  	int ret = strlen(str);  	printf("字符串的长度 = %d\n", ret);  	return 0;  }</pre> </div> <p>代码运行结果</p> <p style="text-align:center"><img decoding="async" alt="" height="182" src="http://img.555519.xyz/uploads3/20220420/63391dc579c23a54f3aea16d975d209f.jpg"></p> <p> 其实这个代码的修改方法也很简单，例如：</p> <p>方法1</p> <div class="ay1code"> <pre class="brush:cpp;">#include&lt;stdio.h&gt;  #include&lt;string.h&gt;     int main()  {  	char str[] = { 'a', 'b', 'c', '\0'};  	int ret = strlen(str);  	printf("字符串的长度 = %d\n", ret);  	return 0;  }</pre> </div> <p>方法2（如果一个数组没存满的话后面的值默认存0，而'\0'的ASCII码值就是0）</p> <div class="ay1code"> <pre class="brush:cpp;">#include&lt;stdio.h&gt;  #include&lt;string.h&gt;     int main()  {  	char str[5] = { 'a', 'b', 'c'};  	int ret = strlen(str);  	printf("字符串的长度 = %d\n", ret);  	return 0;  }</pre> </div> <p>代码运行结果</p> <p style="text-align:center"><img decoding="async" alt="" height="180" src="http://img.555519.xyz/uploads3/20220420/f9c5aadf0ce7161c816e8f77cf7deb90.jpg"></p> <p>3.注意函数的返回值为size_t，是无符号的整形（ 易错 ）</p> <div class="ay1code"> <pre class="brush:cpp;">#include&lt;stdio.h&gt;  #include&lt;string.h&gt;     int main()  {  	if (strlen("abc") - strlen("abcdefg") &gt; 0)  	{  		printf("&gt;\n");  	}  	else  	{  		printf("&lt;=\n");  	}  	return 0;  }</pre> </div> <p>运行结果</p> <p style="text-align:center"><img loading="lazy" decoding="async" alt="" height="188" src="http://img.555519.xyz/uploads3/20220420/423f03e2eae9b4c1c8d5caa925bdba63.jpg"></p> <p>出现这个&gt;符号的结果的原因就在于函数的返回值为size_t，是无符号的整形，两个无符号整形的数字相减得到的还是一个无符号整形，虽然这两个字符串长度相减得到的是-3，但是编译器会把他当成无符号的整形，把-3当成无符号整形将会是一个很大的正整数，所以输出的结果是&gt;符号。（这是一个易错点）</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>二.三种实现strlen函数的方法</h2> <p>三个方法的共同点：</p> <p>1.都要用const修饰指针，因为传址进来后只需要判断这字符串的长度，并不需要修改字符串的值，所以要用const修饰，这样使其更安全。</p> <p>2.都要用assert断言，断言传来的指针不能为空指针，因为空指针是不能被访问的。</p> <p class="maodian"><a name="_lab2_2_3" rel="nofollow"></a></p> <h3>1.计数器的方法</h3> <p>这是最普通的方法，创建一个计数器变量，然后就开始找'\0'，每经过一个字符，计数器就+1，直到找到'\0'为止。最后将计数器的值返回。</p> <div class="ay1code"> <pre class="brush:cpp;">#include&lt;stdio.h&gt;  #include&lt;assert.h&gt;     size_t my_strlen(const char* str)  {  	assert(str != NULL);//判断传入的指针是否为空指针  	int count = 0;//创建一个计数器变量，记录字符串的长度  	while (*str) //当找到'\0'的时候循环结束  	{                                                                                                                                                                                                                                                                                                                                                                                		count++;//记录字符串的长度  		str++;  	}  	return count;  }  int main()  {  	char str[] = "qwerty";  	int ret = my_strlen(str);  	printf("%d", ret);  	return 0;  }</pre> </div> <p class="maodian"><a name="_lab2_2_4" rel="nofollow"></a></p> <h3>2.递归方法</h3> <p>一时递归一时爽，一直递归一直爽。（讲解全在注释里面，嘻嘻）</p> <div class="ay1code"> <pre class="brush:cpp;">#include&lt;stdio.h&gt;  #include&lt;assert.h&gt;     size_t my_strlen(const char* str)  {  	assert(str != NULL);//判断传入的指针是否为空指针  	if (*str)//一直递归，直到找到'\0'为止  	{  		str++;  		return (1 + my_strlen(str));//递归，并返回1+记录字符串长度  	}  	return 0;  }  int main()  {  	char str[] = "qwerty";  	int ret = my_strlen(str);  	printf("%d", ret);  	return 0;  }</pre> </div> <p class="maodian"><a name="_lab2_2_5" rel="nofollow"></a></p> <h3>3.指针-指针的方法</h3> <p>我们都知道指针-指针的结果是他们之间元素的个数（因为这个我在指针初阶篇将过，嘻嘻），这个方法就是利用这个原理来写的。所以我们只用找到字符串首字符的地址和'\0'的地址，然后相减就可以得到字符串的长度了。</p> <div class="ay1code"> <pre class="brush:cpp;">#include&lt;stdio.h&gt;  #include&lt;assert.h&gt;     size_t my_strlen(const char* str)  {  	assert(str != NULL);//判断传入的指针是否为空指针  	const char* start = str;//创建一个存储首字符地址的指针，注意也要用const修饰，保持类型一致  	while (*str)//找'\0'的地址  	{  		str++;  	}  	return (str - start);//指针（'\0'的地址） - 指针（首字符的地址） = 中间字符的个数  }  int main()  {  	char str[] = "qwerty";  	int ret = my_strlen(str);  	printf("字符串的长度 = %d\n", ret);  	return 0;  }</pre> </div> <p>三种方法的运行结果都是一样的</p> <p style="text-align:center"><img loading="lazy" decoding="async" alt="" height="230" src="http://img.555519.xyz/uploads3/20220420/608b372923e280980b0eb18b300e1851.jpg"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-98383.htm">开宠物店需要掌握的知识（开宠物店需要会什么）</a></p>
+                                        <p>下一个：<a href="/news/article-99100.htm">驱虫给猫多少钱（驱虫猫多少钱一次）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-95450.htm" title="做狗粮的设备多少钱一个（狗粮制作机器设备价格）">做狗粮的设备多少钱一个（狗粮制作机器设备价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-10-free-v2ray.htm" title="4月10日→20.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址">4月10日→20.3M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-node-share-links.htm" title="3月15日→21M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月15日→21M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-74702.htm" title="动物医院诊疗许可证需要提供什么资料呢 动物医院诊疗许可证需要提供什么资料呢英文">动物医院诊疗许可证需要提供什么资料呢 动物医院诊疗许可证需要提供什么资料呢英文</a></li>
+                        <li class="py-2"><a href="/news/article-68139.htm" title="Android 中的广播机制你了解多少?">Android 中的广播机制你了解多少?</a></li>
+                        <li class="py-2"><a href="/news/article-86528.htm" title="中国动物疫苗厂家排名 中国动物疫苗厂家排名前十">中国动物疫苗厂家排名 中国动物疫苗厂家排名前十</a></li>
+                        <li class="py-2"><a href="/news/article-99878.htm" title="兽药安泰又叫什么（兽药安泰又叫什么名字）">兽药安泰又叫什么（兽药安泰又叫什么名字）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-clash-v2ray-ss-ssr.htm" title="3月24日→20.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月24日→20.8M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-free-high-speed-nodes.htm" title="3月17日→22.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址">3月17日→22.9M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-98382.htm" title="ASP.NET Core使用EF创建关系模型_实用技巧">ASP.NET Core使用EF创建关系模型_实用技巧</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

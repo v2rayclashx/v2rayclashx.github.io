@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2rayclashx.github.io/news/article-110299.htm" />
+    <meta charset="utf-8">
+    <title>Citus 分布式 PostgreSQL 集群 &#8211; SQL Reference(查询处理)</title>
+        <meta name="description" content="一个Citus 集群由一个coordinator 实例和多个worker 实例组成。 数据在worker 上进行分片和复制，而coordinator 存储有关这些分片的元数据。向集群发出的所有查询都通" />
+        <link rel="icon" href="/assets/website/img/v2rayclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2ray ClashX机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2rayclashx.github.io/news/article-110299.htm" />
+    <meta property="og:site_name" content="V2ray ClashX机场节点订阅官网" />
+    <meta property="og:title" content="Citus 分布式 PostgreSQL 集群 &#8211; SQL Reference(查询处理)" />
+    <meta property="og:image" content="https://v2rayclashx.github.io/uploads/20240906/1b9ea2638733b44af442bd3129f84a45.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:28:00" />
+    <meta property="og:updated_time" content="2025-05-03T10:28:00" />
+        <meta property="og:description" content="一个Citus 集群由一个coordinator 实例和多个worker 实例组成。 数据在worker 上进行分片和复制，而coordinator 存储有关这些分片的元数据。向集群发出的所有查询都通" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Citus 分布式 PostgreSQL 集群 &#8211; SQL Reference(查询处理)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/themify-icons/themify-icons.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/slick/slick.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/v2rayclashx/aos/aos.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/v2rayclashx/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ6HC6HRBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YZ6HC6HRBC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navigation -->
+    <section class="fixed-top navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                                <span>V2ray ClashX</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar -->
+                <div class="collapse navbar-collapse text-center" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- /navigation -->
+    <!-- about us -->
+    <section class="section-lg about pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Citus 分布式 PostgreSQL 集群 &#8211; SQL Reference(查询处理)</h2>
+                </div>
+                <div class="col-lg-12 mb-100">
+                    <p>
+                      <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- background shapes -->
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-dot.png" alt="background-shape" class="about-bg-1 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/blue-dot.png" alt="background-shape" class="about-bg-2 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/green-half-cycle.png" alt="background-shape" class="about-bg-3 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/seo-ball-1.png" alt="background-shape" class="about-bg-4 left-right-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/team-bg-triangle.png" alt="background-shape" class="about-bg-5 up-down-animation">
+        <img src="/assets/website/img/v2rayclashx/background-shape/service-half-cycle.png" alt="background-shape" class="about-bg-6 left-right-animation">
+    </section>
+    <!-- /about us -->
+    <!-- feature -->
+    <section class="section feature mb-0" id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8edc4924ead4cec602cc8454eeeb1474.jpg" alt="Citus 分布式 PostgreSQL 集群 - SQL Reference(查询处理)"></p> <p>一个<code>Citus</code> 集群由一个<code>coordinator</code> 实例和多个<code>worker</code> 实例组成。 数据在<code>worker</code> 上进行分片和复制，而<code>coordinator</code> 存储有关这些分片的元数据。向集群发出的所有查询都通过<code>coordinator</code> 执行。<code>coordinator</code> 将查询划分为更小的查询片段，其中每个查询片段可以在分片上独立运行。然后协调器将查询片段分配给<code>worker</code>，监督他们的执行，合并他们的结果，并将最终结果返回给用户。 查询处理架构可以通过下图进行简要描述。</p> <p><code>Citus</code> 的查询处理管道涉及两个组件：</p> <ul> <li><strong>分布式查询计划器和执行器</strong></li> <li><strong>PostgreSQL 计划器和执行器</strong></li> </ul> <p>我们将在后续部分中更详细地讨论它们。</p> <h2 id="分布式查询计划器">分布式查询计划器</h2> <p><code>Citus</code> 的分布式查询计划器接收<code>SQL</code> 查询并规划它以进行分布式执行。</p> <p>对于<code>SELECT</code> 查询，计划器首先创建输入查询的计划树，并将其转换为可交换和关联形式，以便可以并行化。 它还应用了一些优化以确保以可扩展的方式执行查询，并最大限度地减少网络<code>I/O</code>。</p> <p>接下来，计划器将查询分为两部分 - 在<code>coordinator</code> 上运行的<code>coordinator</code> 查询和在<code>worker</code> 上的各个分片上运行的<code>worker</code> 查询片段。 然后，计划器将这些查询片段分配给<code>worker</code>，以便有效地使用他们的所有资源。 在这一步之后，分布式查询计划被传递给分布式执行器执行。</p> <p>分布列上的键值查找或修改查询的规划过程略有不同，因为它们恰好命中一个分片。一旦计划器收到传入的查询，它需要决定查询应该路由到的正确分片。 为此，它提取传入行中的分布列并查找元数据以确定查询的正确分片。 然后，计划器重写该命令的<code>SQL</code> 以引用分片表而不是原始表。 然后将该重写的计划传递给分布式执行器。</p> <h2 id="分布式查询执行器">分布式查询执行器</h2> <p><code>Citus</code> 的分布式执行器运行分布式查询计划并处理故障。 执行器非常适合快速响应涉及过滤器、聚合和共置连接的查询，以及运行具有完整<code>SQL</code> 覆盖的单租户查询。它根据需要为每个分片打开一个与<code>woker</code> 的连接，并将所有片段查询发送给他们。 然后它从每个片段查询中获取结果，合并它们，并将最终结果返回给用户。</p> <h3 id="子查询cte-push-pull-执行">子查询/CTE Push-Pull 执行</h3> <p>如有必要，<code>Citus</code> 可以将来自子查询和<code>CTE</code> 的结果收集到<code>coordinator</code> 节点中，然后将它们推送回<code>worker</code> 以供外部查询使用。这允许<code>Citus</code> 支持更多种类的<code>SQL</code> 构造。</p> <p>例如，在<code>WHERE</code> 子句中包含子查询有时不能与主查询同时执行内联，而必须单独执行。假设<code>Web</code> 分析应用程序维护一个按<code>page_id</code> 分区的<code>page_views</code> 表。要查询前<code>20</code> 个访问量最大的页面上的访问者主机数，我们可以使用子查询来查找页面列表，然后使用外部查询来计算主机数。</p> <pre><code class="language-sql">SELECT page_id, count(distinct host_ip) FROM page_views WHERE page_id IN (   SELECT page_id   FROM page_views   GROUP BY page_id   ORDER BY count(*) DESC   LIMIT 20 ) GROUP BY page_id;</code></pre> <p>执行器希望通过<code>page_id</code> 对每个分片运行此查询的片段，计算不同的<code>host_ips</code>，并在<code>coordinator</code> 上组合结果。但是，子查询中的<code>LIMIT</code> 意味着子查询不能作为片段的一部分执行。通过递归规划查询，<code>Citus</code> 可以单独运行子查询，将结果推送给所有<code>worker</code>，运行主片段查询，并将结果拉回<code>coordinator</code>。<code>push-pull(推拉)</code> 设计支持上述子查询。</p> <p>让我们通过查看此查询的EXPLAIN 输出来了解这一点。它相当参与：</p> <pre><code class="language-sql">GroupAggregate  (cost=0.00..0.00 rows=0 width=0)   Group Key: remote_scan.page_id   -&gt;  Sort  (cost=0.00..0.00 rows=0 width=0)     Sort Key: remote_scan.page_id     -&gt;  Custom Scan (Citus Adaptive)  (cost=0.00..0.00 rows=0 width=0)       -&gt;  Distributed Subplan 6_1         -&gt;  Limit  (cost=0.00..0.00 rows=0 width=0)           -&gt;  Sort  (cost=0.00..0.00 rows=0 width=0)             Sort Key: COALESCE((pg_catalog.sum((COALESCE((pg_catalog.sum(remote_scan.worker_column_2))::bigint, '0'::bigint))))::bigint, '0'::bigint) DESC             -&gt;  HashAggregate  (cost=0.00..0.00 rows=0 width=0)               Group Key: remote_scan.page_id               -&gt;  Custom Scan (Citus Adaptive)  (cost=0.00..0.00 rows=0 width=0)                 Task Count: 32                 Tasks Shown: One of 32                 -&gt;  Task                   Node: host=localhost port=9701 dbname=postgres                   -&gt;  HashAggregate  (cost=54.70..56.70 rows=200 width=12)                     Group Key: page_id                     -&gt;  Seq Scan on page_views_102008 page_views  (cost=0.00..43.47 rows=2247 width=4)       Task Count: 32       Tasks Shown: One of 32       -&gt;  Task         Node: host=localhost port=9701 dbname=postgres         -&gt;  HashAggregate  (cost=84.50..86.75 rows=225 width=36)           Group Key: page_views.page_id, page_views.host_ip           -&gt;  Hash Join  (cost=17.00..78.88 rows=1124 width=36)             Hash Cond: (page_views.page_id = intermediate_result.page_id)             -&gt;  Seq Scan on page_views_102008 page_views  (cost=0.00..43.47 rows=2247 width=36)             -&gt;  Hash  (cost=14.50..14.50 rows=200 width=4)               -&gt;  HashAggregate  (cost=12.50..14.50 rows=200 width=4)                 Group Key: intermediate_result.page_id                 -&gt;  Function Scan on read_intermediate_result intermediate_result  (cost=0.00..10.00 rows=1000 width=4)</code></pre> <p>让我们把它拆开并检查每一块。</p> <pre><code class="language-sql">GroupAggregate  (cost=0.00..0.00 rows=0 width=0)   Group Key: remote_scan.page_id   -&gt;  Sort  (cost=0.00..0.00 rows=0 width=0)     Sort Key: remote_scan.page_id</code></pre> <p>树的<code>root</code> 是<code>coordinator</code> 节点对<code>worker</code> 的结果所做的事情。 在这种情况下，它正在对它们进行分组，并且<code>GroupAggregate</code> 要求首先对它们进行排序。</p> <pre><code class="language-sql">    -&gt;  Custom Scan (Citus Adaptive)  (cost=0.00..0.00 rows=0 width=0)       -&gt;  Distributed Subplan 6_1 .</code></pre> <p>自定义扫描有两个大子树，从“分布式子计划”开始。</p> <pre><code class="language-sql">        -&gt;  Limit  (cost=0.00..0.00 rows=0 width=0)           -&gt;  Sort  (cost=0.00..0.00 rows=0 width=0)             Sort Key: COALESCE((pg_catalog.sum((COALESCE((pg_catalog.sum(remote_scan.worker_column_2))::bigint, '0'::bigint))))::bigint, '0'::bigint) DESC             -&gt;  HashAggregate  (cost=0.00..0.00 rows=0 width=0)               Group Key: remote_scan.page_id               -&gt;  Custom Scan (Citus Adaptive)  (cost=0.00..0.00 rows=0 width=0)                 Task Count: 32                 Tasks Shown: One of 32                 -&gt;  Task                   Node: host=localhost port=9701 dbname=postgres                   -&gt;  HashAggregate  (cost=54.70..56.70 rows=200 width=12)                     Group Key: page_id                     -&gt;  Seq Scan on page_views_102008 page_views  (cost=0.00..43.47 rows=2247 width=4) .</code></pre> <p>工作节点为<code>32</code> 个分片中的每一个运行上述内容（<code>Citus</code> 正在选择一个代表进行显示）。 我们可以识别<code>IN (...)</code> 子查询的所有部分：排序、分组和限制。 当所有<code>worker</code> 完成此查询后，他们会将其输出发送回<code>coordinator</code>，<code>coordinator</code> 将其组合为“中间结果”。</p> <pre><code class="language-sql">      Task Count: 32       Tasks Shown: One of 32       -&gt;  Task         Node: host=localhost port=9701 dbname=postgres         -&gt;  HashAggregate  (cost=84.50..86.75 rows=225 width=36)           Group Key: page_views.page_id, page_views.host_ip           -&gt;  Hash Join  (cost=17.00..78.88 rows=1124 width=36)             Hash Cond: (page_views.page_id = intermediate_result.page_id) .</code></pre> <p><code>Citus</code> 在第二个子树中启动另一个执行器作业。它将在<code>page_views</code> 中计算不同的主机。 它使用<code>JOIN</code> 连接中间结果。中间结果将帮助它限制在前二十页。</p> <pre><code class="language-sql">            -&gt;  Seq Scan on page_views_102008 page_views  (cost=0.00..43.47 rows=2247 width=36)             -&gt;  Hash  (cost=14.50..14.50 rows=200 width=4)               -&gt;  HashAggregate  (cost=12.50..14.50 rows=200 width=4)                 Group Key: intermediate_result.page_id                 -&gt;  Function Scan on read_intermediate_result intermediate_result  (cost=0.00..10.00 rows=1000 width=4) .</code></pre> <p>工作人员使用<code>read_intermediate_result</code> 函数在内部检索中间结果，该函数从<code>coordinator</code> 节点复制的文件中加载数据。</p> <p>这个例子展示了<code>Citus</code> 如何使用分布式子计划在多个步骤中执行查询，以及如何使用<code>EXPLAIN</code> 来了解分布式查询执行。</p> <h2 id="postgresql-计划器和执行器">PostgreSQL 计划器和执行器</h2> <p>一旦分布式执行器将查询片段发送给<code>worker</code>，它们就会像常规<code>PostgreSQL</code> 查询一样被处理。 该<code>worker</code> 上的<code>PostgreSQL</code> 计划程序选择在相应分片表上本地执行该查询的最佳计划。<code>PostgreSQL</code> 执行器然后运行该查询并将查询结果返回给分布式执行器。您可以从<code>PostgreSQL</code> 手册中了解有关<code>PostgreSQL</code>计划器和执行器的更多信息。最后，分布式执行器将结果传递给<code>coordinator</code> 进行最终聚合。</p> <ul> <li><small>计划器</small> <ul> <li><small>http://www.postgresql.org/docs/current/static/planner-optimizer.html</small></li> </ul> </li> <li><small>执行器</small> <ul> <li><small>http://www.postgresql.org/docs/current/static/executor.html</small></li> </ul> </li> </ul> <ol></ol> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109452.htm">动物医院英语怎么说（动物医院英文怎么读）</a></p>
+                                        <p>下一个：<a href="/news/article-110301.htm">C#二分查找算法_C#教程</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-26-free-node-subscribe.htm" title="4月26日→21.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址">4月26日→21.5M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-110299.htm" title="Citus 分布式 PostgreSQL 集群 &#8211; SQL Reference(查询处理)">Citus 分布式 PostgreSQL 集群 &#8211; SQL Reference(查询处理)</a></li>
+                        <li class="py-2"><a href="/news/article-94695.htm" title="小猫要跟主人睡一个房间吗（小猫咪一定要和主人在一个房间）">小猫要跟主人睡一个房间吗（小猫咪一定要和主人在一个房间）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-free-node-subscribe-links.htm" title="4月2日→21.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址">4月2日→21.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-102027.htm" title="上海宠物领养中心地址电话号码查询（上海的宠物领养中心）">上海宠物领养中心地址电话号码查询（上海的宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-1-free-node-subscribe.htm" title="5月1日→22.7M/S|2025年最新免费节点V2ray ClashX订阅链接地址">5月1日→22.7M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-node-share.htm" title="4月4日→22.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址">4月4日→22.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-17-node-share-links.htm" title="4月17日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址">4月17日→21.1M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-2-node-share.htm" title="5月2日→20.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址">5月2日→20.2M/S|2025年最新免费节点V2ray ClashX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-93176.htm" title="动物怎么接种疫苗（动物疫苗接种方法及注意事项）">动物怎么接种疫苗（动物疫苗接种方法及注意事项）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <img class="feature-bg-1 up-down-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-1.png" alt="bg-shape">
+        <img class="feature-bg-2 left-right-animation" src="/assets/website/img/v2rayclashx/background-shape/feature-bg-2.png" alt="bg-shape">
+    </section>
+    <!-- /feature -->
+        <!-- footer -->
+    <footer class="footer-section footer" style="background-image: url(/assets/website/img/v2rayclashx/backgrounds/footer-bg.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">V2ray ClashX机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </div>
+                <!-- footer social icon -->
+                <nav class="col-12">
+                    <ul class="list-inline text-lg-right text-center social-icon">
+                        <li class="list-inline-item">
+                            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="black" href="#"><i class="ti-github"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/v2rayclashx/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/v2rayclashx/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/assets/website/js/frontend/v2rayclashx/slick/slick.min.js"></script>
+    <!-- venobox -->
+    <script src="/assets/website/js/frontend/v2rayclashx/Venobox/venobox.min.js"></script>
+    <!-- aos -->
+    <script src="/assets/website/js/frontend/v2rayclashx/aos/aos.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/v2rayclashx/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

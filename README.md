@@ -1,4 +1,4 @@
-# V2ray ClashX - 9月21日22.1M/S|免费Shadowrocket/SSR/V2ray/Clash节点推荐，V2rayC梯子购买推荐  更新时间 2025-09-21 10:39:40
+# V2ray ClashX - 9月21日19.1M/S|免费V2ray/Clash/Shadowrocket/SSR节点推荐，V2rayC梯子购买推荐  更新时间 2025-09-21 21:28:39
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://v2rayclashx.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
